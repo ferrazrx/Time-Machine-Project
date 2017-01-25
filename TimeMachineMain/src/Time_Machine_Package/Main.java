@@ -10,7 +10,9 @@ package Time_Machine_Package;
  * @author RAFAEL.FERRAZ
  */
 public class Main {
-
+    public static void main(String[] args) {
+        System.out.println("Welcome!");   
+    }
  
     
 }

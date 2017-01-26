@@ -16,6 +16,8 @@ public class GameMenu {
             "G - Saved Games\n" +
             "S - Save Current Game\n" +
             "H - Get Help on How to Play the Game\n" +
-            "E - Exit");
+            "E - Exit\n\n" + 
+            "Enter your option:");
+        
     }
 }

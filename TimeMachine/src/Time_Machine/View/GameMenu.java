@@ -12,12 +12,16 @@ package Time_Machine_Package;
 public class GameMenu {
     public static void displayGameMenu (){
         System.out.println(
+            "\tWelcome to a new adventure!\n" +
+            "-------------------------------------------\n"+        
+            "Select an option below:\n\n" +        
             "N - Start the a New Game\n" +
             "G - Saved Games\n" +
             "S - Save Current Game\n" +
             "H - Get Help on How to Play the Game\n" +
             "E - Exit\n\n" + 
-            "Enter your option:");
+            "-------------------------------------------\n"+
+            "\tEnter your option:");
         
     }
 }

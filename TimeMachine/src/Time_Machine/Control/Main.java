@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Time_Machine_Package;
+package Time_Machine.Control;
 
 //import classes
 import Time_Machine.Model.Person;
+import Time_Machine.View.GameMenu;
+import Time_Machine.View.Title;
 import java.util.Scanner;
 
 /**
@@ -17,9 +19,11 @@ public class Main {
     public static void main(String[] args) {
         // Insert the title of the Game on the console
         Title.titleGame();
+        GameMenu.displayTitleDetail();
         
         //Display the game Main Menu
         GameMenu.displayGameMenu();
+        
         
         //Scanner the option in the Main Menu
         Scanner scan = new Scanner(System.in);

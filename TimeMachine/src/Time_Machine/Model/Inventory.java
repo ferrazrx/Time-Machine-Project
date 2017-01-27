@@ -37,7 +37,7 @@ public class Inventory implements Serializable {
     }
     
     public void addItem (Item newItem){
-      this.items += newItem;
+      
         }
 
     @Override

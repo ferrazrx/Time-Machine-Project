@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author Skyler
  */
-public class HelpMenu implements Serializable{
+public class HelpMenu extends GameMenu implements Serializable{
     
     private char input;
     private String message;

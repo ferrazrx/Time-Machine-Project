@@ -12,7 +12,7 @@ import java.util.Arrays;
  *
  * @author Skyler
  */
-public class JohnsParents implements Serializable{
+public class JohnsParents extends Person implements Serializable{
     
     private String[] parentMessage;
 

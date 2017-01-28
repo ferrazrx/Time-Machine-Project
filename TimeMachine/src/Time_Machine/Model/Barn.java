@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author Skyler
  */
-public class Barn implements Serializable{
+public class Barn extends Scene implements Serializable{
     
     private String barnInfo;
 

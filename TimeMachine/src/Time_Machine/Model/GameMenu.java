@@ -1,32 +1,33 @@
+package byui.cit260.timeMachine.model;
+
+import java.io.Serializable;
+import java.util.Objects;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Time_Machine.Model;
-
-import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
  * @author Skyler
  */
-public class SaveGame implements Serializable{
+public class GameMenu implements Serializable{
     
-    private String message;
+    private String helpMessage;
     private char input;
 
-    public SaveGame() {
+    public GameMenu() {
     }
 
     
-    public String getMessage() {
-        return message;
+    public String getHelpMessage() {
+        return helpMessage;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setHelpMessage(String helpMessage) {
+        this.helpMessage = helpMessage;
     }
 
     public char getInput() {
@@ -39,15 +40,15 @@ public class SaveGame implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 37 * hash + Objects.hashCode(this.message);
-        hash = 37 * hash + this.input;
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.helpMessage);
+        hash = 47 * hash + this.input;
         return hash;
     }
 
     @Override
     public String toString() {
-        return "SaveGame{" + "message=" + message + ", input=" + input + '}';
+        return "GameMenu{" + "helpMessage=" + helpMessage + ", input=" + input + '}';
     }
 
     @Override
@@ -58,8 +59,8 @@ public class SaveGame implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final SaveGame other = (SaveGame) obj;
-        if (!Objects.equals(this.message, other.message)) {
+        final GameMenu other = (GameMenu) obj;
+        if (!Objects.equals(this.helpMessage, other.helpMessage)) {
             return false;
         }
         if (this.input != other.input) {
@@ -70,4 +71,6 @@ public class SaveGame implements Serializable{
     
     
     
+    
 }
+

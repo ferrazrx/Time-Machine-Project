@@ -12,7 +12,7 @@ import java.util.Arrays;
  *
  * @author Skyler
  */
-public class PoliceOfficer implements Serializable{
+public class PoliceOfficer extends Person implements Serializable{
     
     private String[] policeMessage;
 

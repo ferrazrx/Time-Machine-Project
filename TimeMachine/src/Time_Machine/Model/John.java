@@ -5,10 +5,13 @@
  */
 package Time_Machine.Model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author rxfer_000
  */
-public class John {
+public class John extends Person implements Serializable {
+    
     
 }

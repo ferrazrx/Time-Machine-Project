@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Time_Machine.Model;
-
 import java.io.Serializable;
 import java.util.Arrays;
 

@@ -5,13 +5,14 @@
  */
 package Time_Machine.Model;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
  *
  * @author rxfer_000
  */
-public class PoliceDepartment extends Scene {
+public class PoliceDepartment extends Scene implements Serializable{
     private String[] informations;
     private String[] reportedIncidents;
 

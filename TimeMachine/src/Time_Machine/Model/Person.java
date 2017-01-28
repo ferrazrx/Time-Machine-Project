@@ -11,7 +11,7 @@ import java.util.Objects;
  * @author Group 7
  */
 
-public class Person implements Serializable {
+public abstract class Person implements Serializable {
     private String name;
     private String description;
     private int Age;

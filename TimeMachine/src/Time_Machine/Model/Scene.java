@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author sinitcyna-elena
+ * @author  sinitcyna-elena
  */
 public class Scene implements Serializable{
   // Class instance variables

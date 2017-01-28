@@ -11,7 +11,7 @@ import java.util.Arrays;
  *
  * @author Skyler
  */
-public class Firefighters implements Serializable{
+public class Firefighters extends Person implements Serializable{
     private String[] fireFighterMessage;
 
     public Firefighters() {

@@ -12,7 +12,7 @@ import java.util.Arrays;
  *
  * @author Skyler
  */
-public class Bozeman implements Serializable{
+public class Bozeman extends Scene implements Serializable{
     
     private String[] bozemanInformation;
 

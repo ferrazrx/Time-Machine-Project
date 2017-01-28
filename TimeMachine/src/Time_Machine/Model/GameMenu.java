@@ -1,4 +1,4 @@
-package byui.cit260.timeMachine.model;
+package Time_Machine.Model;
 
 import java.io.Serializable;
 import java.util.Objects;

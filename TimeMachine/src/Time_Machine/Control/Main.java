@@ -30,13 +30,12 @@ public class Main {
         String option = scan.nextLine();
         
         // Just a test of the class Person - This part must be deleted
-        Person john = new Person();
-        john.setName("John Smith");
-        john.setAge(16);
-        john.setDescription("John is a player's friend.");
-        john.setType("Available");
-        System.out.println(john.toString());
-        
+        //Person john = new Person();
+        //john.setName("John Smith");
+        //john.setAge(16);
+        //john.setDescription("John is a player's friend.");
+        //john.setType("Available");
+        //System.out.println(john.toString());
         // End of the test
         
               

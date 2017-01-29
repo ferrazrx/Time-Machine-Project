@@ -6,10 +6,9 @@
 package Time_Machine.Model;
 import java.io.Serializable;
 import java.util.Objects;
-
 /**
  *
- * @author sinitcyna-elena
+ * @author  sinitcyna-elena
  */
 public class Location implements Serializable{
 

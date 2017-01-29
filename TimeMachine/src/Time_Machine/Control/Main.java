@@ -4,6 +4,11 @@
 package Time_Machine.Control;
 
 //import classes
+import Time_Machine.Model.Map;
+import Time_Machine.Model.Location;
+import Time_Machine.Model.Scene;
+import Time_Machine.Model.PlayersFather;
+import Time_Machine.Model.PlayersMother;
 import Time_Machine.View.GameMenu;
 import Time_Machine.View.Title;
 import java.util.Scanner;
@@ -62,7 +67,41 @@ public class Main {
             }
 
         }while(goOn);
-            
+         
+        
+    // Creating an instance of the classes Map, Location, Scene, PlayersFather, PlayersMother
+    // sinitcyna-elena
+    Map mapOne = new Map();
+    Location locationOne = new Location();
+    Scene sceneOne = new Scene();
+    PlayersFather personPlayersFather = new PlayersFather();
+    PlayersMother personPlayersMother = new PlayersMother();
+    
+    
+    // Assigning values to each of the instance variables using the “setter” methods
+    // sinitcyna-elena
+    mapOne.setPlayerPlaceInMap("Bozeman");
+    
+    locationOne.setLocationName ("Some Location");
+    locationOne.setLocationVisited(true);
+    locationOne.setLocationDescription("Some description"); // array
+    
+    sceneOne.setSceneListOfPersonages("List of Personages"); //array
+    sceneOne.setSceneDescription("Some description of scene");
+    sceneOne.setSceneItemsAvailable("Items available"); //array
+    
+    personPlayersFather.setPlayersFatherMessage("Some father's message"); // array
+    
+    personPlayersMother.setPlayersMotherMessage("Some mother's message"); // array
+    
+    // Call the toString() function and display the contents to the console
+    // sinitcyna-elena   
+    System.out.println(mapOne.toString());
+    System.out.println(locationOne.toString());
+    System.out.println(sceneOne.toString());
+    System.out.println(personPlayersFather.toString());
+    System.out.println(personPlayersMother.toString());
+    
     }
 
 }

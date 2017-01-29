@@ -53,5 +53,13 @@ public class PlayersMother extends Person implements Serializable{
     public String toString() {
         return "PlayersMother{" + "playersMotherMessage=" + playersMotherMessage + '}';
     }
+
+    public void setPlayersMotherMessage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setPlayersMotherMessage(String some_mothers_message) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

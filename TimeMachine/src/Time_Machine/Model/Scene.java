@@ -90,6 +90,14 @@ public class Scene implements Serializable{
 	public void setSceneItemsAvailable() {
     	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
+
+    public void setSceneListOfPersonages(String list_of_Personages) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setSceneItemsAvailable(String items_available) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 	 
 }
 

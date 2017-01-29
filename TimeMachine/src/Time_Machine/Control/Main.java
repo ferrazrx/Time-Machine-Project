@@ -23,21 +23,19 @@ public class Main {
 
         //Display the game Main Menu
         GameMenu.displayGameMenu();
-        GameMenu.displayCity();
-        //Scanner the option in the Main Menu
-        Scanner scan = new Scanner(System.in);
+        
+        //Declare option variable
         String option;
         boolean goOn = true;
         do {
         // Get option
-            option = scan.nextLine();
+            option = GetInput.getString();
         // Start the switch case to evaluate the option
         /*   N - Start the a New Game
              G - Saved Games
              S - Save Current Game
              H - Get Help on How to Play the Game
              E - Exit */
-            System.out.println(option);
             switch (option) {
                 // Start a New Game
                 case "N":

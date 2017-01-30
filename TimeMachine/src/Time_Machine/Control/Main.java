@@ -4,11 +4,18 @@
 package Time_Machine.Control;
 
 //import classes
+import Time_Machine.Model.Baker;
+import Time_Machine.Model.Bakery;
+import Time_Machine.Model.BozemanMajor;
 import Time_Machine.Model.Map;
 import Time_Machine.Model.Location;
+import Time_Machine.Model.PhysicianOfBozeman;
+import Time_Machine.Model.PlayerParentsHouse;
 import Time_Machine.Model.Scene;
 import Time_Machine.Model.PlayersFather;
 import Time_Machine.Model.PlayersMother;
+import Time_Machine.Model.Plumber;
+import Time_Machine.Model.TimeMachine;
 import Time_Machine.View.GameMenu;
 import Time_Machine.View.Title;
 import java.util.Scanner;
@@ -79,6 +86,18 @@ goOn = false;
 break;
 
 
+/*
+*Synitsyn-Dmitriy Test for classes: TimeMachine, Bakery, PlayerParentsHouse, 
+*                                   PhysicianOfBozeman, Baker, Plumber, 
+*                                   BozemanMajor
+*/
+case "B":
+case "b":
+test = 2;
+goOn = false;
+break;
+
+
                 default:
                     System.out.println("Please, select a valid option");
                     break;
@@ -131,7 +150,62 @@ break;
     System.out.println(personPlayersMother.toString());
     }
        
-       //
+       
+       /*
+       *Sinitsyn-Dmitriy
+       *Instances, using the “setter” methods and toString()
+       *Classes: TimeMachine, Bakery, PlayerParentsHouse, PhysicianOfBozeman,
+       *          Baker, Plumber, BozemanMajor
+       */
+       
+       if(test == 2){
+       
+           //TimeMachine class
+          TimeMachine timeMachineNew = new TimeMachine();           
+          timeMachineNew.setStatusTimeMachine("Broken"); 
+          timeMachineNew.setDescriptionTimeMachine("Find Pliers");
+          timeMachineNew.setPartsListTimeMachine("Time Machine's part list is comming soon...");            
+          String timeMachineInfo = timeMachineNew.toString();                 
+          System.out.println(timeMachineInfo);
+          
+          //Bakery class
+          Bakery bakeryNew = new Bakery();
+          bakeryNew.setBakeryInfo("In the Bakery you can get some usefull information");
+          bakeryNew.setBakeryFood("You can get some food here");
+          String bakeryInfo = bakeryNew.toString();                 
+          System.out.println(bakeryInfo);
+          
+          //PlayerParentsHouse class
+          PlayerParentsHouse playerParentsHouseNew = new PlayerParentsHouse();
+          playerParentsHouseNew.setPlayerParentsHouseInfo("In the Parents House you can get some usefull information");
+          String playerParentsHouseInfo = playerParentsHouseNew.toString();                 
+          System.out.println(playerParentsHouseInfo);
+          
+          //PhysicianOfBozeman class
+          PhysicianOfBozeman physicianOfBozemanNew = new PhysicianOfBozeman();
+          physicianOfBozemanNew.setPhysicianOfBozeman("Physician of Bozeman has importsnt message for you");
+          String physicianOfBozemanInfo = physicianOfBozemanNew.toString();                 
+          System.out.println(physicianOfBozemanInfo);
+          
+          //Baker class
+          Baker bakerNew = new Baker();
+          bakerNew.setBaker("Baker has importsnt message for you");
+          String bakerInfo = bakerNew.toString();                 
+          System.out.println(bakerInfo);
+          
+          //Plumber class
+          Plumber plumberNew = new Plumber();
+          plumberNew.setPlumber("Plumber has importsnt message for you");
+          String plumberInfo = plumberNew.toString();                 
+          System.out.println(plumberInfo);
+          
+          //BozemanMajor class 
+          BozemanMajor bozemanMajorNew = new BozemanMajor();
+          bozemanMajorNew.setBozemanMajor("Plumber has importsnt message for you");
+          String bozemanMajorInfo = bozemanMajorNew.toString();                 
+          System.out.println(bozemanMajorInfo);        
+          
+       }
     }
 
 }

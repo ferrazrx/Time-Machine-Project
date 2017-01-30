@@ -7,29 +7,30 @@ package Time_Machine.Model;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  *
  * @author sinitsyndmitriy
  */
 public class BozemanMajor extends Person implements Serializable{
-    private String[] bozemanMajor;
+    private String bozemanMajor;
 
     public BozemanMajor() {
     }
 
-    public String[] getBozemanMajor() {
+    public String getBozemanMajor() {
         return bozemanMajor;
     }
 
-    public void setBozemanMajor(String[] bozemanMajor) {
+    public void setBozemanMajor(String bozemanMajor) {
         this.bozemanMajor = bozemanMajor;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 67 * hash + Arrays.deepHashCode(this.bozemanMajor);
+        hash = 23 * hash + Objects.hashCode(this.bozemanMajor);
         return hash;
     }
 
@@ -45,7 +46,7 @@ public class BozemanMajor extends Person implements Serializable{
             return false;
         }
         final BozemanMajor other = (BozemanMajor) obj;
-        if (!Arrays.deepEquals(this.bozemanMajor, other.bozemanMajor)) {
+        if (!Objects.equals(this.bozemanMajor, other.bozemanMajor)) {
             return false;
         }
         return true;
@@ -55,8 +56,6 @@ public class BozemanMajor extends Person implements Serializable{
     public String toString() {
         return "BozemanMajor{" + "bozemanMajor=" + bozemanMajor + '}';
     }
-    
-    
-    
+
     
 }

@@ -7,29 +7,30 @@ package Time_Machine.Model;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  *
  * @author sinitsyndmitriy
  */
 public class PlayerParentsHouse extends Scene implements Serializable{
-    private String[] playerParentsHouseInfo;
+    private String playerParentsHouseInfo;
 
     public PlayerParentsHouse() {
     }
 
-    public String[] getPlayerParentsHouseInfo() {
+    public String getPlayerParentsHouseInfo() {
         return playerParentsHouseInfo;
     }
 
-    public void setPlayerParentsHouseInfo(String[] playerParentsHouseInfo) {
+    public void setPlayerParentsHouseInfo(String playerParentsHouseInfo) {
         this.playerParentsHouseInfo = playerParentsHouseInfo;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 61 * hash + Arrays.deepHashCode(this.playerParentsHouseInfo);
+        hash = 73 * hash + Objects.hashCode(this.playerParentsHouseInfo);
         return hash;
     }
 
@@ -45,7 +46,7 @@ public class PlayerParentsHouse extends Scene implements Serializable{
             return false;
         }
         final PlayerParentsHouse other = (PlayerParentsHouse) obj;
-        if (!Arrays.deepEquals(this.playerParentsHouseInfo, other.playerParentsHouseInfo)) {
+        if (!Objects.equals(this.playerParentsHouseInfo, other.playerParentsHouseInfo)) {
             return false;
         }
         return true;
@@ -55,7 +56,6 @@ public class PlayerParentsHouse extends Scene implements Serializable{
     public String toString() {
         return "PlayerParentsHouse{" + "playerParentsHouseInfo=" + playerParentsHouseInfo + '}';
     }
-    
-    
+
     
 }

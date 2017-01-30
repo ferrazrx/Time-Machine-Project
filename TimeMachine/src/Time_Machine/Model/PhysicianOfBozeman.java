@@ -7,29 +7,30 @@ package Time_Machine.Model;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  *
  * @author sinitsyndmitriy
  */
 public class PhysicianOfBozeman extends Person implements Serializable{
-    private String[] physicianOfBozeman;
+    private String physicianOfBozeman;
 
     public PhysicianOfBozeman() {
     }
 
-    public String[] getPhysicianOfBozeman() {
+    public String getPhysicianOfBozeman() {
         return physicianOfBozeman;
     }
 
-    public void setPhysicianOfBozeman(String[] physicianOfBozeman) {
+    public void setPhysicianOfBozeman(String physicianOfBozeman) {
         this.physicianOfBozeman = physicianOfBozeman;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 79 * hash + Arrays.deepHashCode(this.physicianOfBozeman);
+        hash = 79 * hash + Objects.hashCode(this.physicianOfBozeman);
         return hash;
     }
 
@@ -45,7 +46,7 @@ public class PhysicianOfBozeman extends Person implements Serializable{
             return false;
         }
         final PhysicianOfBozeman other = (PhysicianOfBozeman) obj;
-        if (!Arrays.deepEquals(this.physicianOfBozeman, other.physicianOfBozeman)) {
+        if (!Objects.equals(this.physicianOfBozeman, other.physicianOfBozeman)) {
             return false;
         }
         return true;
@@ -55,9 +56,7 @@ public class PhysicianOfBozeman extends Person implements Serializable{
     public String toString() {
         return "PhysicianOfBozeman{" + "physicianOfBozeman=" + physicianOfBozeman + '}';
     }
-    
-    
-    
+
     
     
 }

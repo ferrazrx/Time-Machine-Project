@@ -7,39 +7,40 @@ package Time_Machine.Model;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  *
  * @author sinitsyndmitriy
  */
 public class Bakery extends Scene implements Serializable{
-    private String[] bakeryInfo;
-    private String[] bakeryFood;
+    private String bakeryInfo;
+    private String bakeryFood;
 
     public Bakery() {
     }
 
-    public String[] getBakeryInfo() {
+    public String getBakeryInfo() {
         return bakeryInfo;
     }
 
-    public void setBakeryInfo(String[] bakeryInfo) {
+    public void setBakeryInfo(String bakeryInfo) {
         this.bakeryInfo = bakeryInfo;
     }
 
-    public String[] getBakeryFood() {
+    public String getBakeryFood() {
         return bakeryFood;
     }
 
-    public void setBakeryFood(String[] bakeryFood) {
+    public void setBakeryFood(String bakeryFood) {
         this.bakeryFood = bakeryFood;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 17 * hash + Arrays.deepHashCode(this.bakeryInfo);
-        hash = 17 * hash + Arrays.deepHashCode(this.bakeryFood);
+        hash = 83 * hash + Objects.hashCode(this.bakeryInfo);
+        hash = 83 * hash + Objects.hashCode(this.bakeryFood);
         return hash;
     }
 
@@ -55,10 +56,10 @@ public class Bakery extends Scene implements Serializable{
             return false;
         }
         final Bakery other = (Bakery) obj;
-        if (!Arrays.deepEquals(this.bakeryInfo, other.bakeryInfo)) {
+        if (!Objects.equals(this.bakeryInfo, other.bakeryInfo)) {
             return false;
         }
-        if (!Arrays.deepEquals(this.bakeryFood, other.bakeryFood)) {
+        if (!Objects.equals(this.bakeryFood, other.bakeryFood)) {
             return false;
         }
         return true;
@@ -68,7 +69,4 @@ public class Bakery extends Scene implements Serializable{
     public String toString() {
         return "Bakery{" + "bakeryInfo=" + bakeryInfo + ", bakeryFood=" + bakeryFood + '}';
     }
-    
-    
-    
 }

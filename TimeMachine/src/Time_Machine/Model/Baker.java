@@ -7,29 +7,30 @@ package Time_Machine.Model;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  *
  * @author sinitsyndmitriy
  */
 public class Baker extends Person implements Serializable{
-   private String[] baker;
+   private String baker;
 
     public Baker() {
     }
 
-    public String[] getBaker() {
+    public String getBaker() {
         return baker;
     }
 
-    public void setBaker(String[] baker) {
+    public void setBaker(String baker) {
         this.baker = baker;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 13 * hash + Arrays.deepHashCode(this.baker);
+        hash = 17 * hash + Objects.hashCode(this.baker);
         return hash;
     }
 
@@ -45,7 +46,7 @@ public class Baker extends Person implements Serializable{
             return false;
         }
         final Baker other = (Baker) obj;
-        if (!Arrays.deepEquals(this.baker, other.baker)) {
+        if (!Objects.equals(this.baker, other.baker)) {
             return false;
         }
         return true;
@@ -55,8 +56,5 @@ public class Baker extends Person implements Serializable{
     public String toString() {
         return "Baker{" + "baker=" + baker + '}';
     }
-    
-    
-    
-    
+
 }

@@ -7,6 +7,7 @@ package Time_Machine.Model;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  *
@@ -14,23 +15,23 @@ import java.util.Arrays;
  */
 public class Plumber extends Person implements Serializable{
   
-    private String[] plumber;
+    private String plumber;
 
     public Plumber() {
     }
 
-    public String[] getPlumber() {
+    public String getPlumber() {
         return plumber;
     }
 
-    public void setPlumber(String[] plumber) {
+    public void setPlumber(String plumber) {
         this.plumber = plumber;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Arrays.deepHashCode(this.plumber);
+        int hash = 5;
+        hash = 83 * hash + Objects.hashCode(this.plumber);
         return hash;
     }
 
@@ -46,7 +47,7 @@ public class Plumber extends Person implements Serializable{
             return false;
         }
         final Plumber other = (Plumber) obj;
-        if (!Arrays.deepEquals(this.plumber, other.plumber)) {
+        if (!Objects.equals(this.plumber, other.plumber)) {
             return false;
         }
         return true;
@@ -56,6 +57,6 @@ public class Plumber extends Person implements Serializable{
     public String toString() {
         return "Plumber{" + "plumber=" + plumber + '}';
     }
-    
+ 
     
 }

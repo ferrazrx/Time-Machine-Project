@@ -5,30 +5,30 @@
  */
 package Time_Machine.Model;
 import java.io.Serializable;
-import java.util.Arrays;
+import java.util.Objects;
+
 /**
  *
  * @author sinitcyna-elena
  */
 public class PlayersFather extends Person implements Serializable{
-    private String[] playersFatherMessage;
+    private String playersFatherMessage;
 
     public PlayersFather() {
     }
-    
 
-    public String[] getPlayersFatherMessage() {
+    public String getPlayersFatherMessage() {
         return playersFatherMessage;
     }
 
-    public void setPlayersFatherMessage(String[] playersFatherMessage) {
+    public void setPlayersFatherMessage(String playersFatherMessage) {
         this.playersFatherMessage = playersFatherMessage;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 71 * hash + Arrays.deepHashCode(this.playersFatherMessage);
+        int hash = 7;
+        hash = 41 * hash + Objects.hashCode(this.playersFatherMessage);
         return hash;
     }
 
@@ -44,7 +44,7 @@ public class PlayersFather extends Person implements Serializable{
             return false;
         }
         final PlayersFather other = (PlayersFather) obj;
-        if (!Arrays.deepEquals(this.playersFatherMessage, other.playersFatherMessage)) {
+        if (!Objects.equals(this.playersFatherMessage, other.playersFatherMessage)) {
             return false;
         }
         return true;
@@ -54,13 +54,6 @@ public class PlayersFather extends Person implements Serializable{
     public String toString() {
         return "PlayersFather{" + "playersFatherMessage=" + playersFatherMessage + '}';
     }
-
-    public void setPlayersFatherMessage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setPlayersFatherMessage(String some_fathers_message) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
 }

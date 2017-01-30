@@ -21,11 +21,17 @@ public class Main {
 
     public static void main(String[] args) {
         // Insert the title of the Game on the console
-        Title.titleGame();
+       Title.titleGame();
         GameMenu.displayTitleDetail();
 
         //Display the game Main Menu
         GameMenu.displayGameMenu();
+        
+        
+        //sinitcyna-elena
+        //Test must be deleted after Individual assignment L04
+        //Test of classes references (Map, Location, Scene, PlayersFather, PlayersMother)
+        int test = 0;
         
         //Declare option variable
         String option;
@@ -39,7 +45,7 @@ public class Main {
              S - Save Current Game
              H - Get Help on How to Play the Game
              E - Exit */
-            switch (option) {
+           switch (option) {
                 // Start a New Game
                 case "N":
                 case "n":
@@ -61,6 +67,18 @@ public class Main {
                 case "e": 
                     goOn = false;
                     break;
+ 
+                    
+//sinitcyna-elena
+//Test must be deleted after Individual assignment L04
+//Test of classes references (Map, Location, Scene, PlayersFather, PlayersMother)                    
+case "A":
+case "a":
+test = 1;
+goOn = false;
+break;
+
+
                 default:
                     System.out.println("Please, select a valid option");
                     break;
@@ -68,7 +86,17 @@ public class Main {
 
         }while(goOn);
          
-        
+       
+           
+//sinitcyna-elena
+//Test must be deleted after Individual assignment L04
+//Test of classes references (Map, Location, Scene, PlayersFather, PlayersMother)     
+       if(test == 1) {  
+       System.out.println();
+       System.out.println("Elena Sinitcyna Individual Assignment (Lesson 4):");  
+       System.out.println();
+       
+       
     // Creating an instance of the classes Map, Location, Scene, PlayersFather, PlayersMother
     // sinitcyna-elena
     Map mapOne = new Map();
@@ -82,17 +110,17 @@ public class Main {
     // sinitcyna-elena
     mapOne.setPlayerPlaceInMap("Bozeman");
     
-    locationOne.setLocationName ("Some Location");
+    locationOne.setLocationName ("Bakery");
     locationOne.setLocationVisited(true);
-    locationOne.setLocationDescription("Some description"); // array
+    locationOne.setLocationDescription("Some description");
     
-    sceneOne.setSceneListOfPersonages("List of Personages"); //array
+    sceneOne.setSceneListOfPersonages("John"); //array or string?
     sceneOne.setSceneDescription("Some description of scene");
-    sceneOne.setSceneItemsAvailable("Items available"); //array
+    sceneOne.setSceneItemsAvailable("Items available"); //array or string?
     
-    personPlayersFather.setPlayersFatherMessage("Some father's message"); // array
+    personPlayersFather.setPlayersFatherMessage("Some father's message"); //array or string?
     
-    personPlayersMother.setPlayersMotherMessage("Some mother's message"); // array
+    personPlayersMother.setPlayersMotherMessage("Some mother's message"); //array or string?
     
     // Call the toString() function and display the contents to the console
     // sinitcyna-elena   
@@ -101,7 +129,7 @@ public class Main {
     System.out.println(sceneOne.toString());
     System.out.println(personPlayersFather.toString());
     System.out.println(personPlayersMother.toString());
-    
+    }
     }
 
 }

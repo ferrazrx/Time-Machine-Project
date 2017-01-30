@@ -6,28 +6,29 @@
 package Time_Machine.Model;
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Objects;
 /**
  *
  * @author sinitcyna-elena
  */
 public class PlayersMother extends Person implements Serializable{
-    private String[] playersMotherMessage;
+    private String playersMotherMessage;
 
     public PlayersMother() {
     }
 
-    public String[] getPlayersMotherMessage() {
+    public String getPlayersMotherMessage() {
         return playersMotherMessage;
     }
 
-    public void setPlayersMotherMessage(String[] playersMotherMessage) {
+    public void setPlayersMotherMessage(String playersMotherMessage) {
         this.playersMotherMessage = playersMotherMessage;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 17 * hash + Arrays.deepHashCode(this.playersMotherMessage);
+        hash = 89 * hash + Objects.hashCode(this.playersMotherMessage);
         return hash;
     }
 
@@ -43,7 +44,7 @@ public class PlayersMother extends Person implements Serializable{
             return false;
         }
         final PlayersMother other = (PlayersMother) obj;
-        if (!Arrays.deepEquals(this.playersMotherMessage, other.playersMotherMessage)) {
+        if (!Objects.equals(this.playersMotherMessage, other.playersMotherMessage)) {
             return false;
         }
         return true;
@@ -54,12 +55,5 @@ public class PlayersMother extends Person implements Serializable{
         return "PlayersMother{" + "playersMotherMessage=" + playersMotherMessage + '}';
     }
 
-    public void setPlayersMotherMessage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setPlayersMotherMessage(String some_mothers_message) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

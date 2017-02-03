@@ -18,7 +18,6 @@ import Time_Machine.Model.Plumber;
 import Time_Machine.Model.TimeMachine;
 import Time_Machine.View.GameMenu;
 import Time_Machine.View.Title;
-import java.util.Scanner;
 
 
 /**
@@ -34,12 +33,6 @@ public class Main {
         //Display the game Main Menu
         GameMenu.displayGameMenu();
         
-        
-        //sinitcyna-elena
-        //Test must be deleted after Individual assignment L04
-        //Test of classes references (Map, Location, Scene, PlayersFather, PlayersMother)
-        int test = 0;
-        
         //Declare option variable
         String option;
         boolean goOn = true;
@@ -54,7 +47,7 @@ public class Main {
              E - Exit */
            switch (option) {
                 // Start a New Game
-                case "N":
+                case "N": 
                 case "n":
                     break;
                 // Restore a Saved Game
@@ -76,136 +69,27 @@ public class Main {
                     break;
  
                     
-//sinitcyna-elena
-//Test must be deleted after Individual assignment L04
-//Test of classes references (Map, Location, Scene, PlayersFather, PlayersMother)                    
-case "A":
-case "a":
-test = 1;
-goOn = false;
-break;
 
-
-/*
-*Synitsyn-Dmitriy Test for classes: TimeMachine, Bakery, PlayerParentsHouse, 
-*                                   PhysicianOfBozeman, Baker, Plumber, 
-*                                   BozemanMajor
-*/
-case "B":
-case "b":
-test = 2;
-goOn = false;
-break;
-
-
-                default:
-                    System.out.println("Please, select a valid option");
+//Test the calculation capacitor in Flux Capacitor
+                case "a":
+                    System.out.println("\tCalculate the Power Dissipation of the resistor in the Flux Capacitor."
+                            + "\n\t\t Equation => P = (U^2)/R ");
+                    int voltage;
+                    int resistor;
+                    double continues;
+                    do{
+                        System.out.println("Enter voltage value:");
+                        voltage = GetInput.getInt();
+                        System.out.println("Enter resistor value:");
+                        resistor = GetInput.getInt();
+                        continues = ItemControl.CalculatePowerDissipationInResistor(voltage,resistor);
+                    } 
+                    while(continues==-1);
+                    goOn = false;
                     break;
-            }
-
+                    
+                }
         }while(goOn);
-         
-       
-           
-//sinitcyna-elena
-//Test must be deleted after Individual assignment L04
-//Test of classes references (Map, Location, Scene, PlayersFather, PlayersMother)     
-       if(test == 1) {  
-       System.out.println();
-       System.out.println("Elena Sinitcyna Individual Assignment (Lesson 4):");  
-       System.out.println();
-       
-       
-    // Creating an instance of the classes Map, Location, Scene, PlayersFather, PlayersMother
-    // sinitcyna-elena
-    Map mapOne = new Map();
-    Location locationOne = new Location();
-    Scene sceneOne = new Scene();
-    PlayersFather personPlayersFather = new PlayersFather();
-    PlayersMother personPlayersMother = new PlayersMother();
-    
-    
-    // Assigning values to each of the instance variables using the “setter” methods
-    // sinitcyna-elena
-    mapOne.setPlayerPlaceInMap("Bozeman");
-    
-    locationOne.setLocationName ("Bakery");
-    locationOne.setLocationVisited(true);
-    locationOne.setLocationDescription("Some description");
-    
-    sceneOne.setSceneListOfPersonages("John"); //array or string?
-    sceneOne.setSceneDescription("Some description of scene");
-    sceneOne.setSceneItemsAvailable("Items available"); //array or string?
-    
-    personPlayersFather.setPlayersFatherMessage("Some father's message"); //array or string?
-    
-    personPlayersMother.setPlayersMotherMessage("Some mother's message"); //array or string?
-    
-    // Call the toString() function and display the contents to the console
-    // sinitcyna-elena   
-    System.out.println(mapOne.toString());
-    System.out.println(locationOne.toString());
-    System.out.println(sceneOne.toString());
-    System.out.println(personPlayersFather.toString());
-    System.out.println(personPlayersMother.toString());
+        
     }
-       
-       
-       /*
-       *Sinitsyn-Dmitriy
-       *Instances, using the “setter” methods and toString()
-       *Classes: TimeMachine, Bakery, PlayerParentsHouse, PhysicianOfBozeman,
-       *          Baker, Plumber, BozemanMajor
-       */
-       
-       if(test == 2){
-       
-           //TimeMachine class
-          TimeMachine timeMachineNew = new TimeMachine();           
-          timeMachineNew.setStatusTimeMachine("Broken"); 
-          timeMachineNew.setDescriptionTimeMachine("Find Pliers");
-          timeMachineNew.setPartsListTimeMachine("Time Machine's part list is comming soon...");            
-          String timeMachineInfo = timeMachineNew.toString();                 
-          System.out.println(timeMachineInfo);
-          
-          //Bakery class
-          Bakery bakeryNew = new Bakery();
-          bakeryNew.setBakeryInfo("In the Bakery you can get some usefull information");
-          bakeryNew.setBakeryFood("You can get some food here");
-          String bakeryInfo = bakeryNew.toString();                 
-          System.out.println(bakeryInfo);
-          
-          //PlayerParentsHouse class
-          PlayerParentsHouse playerParentsHouseNew = new PlayerParentsHouse();
-          playerParentsHouseNew.setPlayerParentsHouseInfo("In the Parents House you can get some usefull information");
-          String playerParentsHouseInfo = playerParentsHouseNew.toString();                 
-          System.out.println(playerParentsHouseInfo);
-          
-          //PhysicianOfBozeman class
-          PhysicianOfBozeman physicianOfBozemanNew = new PhysicianOfBozeman();
-          physicianOfBozemanNew.setPhysicianOfBozeman("Physician of Bozeman has importsnt message for you");
-          String physicianOfBozemanInfo = physicianOfBozemanNew.toString();                 
-          System.out.println(physicianOfBozemanInfo);
-          
-          //Baker class
-          Baker bakerNew = new Baker();
-          bakerNew.setBaker("Baker has importsnt message for you");
-          String bakerInfo = bakerNew.toString();                 
-          System.out.println(bakerInfo);
-          
-          //Plumber class
-          Plumber plumberNew = new Plumber();
-          plumberNew.setPlumber("Plumber has importsnt message for you");
-          String plumberInfo = plumberNew.toString();                 
-          System.out.println(plumberInfo);
-          
-          //BozemanMajor class 
-          BozemanMajor bozemanMajorNew = new BozemanMajor();
-          bozemanMajorNew.setBozemanMajor("Plumber has importsnt message for you");
-          String bozemanMajorInfo = bozemanMajorNew.toString();                 
-          System.out.println(bozemanMajorInfo);        
-          
-       }
-    }
-
 }

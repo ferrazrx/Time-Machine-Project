@@ -42,5 +42,33 @@ public class ItemControl {
         }
     
     }
+    // Calculate the Air Core Wire Coil distance.
+    private static double airCoreWireCoilDistance;
+    public static double calculateAirCoreWireCoilDistance(double acceleration, double time){
+        if(acceleration<0){
+            System.out.println("You must increase the acceleration, not decrease!");
+            return -1;
+        } else 
+        if(acceleration>100){
+            System.out.println("You can break the machine with an acceleration greater than 100m/s^2.");
+            return -1;
+        }else 
+        if(time<0){
+            System.out.println("Do you want to travel ahead or go back in time? Please, enter a positive time!");
+            return -1;
+        } else {
+            ItemControl.airCoreWireCoilDistance = (acceleration/2)*(Math.pow(time,2));
+            if(ItemControl.airCoreWireCoilDistance<5000){
+                System.out.println("The distance is not enough! You just circulate the Air Core Wire "+ ItemControl.airCoreWireCoilDistance +"m."
+                        + "\n You must reach 5.000m or more."); 
+            return -1;    
+            } else {
+                System.out.println("Yeah! You got it! Now you have a Air Core Wire Coil with "+ItemControl.airCoreWireCoilDistance+"m.");
+                return ItemControl.airCoreWireCoilDistance;
+            }
+        }
+        
+    
+    }
     
 }

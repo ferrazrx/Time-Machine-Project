@@ -88,6 +88,25 @@ public class Main {
                     goOn = false;
                     break;
                     
+       
+        
+//Test the calculation of the Air Core Wire Coil distance;
+                case "b":
+                    System.out.println("\tCalculate the Air Core Wire Coil distance."
+                            + "\n\t\t Equation => D = (1/2) *acceleration* (time^2)  ");
+                    int acceleration;
+                    int time;
+                    do{
+                        System.out.println("Enter the acceleration:");
+                        acceleration = GetInput.getInt();
+                        System.out.println("Enter the time:");
+                        time = GetInput.getInt();
+                        continues = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+                    } 
+                    while(continues==-1);
+                    goOn = false;
+                    break;
+                    
                 }
         }while(goOn);
         

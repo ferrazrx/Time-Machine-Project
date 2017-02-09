@@ -22,5 +22,9 @@ public class GetInput {
     int input = scan.nextInt();
     return input;
     }
-    
+    public static double getDouble(){
+    Scanner scan = new Scanner (System.in);
+    double input = scan.nextDouble();
+    return input;
+    }
 }

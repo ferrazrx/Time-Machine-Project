@@ -85,7 +85,7 @@ public class Main {
                         continues = ItemControl.CalculatePowerDissipationInResistor(voltage,resistor);
                     } 
                     while(continues==-1);
-                    goOn = false;
+                    
                     break;
                     
        
@@ -104,7 +104,7 @@ public class Main {
                         continues = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
                     } 
                     while(continues==-1);
-                    goOn = false;
+                    
                     break;
                     
                 }

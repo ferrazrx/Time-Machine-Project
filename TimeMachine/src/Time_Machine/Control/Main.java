@@ -7,6 +7,8 @@ package Time_Machine.Control;
 import Time_Machine.Model.Baker;
 import Time_Machine.Model.Bakery;
 import Time_Machine.Model.BozemanMajor;
+import Time_Machine.Model.Inventory;
+import Time_Machine.Model.Item;
 import Time_Machine.Model.Map;
 import Time_Machine.Model.Location;
 import Time_Machine.Model.PhysicianOfBozeman;
@@ -67,47 +69,22 @@ public class Main {
                 case "e": 
                     goOn = false;
                     break;
- 
-                    
-
-//Test the calculation capacitor in Flux Capacitor
-                case "a":
-                    System.out.println("\tCalculate the Power Dissipation of the resistor in the Flux Capacitor."
-                            + "\n\t\t Equation => P = (U^2)/R ");
-                    int voltage;
-                    int resistor;
-                    double continues;
-                    do{
-                        System.out.println("Enter voltage value:");
-                        voltage = GetInput.getInt();
-                        System.out.println("Enter resistor value:");
-                        resistor = GetInput.getInt();
-                        continues = ItemControl.CalculatePowerDissipationInResistor(voltage,resistor);
-                    } 
-                    while(continues==-1);
-                    
+                case "I":
+                case "i":
+                    Item pliers = new Item();
+                    pliers.setName("Pliers");
+                    Inventory playerInventory = new Inventory();
+                    playerInventory.setItem(pliers);
+                    Item capacitor = new Item();
+                    capacitor.setName("Capacitor");
+                    InventoryControl.addInventoryItem(playerInventory, capacitor);
+                    System.out.println("Enter the name of item to delete:");
+                    String itemToDelete = GetInput.getString();
+                    InventoryControl.dropInventoryItem(playerInventory, itemToDelete);
+                    InventoryControl.getInventoryItems(playerInventory);
                     break;
-                    
-       
-        
-//Test the calculation of the Air Core Wire Coil distance;
-                case "b":
-                    System.out.println("\tCalculate the Air Core Wire Coil distance."
-                            + "\n\t\t Equation => D = (1/2) *acceleration* (time^2)  ");
-                    int acceleration;
-                    int time;
-                    do{
-                        System.out.println("Enter the acceleration:");
-                        acceleration = GetInput.getInt();
-                        System.out.println("Enter the time:");
-                        time = GetInput.getInt();
-                        continues = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
-                    } 
-                    while(continues==-1);
-                    
-                    break;
-                    
                 }
+           
         }while(goOn);
         
     }

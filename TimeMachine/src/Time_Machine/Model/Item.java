@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public class Item extends Inventory implements Serializable {
     
-    private String Name;
+    private String name;
     private String Description;
     private int Amount;
 
@@ -22,11 +22,12 @@ public class Item extends Inventory implements Serializable {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        String newName= name.substring(0, 1).toUpperCase() + name.substring(1);
+        this.name = newName;
     }
 
     public String getDescription() {
@@ -52,7 +53,7 @@ public class Item extends Inventory implements Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.Name);
+        hash = 97 * hash + Objects.hashCode(this.name);
         hash = 97 * hash + Objects.hashCode(this.Description);
         hash = 97 * hash + this.Amount;
         return hash;
@@ -73,7 +74,7 @@ public class Item extends Inventory implements Serializable {
         if (this.Amount != other.Amount) {
             return false;
         }
-        if (!Objects.equals(this.Name, other.Name)) {
+        if (!Objects.equals(this.name, other.name)) {
             return false;
         }
         if (!Objects.equals(this.Description, other.Description)) {
@@ -84,7 +85,7 @@ public class Item extends Inventory implements Serializable {
 
     @Override
     public String toString() {
-        return "Item{" + "Name=" + Name + ", Description=" + Description + ", Amount=" + Amount + '}';
+        return "Item{" + "Name=" + name + ", Description=" + Description + ", Amount=" + Amount + '}';
     }
     
     

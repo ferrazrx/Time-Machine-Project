@@ -3,76 +3,55 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Time_Machine.Model;
 import java.io.Serializable;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  *
  * @author Group 7
  */
-public class Inventory implements Serializable {
+public class Inventory implements Serializable{
     
-    private String[] items;
+    private ArrayList items;
     private int AmountItems;
 
     public Inventory() {
+        this.items = new ArrayList();
     }
 
-    public String[] getItems() {
+    public ArrayList getItems() {
         return items;
     }
 
-    public void setItems(String[] items) {
-        this.items = items;
+    public void setItem(Item newItem) {
+        items.add(newItem);
     }
 
     public int getAmountItems() {
-        return AmountItems;
+        return items.size();
     }
+    public String getItemInformations(int index){
+        return (String) items.get(index).toString();
+    }
+    public String getItemName (int index){
+           Item item = (Item) items.get(index);
+           return item.getName();
+    }
+    public boolean constainItem(Item verifyItem){
+        return items.contains(verifyItem);
+    }
+    public void removeItem(int itemToRemove){
+        items.remove(itemToRemove);
+    }
+  
 
-    public void setAmountItems(int AmountItems) {
-        this.AmountItems = AmountItems;
-    }
     
-    public void addItem (Item newItem){
-      
-        }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + Arrays.deepHashCode(this.items);
-        hash = 29 * hash + this.AmountItems;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Inventory other = (Inventory) obj;
-        if (this.AmountItems != other.AmountItems) {
-            return false;
-        }
-        if (!Arrays.deepEquals(this.items, other.items)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Inventory{" + "items=" + items + ", AmountItems=" + AmountItems + '}';
-    }
     
+    
+
+
     
     
     

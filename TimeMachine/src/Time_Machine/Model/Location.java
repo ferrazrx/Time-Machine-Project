@@ -15,71 +15,76 @@ import java.util.Objects;
 public class Location implements Serializable{
 
 // Class instance variables
-	private String locationName;
+	private Scene scene;
 	private Boolean locationVisited;
 	private String locationDescription;    
 
 	public Location() {
 	}    
-    
-	public String getLocationName() {
-    	return locationName;
-	}
 
-	public void setLocationName(String locationName) {
-    	this.locationName = locationName;
-	}
+    public Scene getScene() {
+        return scene;
+    }
 
-	public Boolean getLocationVisited() {
-    	return locationVisited;
-	}
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
 
-	public void setLocationVisited(Boolean locationVisited) {
-    	this.locationVisited = locationVisited;
-	}
+    public Boolean getLocationVisited() {
+        return locationVisited;
+    }
 
-	public String getLocationDescription() {
-    	return locationDescription;
-	}
+    public void setLocationVisited(Boolean locationVisited) {
+        this.locationVisited = locationVisited;
+    }
 
-	public void setLocationDescription(String locationDescription) {
-    	this.locationDescription = locationDescription;
-	}
+    public String getLocationDescription() {
+        return locationDescription;
+    }
 
-	@Override
-	public int hashCode() {
-    	int hash = 7;
-    	hash = 47 * hash + Objects.hashCode(this.locationName);
-    	hash = 47 * hash + Objects.hashCode(this.locationVisited);
-    	hash = 47 * hash + Objects.hashCode(this.locationDescription);
-    	return hash;
-	}
+    public void setLocationDescription(String locationDescription) {
+        this.locationDescription = locationDescription;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-    	if (this == obj) {
-        	return true;
-    	}
-    	if (obj == null) {
-        	return false;
-    	}
-    	if (getClass() != obj.getClass()) {
-        	return false;
-    	}
-    	final Location other = (Location) obj;
-    	if (!Objects.equals(this.locationName, other.locationName)) {
-        	return false;
-    	}
-    	if (!Objects.equals(this.locationDescription, other.locationDescription)) {
-        	return false;
-    	}
-    	return Objects.equals(this.locationVisited, other.locationVisited);
-	}
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.scene);
+        hash = 59 * hash + Objects.hashCode(this.locationVisited);
+        hash = 59 * hash + Objects.hashCode(this.locationDescription);
+        return hash;
+    }
 
-	@Override
-	public String toString() {
-    	return "Location{" + "locationName=" + locationName + ", locationVisited=" + locationVisited + ", locationDescription=" + locationDescription + '}';
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Location other = (Location) obj;
+        if (!Objects.equals(this.locationDescription, other.locationDescription)) {
+            return false;
+        }
+        if (!Objects.equals(this.scene, other.scene)) {
+            return false;
+        }
+        if (!Objects.equals(this.locationVisited, other.locationVisited)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" + "scene=" + scene + ", locationVisited=" + locationVisited + ", locationDescription=" + locationDescription + '}';
+    }
+        
+	
 }
 
 

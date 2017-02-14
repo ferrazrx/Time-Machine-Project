@@ -5,6 +5,7 @@
  */
 package Time_Machine.Model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -15,9 +16,11 @@ import java.util.Objects;
 public class TimeMachine {
     private String statusTimeMachine;
     private String descriptionTimeMachine;
-    private String partsListTimeMachine;
+    private ArrayList partsListTimeMachine;
 
     public TimeMachine() {
+        this.partsListTimeMachine = new ArrayList();
+        this.statusTimeMachine = "Broken";
     }
 
     public String getStatusTimeMachine() {
@@ -36,13 +39,15 @@ public class TimeMachine {
         this.descriptionTimeMachine = descriptionTimeMachine;
     }
 
-    public String getPartsListTimeMachine() {
+    public ArrayList getPartsListTimeMachine() {
         return partsListTimeMachine;
     }
 
-    public void setPartsListTimeMachine(String partsListTimeMachine) {
-        this.partsListTimeMachine = partsListTimeMachine;
+    public void AddPartsListTimeMachine(Item timeMachineItem) {
+        this.partsListTimeMachine.add(timeMachineItem);
     }
+    
+ 
 
     @Override
     public int hashCode() {

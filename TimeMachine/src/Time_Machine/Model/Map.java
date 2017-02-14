@@ -5,6 +5,7 @@
  */
 package Time_Machine.Model;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -14,45 +15,66 @@ import java.util.Objects;
 public class Map implements Serializable{
     
 // Class instance variables
-	private String playerPlaceInMap;
-
+	private ArrayList locations;
+        private Location playerPlaceInMap;
+        
 	public Map() {
-	}
+	this.locations = new ArrayList();
+        }
 
-	public String getPlayerPlaceInMap() {
-    	return playerPlaceInMap;
-	}
+    public ArrayList getLocations() {
+        return locations;
+    }
 
-	public void setPlayerPlaceInMap(String playerPlaceInMap) {
-    	this.playerPlaceInMap = playerPlaceInMap;
-	}
+    public void setLocations(ArrayList locations) {
+        this.locations = locations;
+    }
 
-	@Override
-	public int hashCode() {
-    	int hash = 3;
-    	hash = 53 * hash + Objects.hashCode(this.playerPlaceInMap);
-    	return hash;
-	}
+    public Location getPlayerPlaceInMap() {
+        return playerPlaceInMap;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-    	if (this == obj) {
-        	return true;
-    	}
-    	if (obj == null) {
-        	return false;
-    	}
-    	if (getClass() != obj.getClass()) {
-        	return false;
-    	}
-    	final Map other = (Map) obj;
-    	return Objects.equals(this.playerPlaceInMap, other.playerPlaceInMap);
-	}
+    public void setPlayerPlaceInMap(Location playerPlaceInMap) {
+        this.playerPlaceInMap = playerPlaceInMap;
+    }
 
-	@Override
-	public String toString() {
-    	return "Map{" + "playerPlaceInMap=" + playerPlaceInMap + '}';
-	}
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + Objects.hashCode(this.locations);
+        hash = 41 * hash + Objects.hashCode(this.playerPlaceInMap);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Map other = (Map) obj;
+        if (!Objects.equals(this.locations, other.locations)) {
+            return false;
+        }
+        if (!Objects.equals(this.playerPlaceInMap, other.playerPlaceInMap)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Map{" + "locations=" + locations + ", playerPlaceInMap=" + playerPlaceInMap + '}';
+    }
+        
+        
+
+	
 }
 
 

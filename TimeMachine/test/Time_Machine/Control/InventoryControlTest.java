@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author rxfer_000
+ * @author Group 7
  */
 public class InventoryControlTest {
     

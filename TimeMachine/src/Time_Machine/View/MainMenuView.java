@@ -76,7 +76,8 @@ public class MainMenuView {
         MainMenuControl.startNewGame(Main.getPlayer());
         // Display the Game Menu
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.displayGameMenuView();
+        System.out.println(this.menu);
        
     }
 

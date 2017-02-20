@@ -14,6 +14,6 @@ import Time_Machine.Model.Player;
 public class MainMenuControl {
 
     public static void startNewGame(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
     }
 }

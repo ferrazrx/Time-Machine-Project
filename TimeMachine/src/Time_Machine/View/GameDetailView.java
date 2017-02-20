@@ -5,6 +5,8 @@
  */
 package Time_Machine.View;
 
+import Time_Machine.Model.Player;
+
 /**
  *
  * @author Group 7
@@ -104,6 +106,17 @@ public class GameDetailView {
 "                                            | Area: 1,772 sq.mi.     |\n" +
 "                                            |      (5,086 sq.km.)    |\n" +
 "                                            `------------------------'");
+    }
+
+    static void displayIntroduction(Player player) {
+        System.out.println(
+"  ____   ___ __________ __  __    _    _   _           _  ___   ___   ___  \n" +
+" | __ ) / _ \\__  / ____|  \\/  |  / \\  | \\ | |         / |/ _ \\ ( _ ) ( _ ) \n" +
+" |  _ \\| | | |/ /|  _| | |\\/| | / _ \\ |  \\| |  _____  | | (_) |/ _ \\ / _ \\ \n" +
+" | |_) | |_| / /_| |___| |  | |/ ___ \\| |\\  | |_____| | |\\__, | (_) | (_) |\n" +
+" |____/ \\___/____|_____|_|  |_/_/   \\_\\_| \\_|         |_|  /_/ \\___/ \\___/ \n" +
+"                                                                           ");
+        System.out.println("Welcome "+ player.getName()+ "to 1988!");
     }
         
     

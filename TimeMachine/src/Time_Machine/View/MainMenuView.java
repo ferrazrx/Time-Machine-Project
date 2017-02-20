@@ -74,6 +74,8 @@ public class MainMenuView {
     private void startNewGame() {
         // Create a new game
         MainMenuControl.startNewGame(Main.getPlayer());
+        // Display the story introduction
+        GameDetailView.displayIntroduction(Main.getPlayer());
         // Display the Game Menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayGameMenuView();

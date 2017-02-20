@@ -46,7 +46,7 @@ public class TimeMachineControl {
                 System.out.println("You still don't have all the items to fix the Time Machine."); 
             }
         }
-        /*
+       
     private static int area;
     
         public int calcAreaOfTriangle (int height, int base) {
@@ -63,5 +63,6 @@ public class TimeMachineControl {
             System.out.println("The area of an triangle is: " + TimeMachineControl.area);
             return TimeMachineControl.area;
         }
-      */
+    
+}
 }

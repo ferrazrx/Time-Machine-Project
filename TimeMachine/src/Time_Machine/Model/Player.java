@@ -14,6 +14,7 @@ import java.util.Objects;
  * @author rxfer_000
  */
 public class Player extends Person implements Serializable {
+    private String name;
     private int statusBar;
     private Date currentTime;
     private Location currentLocation;
@@ -21,7 +22,14 @@ public class Player extends Person implements Serializable {
 
     public Player() {
     }
-
+    
+    
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
     public int getStatusBar() {
         return statusBar;
     }
@@ -56,11 +64,12 @@ public class Player extends Person implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 47 * hash + this.statusBar;
-        hash = 47 * hash + Objects.hashCode(this.currentTime);
-        hash = 47 * hash + Objects.hashCode(this.currentLocation);
-        hash = 47 * hash + this.currentYear;
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.name);
+        hash = 29 * hash + this.statusBar;
+        hash = 29 * hash + Objects.hashCode(this.currentTime);
+        hash = 29 * hash + Objects.hashCode(this.currentLocation);
+        hash = 29 * hash + this.currentYear;
         return hash;
     }
 
@@ -73,6 +82,9 @@ public class Player extends Person implements Serializable {
             return false;
         }
         final Player other = (Player) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
         if (this.statusBar != other.statusBar) {
             return false;
         }
@@ -90,10 +102,8 @@ public class Player extends Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Player{" + "statusBar=" + statusBar + ", currentTime=" + currentTime + ", currentLocation=" + currentLocation + ", currentYear=" + currentYear + '}';
+        return "Player{" + "name=" + name + ", statusBar=" + statusBar + ", currentTime=" + currentTime + ", currentLocation=" + currentLocation + ", currentYear=" + currentYear + '}';
     }
-    
-    
-    
+
     
 }

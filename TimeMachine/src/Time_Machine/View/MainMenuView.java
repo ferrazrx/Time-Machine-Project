@@ -19,8 +19,10 @@ public class MainMenuView {
     
     // Function that display the Main Menu
     public MainMenuView(Player player){    
+        String name = player.getName();
+        String capitalizedName = name.substring(0, 1).toUpperCase()+ name.substring(1);
         this.menu =
-            "\tWelcome "+player.getName()+"!"+
+            "\tWelcome "+capitalizedName+"!"+
             "\n-------------------------------------------"+
             "\n|              Main Menu                  |"+    
             "\n-------------------------------------------\n"+    
@@ -29,7 +31,7 @@ public class MainMenuView {
             "S - Save Current cGame\n" +
             "H - Get Help on How to Play the Game\n" +
             "E - Exit\n\n" + 
-            "-------------------------------------------\n";
+            "---------------------------------------------\n";
     }
     public String getMainMenuOption(){
         System.out.println("Enter a option:");

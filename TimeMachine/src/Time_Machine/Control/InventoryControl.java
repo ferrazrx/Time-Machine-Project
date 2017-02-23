@@ -39,8 +39,12 @@ public class InventoryControl {
     }
     public static void getInventoryItems(Inventory playerInventory){
         System.out.println("Inventory Items:");
-        for (int i=0;i<playerInventory.getAmountItems();i++){
+        if(playerInventory.getAmountItems()<1){
+            System.out.println("Your inventory is empty");
+        }else{
+            for (int i=0;i<playerInventory.getAmountItems();i++){
                 System.out.println("\t * "+ playerInventory.getItemInformations(i));
-                }
+            }
+        }   
     }
 }

@@ -87,13 +87,15 @@ class GameMenuView {
 
     private void viewBozemanMap() {
         GameDetailView.displayBozemanMap();
+        MapView mapView = new MapView();
+        mapView.displayMapView();
+        System.out.println(this.menu);
     }
 
     private void seeInventoryItems() {
         InventoryView inventoryView = new InventoryView();
         inventoryView.displayInventoryView();
-        System.out.println(this.menu);
-        
+        System.out.println(this.menu);     
     }
     
 }

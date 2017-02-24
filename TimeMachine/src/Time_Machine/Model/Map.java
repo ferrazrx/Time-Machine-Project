@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author sinitcyna-elena
+ * @author Group 7
  */
 public class Map implements Serializable{
     
@@ -26,8 +26,8 @@ public class Map implements Serializable{
         return locations;
     }
 
-    public void setLocations(ArrayList locations) {
-        this.locations = locations;
+    public void setLocation(Location location) {
+        this.locations.add(location);
     }
 
     public Location getPlayerPlaceInMap() {

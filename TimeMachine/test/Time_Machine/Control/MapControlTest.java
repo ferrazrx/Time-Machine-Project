@@ -17,20 +17,20 @@ public class MapControlTest {
     
     public MapControlTest() {
     }
-    
+  
     /*@After
     public void tearDown() {
     }*/
 
     /**
      * Test of calcVolumeOfTetrahedron method, of class MapControl.
-     */
+  
     @Test
     public void testCalcVolumeOfTetrahedron() {
         System.out.println("calcVolumeOfTetrahedron");
         /**********************************
         * Test case #1
-        **********************************/
+        *********************************
         
         System.out.println("\tTest case #1");
         
@@ -50,7 +50,7 @@ public class MapControlTest {
         
         /**********************************
         * Test case #2
-        **********************************/
+        *********************************
         
         System.out.println("\tTest case #2");
         
@@ -68,7 +68,7 @@ public class MapControlTest {
         
         /**********************************
         * Test case #3
-        **********************************/
+        *********************************
         
         System.out.println("\tTest case #3");
         
@@ -85,5 +85,5 @@ public class MapControlTest {
         assertEquals(expResult, result, 0.0001);  
         
     }
-      
+      */
 }

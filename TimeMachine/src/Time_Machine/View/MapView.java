@@ -8,36 +8,35 @@ package Time_Machine.View;
 import Time_Machine.Control.GetInput;
 import Time_Machine.Control.InventoryControl;
 import Time_Machine.Control.Main;
-import Time_Machine.Model.Inventory;
+import Time_Machine.Control.MapControl;
 
 /**
+ *
  * @author Group 7
  */
-public class InventoryView {
-   private String inventoryMenu;
+public class MapView {
+   private String mapMenu;
    
-   public InventoryView(){
-       this.inventoryMenu =
+   public MapView(){
+       this.mapMenu =
             "\n-------------------------------------------"+
-            "\n|              Invetory Menu                  |"+    
+            "\n|              Map Menu                  |"+    
             "\n-------------------------------------------\n"+    
-            "D - Drop Item\n" +
-            "U - Use Item\n" +
+            "C - Current Location\n" +
             "B - Back to Game Menu\n" + 
             "-------------------------------------------\n";
    }
-   public String getInventoryOption(){
+   public String getMapOption(){
         String option = GetInput.getString();
         return option;
     }
-    public boolean helpMenuAction(String option){
+    public boolean mapAction(String option){
         option = option.toUpperCase();
         switch (option){
-            case "D":
-                this.dropItem();
+            case "C":
+                this.currentLocation();
                 break;
             case "U":
-                this.useItem();
                 break;
             default:
                 System.out.println("*** Invalid selection *** Try Again!");
@@ -46,32 +45,22 @@ public class InventoryView {
         return false;
     
     }
-    public void displayInventoryView(){
-        InventoryControl.listInventoryItems(Main.getPlayer());
-        System.out.println(this.inventoryMenu);
+    public void displayMapView(){
+        System.out.println(this.mapMenu);
         boolean done = false;
         do{
             System.out.println("Enter a option:");
-            String menuOption = this.getInventoryOption();
+            String menuOption = this.getMapOption();
             if (menuOption.toUpperCase().equals("B")){
                 return;
             }else{
-            done = this.helpMenuAction(menuOption);
+            done = this.mapAction(menuOption);
             }    
         } while(!done);
     }
 
-
-
-    private void dropItem(){
-        System.out.println("Enter the item's name to drop:");
-        String itemOption = this.getInventoryOption();
-        InventoryControl.dropInventoryItem(Main.getPlayer(), itemOption);
-       
+    private void currentLocation() {
+        MapControl.playerPlaceInMap(Main.getPlayer());
     }
 
-    private void useItem() {
-        System.out.println("In constrution! It will be available soon!");
-   }
-    
 }

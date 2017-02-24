@@ -11,16 +11,25 @@ import java.util.Objects;
 
 /**
  *
- * @author  sinitcyna-elena
+ * @author  Group 7
  */
 public class Scene implements Serializable{
   // Class instance variables
+        private String sceneName;
 	private String sceneListOfPersonages;
 	private String sceneDescription;
 	private String sceneItemsAvailable;
 
 	public Scene() {
 	}
+
+    public String getSceneName() {
+        return sceneName;
+    }
+
+    public void setSceneName(String sceneName) {
+        this.sceneName = sceneName;
+    }
 
     public String getSceneListOfPersonages() {
         return sceneListOfPersonages;

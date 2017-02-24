@@ -15,12 +15,21 @@ import java.util.Objects;
 public class Location implements Serializable{
 
 // Class instance variables
+        private String locationName;
 	private Scene scene;
 	private Boolean locationVisited;
 	private String locationDescription;    
 
 	public Location() {
 	}    
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
 
     public Scene getScene() {
         return scene;

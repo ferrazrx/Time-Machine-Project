@@ -20,13 +20,22 @@ public class Player extends Person implements Serializable {
     private Location currentLocation;
     private int currentYear;
     private Inventory inventory;
-    private Location location;
+    private Map map;
     private TimeMachine timeMachine;
 
     public Player() {
         this.inventory = new Inventory();
-        this.location = new Location();
+        this.map = new Map();
         this.timeMachine = new TimeMachine();
+        // Start the initial Location
+        this.currentLocation = new Location();
+        this.currentLocation.setLocationName("Barn");
+        this.currentLocation.setLocationDescription("An old barn, located on a farm with much livestock.");
+        this.currentLocation.setLocationVisited(true);
+        this.map.setLocation(currentLocation);
+        
+        
+        
     }
 
     public Inventory getInventory() {
@@ -37,12 +46,12 @@ public class Player extends Person implements Serializable {
         this.inventory = inventory;
     }
 
-    public Location getLocation() {
-        return location;
+    public Map getMap() {
+        return map;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setMap(Map map) {
+        this.map = map;
     }
 
     public TimeMachine getTimeMachine() {

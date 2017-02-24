@@ -5,12 +5,44 @@
  */
 package Time_Machine.Control;
 
+import Time_Machine.Model.Location;
+import Time_Machine.Model.Player;
+
 /**
  *
- * @author sinitcyna-elena
+ * @author Group 7
  */
 public class MapControl {
-
+    
+    public static void playerPlaceInMap(Player player){
+        Location currentLocation = player.getCurrentLocation();
+        System.out.println("Your current localization:");
+        System.out.println(
+                "__________________________________\n"
+              + "--"+currentLocation.getLocationName()+"--\n"
+              + "\tDescription: "+ currentLocation.getLocationDescription());
+        if(currentLocation.getLocationVisited()==true){
+            System.out.println("\tLocation Visited.");    
+        }else{
+            System.out.println("\tNew Location.");            
+        }
+    
+        
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
     // Volume Of Tetrahedron
     private static double volume;
     
@@ -26,7 +58,7 @@ public class MapControl {
         }
 
     }
-    
+    */
     
 
     

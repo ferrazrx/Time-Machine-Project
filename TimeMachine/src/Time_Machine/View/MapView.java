@@ -22,7 +22,8 @@ public class MapView {
             "\n-------------------------------------------"+
             "\n|              Map Menu                  |"+    
             "\n-------------------------------------------\n"+    
-            "C - Current Location\n" +
+            "C - Current Location\n"
+          + "M - Move to Another Location\n" +
             "B - Back to Game Menu\n" + 
             "-------------------------------------------\n";
    }
@@ -36,7 +37,8 @@ public class MapView {
             case "C":
                 this.currentLocation();
                 break;
-            case "U":
+            case "M":
+                this.movePlayerToAnotherLocation();
                 break;
             default:
                 System.out.println("*** Invalid selection *** Try Again!");
@@ -61,6 +63,10 @@ public class MapView {
 
     private void currentLocation() {
         MapControl.playerPlaceInMap(Main.getPlayer());
+    }
+
+    private void movePlayerToAnotherLocation() {
+        MapControl.movePlayerLocation(Main.getPlayer());
     }
 
 }

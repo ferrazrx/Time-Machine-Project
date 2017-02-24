@@ -26,7 +26,6 @@ class GameMenuView {
             "S - View/Fix the time machine status\n" +
             "P - Back to Barn\n" +
             "X - Try to turn on the Time Machine\n" +
-            "M - Move to new location in Bozeman\n" +
             "L - Look around for clues, stuff and food\n" +
             "E - Talk with John\n" +
             "T - Use tools available\n" +

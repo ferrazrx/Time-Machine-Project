@@ -30,18 +30,7 @@ public class MapControl {
         
     
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+       
     /*
     // Volume Of Tetrahedron
     private static double volume;
@@ -59,6 +48,12 @@ public class MapControl {
 
     }
     */
+
+    public static void movePlayerLocation(Player player) {
+        
+    }
+
+   
     
 
     

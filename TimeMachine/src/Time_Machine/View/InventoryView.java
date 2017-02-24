@@ -21,23 +21,18 @@ public class InventoryView {
             "\n-------------------------------------------"+
             "\n|              Invetory Menu                  |"+    
             "\n-------------------------------------------\n"+    
-            "E - See Item details\n" +
             "D - Drop Item\n" +
             "U - Use Item\n" +
             "B - Back to Game Menu\n" + 
             "-------------------------------------------\n";
    }
    public String getInventoryOption(){
-        System.out.println("Enter a option:");
         String option = GetInput.getString();
         return option;
     }
     public boolean helpMenuAction(String option){
         option = option.toUpperCase();
         switch (option){
-            case "E":
-                this.seeItemDetail();
-                break;
             case "D":
                 this.dropItem();
                 break;
@@ -52,10 +47,11 @@ public class InventoryView {
     
     }
     public void displayInventoryView(){
-        InventoryControl.getInventoryItems(Main.getPlayer());
+        InventoryControl.listInventoryItems(Main.getPlayer());
         System.out.println(this.inventoryMenu);
         boolean done = false;
         do{
+            System.out.println("Enter a option:");
             String menuOption = this.getInventoryOption();
             if (menuOption.toUpperCase().equals("B")){
                 return;
@@ -65,16 +61,17 @@ public class InventoryView {
         } while(!done);
     }
 
-    private void seeItemDetail() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    private void dropItem() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    private void dropItem(){
+        System.out.println("Enter the item's name to drop:");
+        String itemOption = this.getInventoryOption();
+        InventoryControl.dropInventoryItem(Main.getPlayer(), itemOption);
+       
     }
 
     private void useItem() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        
+   }
     
 }

@@ -15,37 +15,59 @@ import java.util.List;
  * @author Group 7
  */
 public class InventoryControl {
-    public static void addInventoryItem(Player player, Item newItem){
-        player.getInventory().setItem(newItem);
-        System.out.println("Item Added to your inventory!"
-                + "\nNow your inventory has:\n");
-        for (int i=0;i<player.getInventory().getAmountItems();i++){
-            System.out.println("\t * "+ player.getInventory().getItemInformations(i));
-        }
+    public static void listInventoryItems(Player player){
+        System.out.println("Inventory Items:");
+        if(player.getInventory().getAmountItems()<1){
+            System.out.println("*** Your inventory is empty ***");
+        }else{
+            System.out.println("\nYour inventory has:\n");
+            for (int i=0;i<player.getInventory().getAmountItems();i++){
+                Item item;
+                item = player.getInventory().getItemByIndex(i);
+                System.out.println(
+                    "\t_________________________________________________\n"
+                  +  "\tItem's Name: " + item.getName()+".\n"
+                  + "\tDescription: " + item.getDescription() +".\n"
+                  + "\tAmount: "+ item.getAmount() +".");    
+            }
+        }    
+    }
     
+    public static void addInventoryItem(Player player, Item newItem){
+        // Add items on inventory
+        player.getInventory().setItem(newItem);
+        System.out.println("*** Item Added to your inventory! ***");
+        listInventoryItems(player);
     }
     public static void dropInventoryItem(Player player,String removeItem){
+        // Drop items from inventory
+        boolean found = false;
         String name = removeItem.substring(0, 1).toUpperCase() + removeItem.substring(1);
         for (int i=0;i<player.getInventory().getAmountItems();i++){
             if(name.equals(player.getInventory().getItemName(i))){
+               found = true; 
                player.getInventory().removeItem(i);
-               System.out.println("Item deleted!\n"
-                + "Now Your Inventory has");
-                for (i=0;i<player.getInventory().getAmountItems();i++){
-                System.out.println("\t * "+ player.getInventory().getItemInformations(i));
-                }
+               System.out.println("*** Item deleted! ***\n");
+               listInventoryItems(player);
             }    
         }
-        
+        if(found==false){
+            System.out.println("*** Item not found in your inventory ***");
+        }    
     }
-    public static void getInventoryItems(Player player){
-        System.out.println("Inventory Items:");
-        if(player.getInventory().getAmountItems()<1){
-            System.out.println("Your inventory is empty");
-        }else{
-            for (int i=0;i<player.getInventory().getAmountItems();i++){
-                System.out.println("\t * "+ player.getInventory().getItemInformations(i));
-            }
-        }   
+    
+    public static void setInitialItems (Player player){
+        //Start some items in the Inventory
+        Item bubbleGum = new Item();
+        bubbleGum.setName("Bubble gum");
+        bubbleGum.setDescription("1 Bubble Gum in your pocket.");
+        bubbleGum.setAmount(1);
+        player.getInventory().setItem(bubbleGum);
+        
+        Item pencil = new Item();
+        pencil.setName("Pencil");
+        pencil.setDescription("A black pencil very used.");
+        pencil.setAmount(1);
+        player.getInventory().setItem(pencil);
     }
 }

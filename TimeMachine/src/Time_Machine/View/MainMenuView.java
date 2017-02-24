@@ -7,6 +7,7 @@ package Time_Machine.View;
 
 import Time_Machine.Control.MainMenuControl;
 import Time_Machine.Control.GetInput;
+import Time_Machine.Control.InventoryControl;
 import Time_Machine.Control.Main;
 import Time_Machine.Model.Player;
 
@@ -74,6 +75,8 @@ public class MainMenuView {
     }
 
     private void startNewGame(){
+        // Start the inventory Items
+        InventoryControl.setInitialItems(Main.getPlayer());
         // Display the story introduction
         GameDetailView.displayIntroduction(Main.getPlayer());
         // Display the Game Menu

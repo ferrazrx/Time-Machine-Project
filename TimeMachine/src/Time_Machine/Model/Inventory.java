@@ -32,8 +32,8 @@ public class Inventory implements Serializable{
     public int getAmountItems() {
         return items.size();
     }
-    public String getItemInformations(int index){
-        return (String) items.get(index).toString();
+    public Item getItemByIndex(int index){
+        return (Item) items.get(index);
     }
     public String getItemName (int index){
            Item item = (Item) items.get(index);

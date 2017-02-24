@@ -67,7 +67,7 @@ public class MapView {
     }
 
     private void movePlayerToAnotherLocation() {
-        System.out.println("Enter a place to move:");
+        System.out.println("Enter a place(it can be part of the name) to move:");
         String placeOption = this.getMapOption();
         MapControl.movePlayerLocation(Main.getPlayer(), placeOption);
         System.out.println(this.mapMenu);

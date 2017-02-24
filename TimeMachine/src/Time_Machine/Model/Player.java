@@ -28,8 +28,8 @@ public class Player extends Person implements Serializable {
         this.map = new Map();
         this.timeMachine = new TimeMachine();
         // Start the initial Location
-        this.currentLocation = this.map.getLocationByString("Barn");
-        
+        this.currentLocation = this.map.getLocationByString("BARN");
+        this.currentLocation.setLocationVisited(true);
         
         
         

@@ -26,35 +26,36 @@ public class MapControl {
         }else{
             System.out.println("\tNew Location.");            
         }
+        System.out.println("__________________________________\n");
     
         
     
     }
-       
-    /*
-    // Volume Of Tetrahedron
-    private static double volume;
+      
+     public static void listLocations(Player player){
+        System.out.println("\tOther Locations:");
+        for(int i=0;i<player.getMap().getLocations().size();i++){
+            Location location = (Location) player.getMap().getLocations().get(i);
+            String locationName = location.getLocationName().substring(0, 1).toUpperCase()+location.getLocationName().substring(1).toLowerCase();
+            System.out.println(
+                    " - " + locationName + " - " + (location.getLocationVisited()== true? "Visited" : "Not Visited")  + ";"
+            );
+        }
+     }    
     
-    public double calcVolumeOfTetrahedron (double sideLength) {
-        if(sideLength < 0) {
-        System.out.println("Length is negative");
-        return -1;
+    public static void movePlayerLocation(Player player, String place) {
+        place = place.toUpperCase();
+        if(player.getMap().getLocationByString(place)== null){
+            System.out.println("*** Location not found! Try again! ***");
+        } else {
+            Location location = player.getMap().getLocationByString(place);
+            System.out.println(location.toString());
+            player.setCurrentLocation(location);
+            System.out.println("*** Now you're at "+ player.getCurrentLocation().getLocationName()+" ***");
+            playerPlaceInMap(player);
+            player.getMap().getLocationByString(place).setLocationVisited(true);
         }
-        else {
-        MapControl.volume = Math.round(Math.pow(sideLength, 3) / (6 * Math.sqrt(2)));
-        System.out.println("Here is the volume of tetrahedron: " + MapControl.volume);
-        return MapControl.volume;
-        }
-
-    }
-    */
-
-    public static void movePlayerLocation(Player player) {
         
-    }
-
-   
-    
-
-    
+        
+    }    
 }

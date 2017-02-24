@@ -29,11 +29,11 @@ public class Map implements Serializable{
         Location bakery = new Location();
         
         //Set Locations Name
-        barn.setLocationName("Barn");
-        cityHall.setLocationName("City Hall");
-        policeDepartment.setLocationName("Police Department");
-        fatherHouse.setLocationName("Your Father's House");
-        bakery.setLocationName("Bakery");
+        barn.setLocationName("BARN");
+        cityHall.setLocationName("CITY HALL");
+        policeDepartment.setLocationName("POLICE DEPARTMENT");
+        fatherHouse.setLocationName("YOUR FATHER'S HOUSE");
+        bakery.setLocationName("BAKERY");
         // Set Locations Description
         barn.setLocationDescription("Old build full of livestock");
         cityHall.setLocationDescription("The administration building of the municipal government.");
@@ -70,7 +70,7 @@ public class Map implements Serializable{
     public Location getLocationByString(String place){
         for(int i=0;i<this.locations.size();i++){
             Location location = (Location) this.locations.get(i);
-            if(place.equals(location.getLocationName())){
+            if(location.getLocationName().contains(place)){
                 return location;
             }
         }

@@ -63,10 +63,13 @@ public class MapView {
 
     private void currentLocation() {
         MapControl.playerPlaceInMap(Main.getPlayer());
+        MapControl.listLocations(Main.getPlayer());
     }
 
     private void movePlayerToAnotherLocation() {
-        MapControl.movePlayerLocation(Main.getPlayer());
+        System.out.println("Enter a place to move:");
+        String placeOption = this.getMapOption();
+        MapControl.movePlayerLocation(Main.getPlayer(), placeOption);
+        System.out.println(this.mapMenu);
     }
-
 }

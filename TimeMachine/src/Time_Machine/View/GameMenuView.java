@@ -7,6 +7,7 @@ package Time_Machine.View;
 
 import Time_Machine.Control.GetInput;
 import Time_Machine.Control.Main;
+import Time_Machine.Control.MapControl;
 
 /**
  *

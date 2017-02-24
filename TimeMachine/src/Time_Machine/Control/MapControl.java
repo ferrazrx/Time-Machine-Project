@@ -49,7 +49,6 @@ public class MapControl {
             System.out.println("*** Location not found! Try again! ***");
         } else {
             Location location = player.getMap().getLocationByString(place);
-            System.out.println(location.toString());
             player.setCurrentLocation(location);
             System.out.println("*** Now you're at "+ player.getCurrentLocation().getLocationName()+" ***");
             playerPlaceInMap(player);

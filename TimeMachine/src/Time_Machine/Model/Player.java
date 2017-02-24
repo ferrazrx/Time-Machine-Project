@@ -19,10 +19,39 @@ public class Player extends Person implements Serializable {
     private Date currentTime;
     private Location currentLocation;
     private int currentYear;
+    private Inventory inventory;
+    private Location location;
+    private TimeMachine timeMachine;
 
     public Player() {
+        this.inventory = new Inventory();
+        this.location = new Location();
+        this.timeMachine = new TimeMachine();
     }
-    
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public TimeMachine getTimeMachine() {
+        return timeMachine;
+    }
+
+    public void setTimeMachine(TimeMachine timeMachine) {
+        this.timeMachine = timeMachine;
+    }
     
     public String getName(){
         return name;

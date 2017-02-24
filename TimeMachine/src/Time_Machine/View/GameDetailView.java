@@ -116,7 +116,37 @@ public class GameDetailView {
 " | |_) | |_| / /_| |___| |  | |/ ___ \\| |\\  | |_____| | |\\__, | (_) | (_) |\n" +
 " |____/ \\___/____|_____|_|  |_/_/   \\_\\_| \\_|         |_|  /_/ \\___/ \\___/ \n" +
 "                                                                           ");
-        System.out.println("Welcome "+ player.getName()+ "to 1988!");
+        System.out.println(
+                "-------------------------------------------\n" +
+                "   Welcome" + player.getName()+ " to 1988! \n" +               
+                "-------------------------------------------\n" +
+                "You live in the small city Bozeman, Montana, US.\n" +
+                "You're  a  sixteen-year  old  boy  that  love a \n "
+              + "adventure. You have 4 friends Arnold, Bob, Stela\n"
+              + "and John. John is the main caracter of this game.\n"
+              + "In the Summer of 1988,  after  the  city festival\n"
+              + "called “Festival of lights” you and the group 4 \n"
+              + "friends were returning together to your neighborhood\n"
+              + " riding your bikes when Arnold suggest a shortcut\n "
+              + "in the way home. The shortcut passed through a  \n"
+              + "dense forest. In the middle of the forests you found\n"
+              + " an old barn and driven by curiosity all the group\n"
+              + " get in the barn and find a strange machine that \n"
+              + "looks like a carriage. John and you that were \n"
+              + "playing inside the machine thinking that it would\n"
+              + " be a kind of old vehicle. Accidentally John turns\n"
+              + " the machine on and both travel in time 20 years back. "
+        );
+        System.out.println(
+"  _____                      __    _______             ______  ____ ___ \n" +
+" / ___/_ _____________ ___  / /_  /_  __(_)_ _  ___   <  / _ \\/ __/( _ )\n" +
+"/ /__/ // / __/ __/ -_) _ \\/ __/   / / / /  ' \\/ -_)  / /\\_, / _ \\/ _  |\n" +
+"\\___/\\_,_/_/ /_/  \\__/_//_/\\__/   /_/ /_/_/_/_/\\__/  /_//___/\\___/\\___/ \n" +
+"                                                                        ");
+        System.out.println("Now you're in 1968 and your goal is to try to travel\n"
+                + "20 years in the future without ruin your future!\n\n"
+                + "The time machine broke during the travel. You must fix it!\n"
+                + "Select the options below to start the game:");        
     }
         
     

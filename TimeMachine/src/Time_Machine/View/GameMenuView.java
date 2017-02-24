@@ -6,6 +6,7 @@
 package Time_Machine.View;
 
 import Time_Machine.Control.GetInput;
+import Time_Machine.Control.Main;
 
 /**
  *
@@ -20,7 +21,7 @@ class GameMenuView {
             "\n|              Game Menu                  |"+    
             "\n-------------------------------------------\n"+    
             "V - View map of Bozeman\n" +
-            "I - View list of items in John’s inventory\n" +
+            "I - View inventory items\n" +
             "A - View list of People in Town\n" +
             "S - View/Fix the time machine status\n" +
             "P - Back to Barn\n" +
@@ -57,6 +58,7 @@ class GameMenuView {
                 this.viewBozemanMap();
                 break;
             case "I":
+                this.seeInventoryItems();
                 break;
             case "A":
                 break;
@@ -85,6 +87,13 @@ class GameMenuView {
 
     private void viewBozemanMap() {
         GameDetailView.displayBozemanMap();
+    }
+
+    private void seeInventoryItems() {
+        InventoryView inventoryView = new InventoryView();
+        inventoryView.displayInventoryView();
+        System.out.println(this.menu);
+        
     }
     
 }

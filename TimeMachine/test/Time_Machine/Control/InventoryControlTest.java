@@ -7,6 +7,7 @@ package Time_Machine.Control;
 
 import Time_Machine.Model.Inventory;
 import Time_Machine.Model.Item;
+import Time_Machine.Model.Player;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -25,10 +26,10 @@ public class InventoryControlTest {
     @Test
     public void testAddInventoryItem() {
         System.out.println("addInventoryItem");
-        Inventory playerInventory = new Inventory();
+        Player player = new Player();
         Item testItem = new Item();
-        InventoryControl.addInventoryItem(playerInventory, testItem);
-        assertEquals(1, playerInventory.getAmountItems(), 0.0);
+        InventoryControl.addInventoryItem(player, testItem);
+        assertEquals(1, player.getInventory().getAmountItems(), 0.0);
     }
 
     /**
@@ -37,14 +38,14 @@ public class InventoryControlTest {
     @Test
     public void testDropInventoryItem() {
         System.out.println("dropInventoryItem");
-        Inventory playerInventory = new Inventory();
+       Player player = new Player();
         Item testItem1 = new Item();
         Item testItem2 = new Item();
         testItem2.setName("testItem2");
-        InventoryControl.addInventoryItem(playerInventory, testItem1);
-        InventoryControl.addInventoryItem(playerInventory, testItem2);
-        InventoryControl.dropInventoryItem(playerInventory, "testItem2");
-        assertEquals(1, playerInventory.getAmountItems(), 0.0);
+        InventoryControl.addInventoryItem(player, testItem1);
+        InventoryControl.addInventoryItem(player, testItem2);
+        InventoryControl.dropInventoryItem(player, "testItem2");
+        assertEquals(1, player.getInventory().getAmountItems(), 0.0);
     }
     
 }

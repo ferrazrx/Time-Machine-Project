@@ -31,26 +31,8 @@ public class StartProgramView {
         }while(newPlayer == null);
         return newPlayer;
     }
-    
-    public String playerOptions(){
-        System.out.println("Choose a action:"
-                + "\n\t S - Save Game"
-                + "\n\t M - Move to another location on the map"
-                + "\n\t L - See current Location"
-                + "\n\t I - See inventory items"
-                + "\n\t T - Time Machine Options"
-                + "\n\t E - Main Menu");
-        String option = GetInput.getString();
-        return option;
-    } 
-    public String TimeMachineOptions(){
-        System.out.println("Choose a Time Machine option:"
-                + "\n\t F - Try to fix the Time Machine"
-                + "\n\t I - Try to combine items with the Time Machine"
-                + "\n\t R - Try to turn the Time Machine on"
-                + "\n\t B - Back to Game Manu ");
-        String option = GetInput.getString();
-        return option;
-    }
 }
+    
+
+
 

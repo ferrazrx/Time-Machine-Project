@@ -5,6 +5,7 @@
  */
 package Time_Machine.Control;
 
+import Time_Machine.Model.Map;
 import Time_Machine.Model.Player;
 
 /**
@@ -13,7 +14,4 @@ import Time_Machine.Model.Player;
  */
 public class MainMenuControl {
 
-    public static void startNewGame(Player player) {
-       
-    }
 }

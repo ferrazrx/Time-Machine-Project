@@ -7,6 +7,7 @@ package Time_Machine.View;
 
 import Time_Machine.Control.GetInput;
 import Time_Machine.Control.InventoryControl;
+import Time_Machine.Control.Main;
 import Time_Machine.Model.Inventory;
 
 /**
@@ -14,10 +15,8 @@ import Time_Machine.Model.Inventory;
  */
 public class InventoryView {
    private String inventoryMenu;
-   private Inventory playerInventory;
    
-   public InventoryView(Inventory playerInventory){
-       this.playerInventory = playerInventory;
+   public InventoryView(){
        this.inventoryMenu =
             "\n-------------------------------------------"+
             "\n|              Invetory Menu                  |"+    
@@ -27,7 +26,6 @@ public class InventoryView {
             "U - Use Item\n" +
             "B - Back to Game Menu\n" + 
             "-------------------------------------------\n";
- ;
    }
    public String getInventoryOption(){
         System.out.println("Enter a option:");
@@ -54,7 +52,7 @@ public class InventoryView {
     
     }
     public void displayInventoryView(){
-        InventoryControl.getInventoryItems(this.playerInventory);
+        InventoryControl.getInventoryItems(Main.getPlayer());
         System.out.println(this.inventoryMenu);
         boolean done = false;
         do{

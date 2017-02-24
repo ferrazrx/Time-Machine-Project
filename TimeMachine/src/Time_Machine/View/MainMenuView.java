@@ -73,24 +73,21 @@ public class MainMenuView {
         } while(!done);
     }
 
-    private void startNewGame() {
-        // Create a new game
-        MainMenuControl.startNewGame(Main.getPlayer());
+    private void startNewGame(){
         // Display the story introduction
         GameDetailView.displayIntroduction(Main.getPlayer());
         // Display the Game Menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayGameMenuView();
         System.out.println(this.menu);
-       
     }
 
     private void startExistingGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("In contruction");  
     }
 
     private void saveGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("In construction.");
     }
 
     private void displayHelpMenu() {

@@ -7,7 +7,7 @@ package Time_Machine.Model;
 
 /**
  *
- * @author rxfer_000
+ * @author Group 7
  */
 public class Game {
     

@@ -6,6 +6,7 @@
 
 package Time_Machine.Model;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 
@@ -16,12 +17,12 @@ import java.util.Objects;
 public class Scene implements Serializable{
   // Class instance variables
         private String sceneName;
-	private String sceneListOfPersonages;
+	private ArrayList Personages;
 	private String sceneDescription;
-	private String sceneItemsAvailable;
+	private ArrayList ItemsAvailable;
 
-	public Scene() {
-	}
+    public Scene() {
+    }
 
     public String getSceneName() {
         return sceneName;
@@ -31,12 +32,12 @@ public class Scene implements Serializable{
         this.sceneName = sceneName;
     }
 
-    public String getSceneListOfPersonages() {
-        return sceneListOfPersonages;
+    public ArrayList getPersonages() {
+        return Personages;
     }
 
-    public void setSceneListOfPersonages(String sceneListOfPersonages) {
-        this.sceneListOfPersonages = sceneListOfPersonages;
+    public void setPersonage(Personage personage) {
+        this.Personages.add(personage);
     }
 
     public String getSceneDescription() {
@@ -47,28 +48,32 @@ public class Scene implements Serializable{
         this.sceneDescription = sceneDescription;
     }
 
-    public String getSceneItemsAvailable() {
-        return sceneItemsAvailable;
+    public ArrayList getItemsAvailable() {
+        return ItemsAvailable;
     }
 
-    public void setSceneItemsAvailable(String sceneItemsAvailable) {
-        this.sceneItemsAvailable = sceneItemsAvailable;
+    public void setItemsAvailable(Item ItemsAvailable) {
+        this.ItemsAvailable.add(ItemsAvailable);
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.sceneListOfPersonages);
-        hash = 37 * hash + Objects.hashCode(this.sceneDescription);
-        hash = 37 * hash + Objects.hashCode(this.sceneItemsAvailable);
+        hash = 79 * hash + Objects.hashCode(this.sceneName);
+        hash = 79 * hash + Objects.hashCode(this.Personages);
+        hash = 79 * hash + Objects.hashCode(this.sceneDescription);
+        hash = 79 * hash + Objects.hashCode(this.ItemsAvailable);
         return hash;
     }
 
     @Override
+    public String toString() {
+        return "Scene{" + "sceneName=" + sceneName + ", Personages=" + Personages + ", sceneDescription=" + sceneDescription + ", ItemsAvailable=" + ItemsAvailable + '}';
+    }
+    
+
+    @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
         if (obj == null) {
             return false;
         }
@@ -76,22 +81,19 @@ public class Scene implements Serializable{
             return false;
         }
         final Scene other = (Scene) obj;
-        if (!Objects.equals(this.sceneListOfPersonages, other.sceneListOfPersonages)) {
+        if (!Objects.equals(this.sceneName, other.sceneName)) {
+            return false;
+        }
+        if (!Objects.equals(this.Personages, other.Personages)) {
             return false;
         }
         if (!Objects.equals(this.sceneDescription, other.sceneDescription)) {
             return false;
         }
-        if (!Objects.equals(this.sceneItemsAvailable, other.sceneItemsAvailable)) {
+        if (!Objects.equals(this.ItemsAvailable, other.ItemsAvailable)) {
             return false;
         }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "Scene{" + "sceneListOfPersonages=" + sceneListOfPersonages + ", sceneDescription=" + sceneDescription + ", sceneItemsAvailable=" + sceneItemsAvailable + '}';
-    }
-        
-        
+    
 }

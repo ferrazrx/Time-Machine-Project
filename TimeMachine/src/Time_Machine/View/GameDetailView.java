@@ -167,7 +167,7 @@ public class GameDetailView {
 "         ground plane ");
     }    
     
-    public void explosionDetail(){
+    public static void explosionDetail(){
         System.out.println("                            ________________\n" +
 "                          ____/ (  (    )   )  \\___\n" +
 "                         /( (  (  )   _    ))  )   )\\\n" +
@@ -192,5 +192,12 @@ public class GameDetailView {
 "                          (     //|/l|||)|\\\\ \\     )\n" +
 "                        (/ / //  /|//||||\\\\  \\ \\  \\ _)\n" +
 "-------------------------------------------------------------------------------");
+    }
+    public static void endView(){
+        System.out.println(
+" ___                      _          _                       \n" +
+"  | |_   _. ._  |   _   _|_ _  ._   |_) |  _.    o ._   _  | \n" +
+"  | | | (_| | | |< _>    | (_) |    |   | (_| \\/ | | | (_| o \n" +
+"                                              /         _|   ");
     }
 }

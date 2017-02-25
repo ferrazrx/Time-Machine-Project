@@ -67,6 +67,7 @@ public class MainMenuView {
         do{
             String menuOption = this.getMainMenuOption();
             if (menuOption.toUpperCase().equals("E")){
+                GameDetailView.endView();
                 return;
             }else{
             done = this.MainMenuAction(menuOption);

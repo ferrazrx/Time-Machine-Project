@@ -48,6 +48,10 @@ public class Map implements Serializable{
         fatherHouse.setLocationVisited(false);
         bakery.setLocationVisited(false);
         
+        //Start Scenes
+        Scene stable = new Scene();
+        
+        
         //add locations to the array
         this.setLocation(barn);
         this.setLocation(cityHall);

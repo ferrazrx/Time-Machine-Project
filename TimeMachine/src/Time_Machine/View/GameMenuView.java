@@ -21,10 +21,10 @@ class GameMenuView {
             "\n-------------------------------------------"+
             "\n|              Game Menu                  |"+    
             "\n-------------------------------------------\n"+    
-            "V - View map of Bozeman\n" +
-            "I - View inventory items\n" +
+            "V - View Map of Bozeman\n" +
+            "I - View Inventory Ttems\n" +
             "A - View list of People in Town\n" +
-            "S - View/Fix the time machine status\n" +
+            "S - View the Time Machine status\n" +
             "P - Back to Barn\n" +
             "X - Try to turn on the Time Machine\n" +
             "L - Look around for clues, stuff and food\n" +
@@ -63,6 +63,7 @@ class GameMenuView {
             case "A":
                 break;
             case "S":
+                this.seeTimeMachineStatus();
                 break;
             case "P":
                 break;    
@@ -96,6 +97,12 @@ class GameMenuView {
         InventoryView inventoryView = new InventoryView();
         inventoryView.displayInventoryView();
         System.out.println(this.menu);     
+    }
+
+    private void seeTimeMachineStatus() {
+        TimeMachineView timeMachineView = new TimeMachineView();
+        timeMachineView.displayTimeMachineView();
+        System.out.println(this.menu);  
     }
     
 }

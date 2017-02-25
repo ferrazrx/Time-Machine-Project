@@ -6,20 +6,81 @@
 package Time_Machine.View;
 
 import Time_Machine.Control.GetInput;
+import Time_Machine.Control.InventoryControl;
+import Time_Machine.Control.Main;
+import Time_Machine.Control.TimeMachineControl;
 
 /**
  *
- * @author RAFAEL.FERRAZ
+ * @author Group 7
  */
 public class TimeMachineView {
-        public String TimeMachineOptions(){
-        System.out.println("Choose a Time Machine option:"
-                + "\n\t F - Try to fix the Time Machine"
-                + "\n\t I - Try to combine items with the Time Machine"
-                + "\n\t R - Try to turn the Time Machine on"
-                + "\n\t B - Back to Game Manu ");
+    
+    private String menu;
+    
+    public TimeMachineView(){
+    this.menu = 
+            "\n-------------------------------------------"+
+            "\n|              Time Machine Menu          |"+    
+            "\n-------------------------------------------\n"+    
+            "F - Try to fix the Time Machine\n"
+          + "I - Try to combine items with the Time Machine\n"
+          + "R - Try to turn the Time Machine on\n"
+          + "B - Back to Game Manu\n"
+          + "-------------------------------------------\n";
+    }
+    public String getTimeMachineOption(){
         String option = GetInput.getString();
         return option;
     }
+    public void displayTimeMachineView(){
+        System.out.println(this.menu);
+        boolean done = false;
+        do{
+            System.out.println("Enter a option:");
+            String menuOption = this.getTimeMachineOption();
+            if(menuOption.toUpperCase().equals("B")){
+                return;
+            }else{
+                done= this.gameTimeMachineAction(menuOption);
+            }
+        }while(!done);
+    }
+
+    private boolean gameTimeMachineAction(String menuOption) {
+        menuOption = menuOption.toUpperCase();
+        switch (menuOption){
+            case "F":
+                this.fixTimeMachine();
+                break;
+            case "I":
+                this.combineItem();
+                break;
+            case "R":turnOn();
+                break;
+            default:
+                System.out.println("*** Invalid selection *** Try Again!");
+                break;
+        }
+        return false;
+    }
+
+    private void fixTimeMachine() {
+        TimeMachineControl.returnTimeMachineItems(Main.getPlayer());
+        TimeMachineControl.tryToFixTimeMachine(Main.getPlayer());
+    }
+
+    private void combineItem() {
+        InventoryControl.listInventoryItems(Main.getPlayer());
+        System.out.println("Enter the item's name you want to combine with the time machine:");
+        String item = this.getTimeMachineOption();
+        TimeMachineControl.addPart(Main.getPlayer(), item);
+    }
+
+    private void turnOn() {
+       TimeMachineControl.tryToFixTimeMachine(Main.getPlayer());
+    }
+
+
 }
 

@@ -50,7 +50,19 @@ public class Map implements Serializable{
         
         //Start Scenes
         Scene stable = new Scene();
+        Scene majorOffice = new Scene();
+        Scene fireStation = new Scene();
+        Scene policeOffice = new Scene();
+        Scene liveroom = new Scene();
+        Scene kitchen = new Scene();
         
+        //Set Scenes to Locations
+        barn.setScene(stable);
+        cityHall.setScene(majorOffice);
+        cityHall.setScene(fireStation);
+        policeDepartment.setScene(policeOffice);
+        fatherHouse.setScene(liveroom);
+        bakery.setScene(kitchen);
         
         //add locations to the array
         this.setLocation(barn);

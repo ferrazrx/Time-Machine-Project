@@ -42,9 +42,8 @@ public class InventoryControl {
     public static void dropInventoryItem(Player player,String removeItem){
         // Drop items from inventory
         boolean found = false;
-        String name = removeItem.substring(0, 1).toUpperCase() + removeItem.substring(1);
         for (int i=0;i<player.getInventory().getAmountItems();i++){
-            if(name.equals(player.getInventory().getItemName(i))){
+            if(player.getInventory().getItemName(i).toUpperCase().contains(removeItem.toUpperCase())){
                found = true; 
                player.getInventory().removeItem(i);
                System.out.println("*** Item deleted! ***\n");

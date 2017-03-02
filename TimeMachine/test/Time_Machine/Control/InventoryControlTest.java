@@ -5,7 +5,6 @@
  */
 package Time_Machine.Control;
 
-import Time_Machine.Model.Inventory;
 import Time_Machine.Model.Item;
 import Time_Machine.Model.Player;
 import org.junit.Test;
@@ -38,13 +37,14 @@ public class InventoryControlTest {
     @Test
     public void testDropInventoryItem() {
         System.out.println("dropInventoryItem");
-       Player player = new Player();
+        Player player = new Player();
         Item testItem1 = new Item();
         Item testItem2 = new Item();
-        testItem2.setName("testItem2");
-        InventoryControl.addInventoryItem(player, testItem1);
-        InventoryControl.addInventoryItem(player, testItem2);
-        InventoryControl.dropInventoryItem(player, "testItem2");
+        String name = "test";
+        testItem2.setName(name);
+        player.getInventory().setItem(testItem1);
+        player.getInventory().setItem(testItem2);
+        InventoryControl.dropInventoryItem(player,name);
         assertEquals(1, player.getInventory().getAmountItems(), 0.0);
     }
     

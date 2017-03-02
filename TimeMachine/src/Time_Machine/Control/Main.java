@@ -32,8 +32,6 @@ public class Main {
         // Display the Main Menu and get value
         mainMenuView.displayMainMenuView();
         
-         
-        
     }
 
     public static Game getCurrentGame() {

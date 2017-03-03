@@ -55,6 +55,7 @@ public class Scene implements Serializable{
     public void setItemsAvailable(Item ItemsAvailable) {
         this.ItemsAvailable.add(ItemsAvailable);
     }
+  
 
     @Override
     public int hashCode() {

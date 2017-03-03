@@ -6,6 +6,7 @@
 
 package Time_Machine.Model;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -16,7 +17,7 @@ public class Location implements Serializable{
 
 // Class instance variables
         private String locationName;
-	private Scene scene;
+	private ArrayList scene;
 	private Boolean locationVisited;
 	private String locationDescription;    
 
@@ -31,12 +32,12 @@ public class Location implements Serializable{
         this.locationName = locationName;
     }
 
-    public Scene getScene() {
+    public ArrayList getScene() {
         return scene;
     }
 
     public void setScene(Scene scene) {
-        this.scene = scene;
+        this.scene.add(scene);
     }
 
     public Boolean getLocationVisited() {
@@ -55,43 +56,7 @@ public class Location implements Serializable{
         this.locationDescription = locationDescription;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.scene);
-        hash = 59 * hash + Objects.hashCode(this.locationVisited);
-        hash = 59 * hash + Objects.hashCode(this.locationDescription);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Location other = (Location) obj;
-        if (!Objects.equals(this.locationDescription, other.locationDescription)) {
-            return false;
-        }
-        if (!Objects.equals(this.scene, other.scene)) {
-            return false;
-        }
-        if (!Objects.equals(this.locationVisited, other.locationVisited)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Location{" + "scene=" + scene + ", locationVisited=" + locationVisited + ", locationDescription=" + locationDescription + '}';
-    }
+    
         
 	
 }

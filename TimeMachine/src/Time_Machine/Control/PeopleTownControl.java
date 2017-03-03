@@ -5,14 +5,41 @@
  */
 package Time_Machine.Control;
 
+import Time_Machine.Model.Location;
 import Time_Machine.Model.Message;
 import Time_Machine.Model.Personage;
+import Time_Machine.Model.Scene;
+import java.util.ArrayList;
 
 /**
  *
  * @author Group 7
  */
 public class PeopleTownControl {
+    public void printPersonageMessage(String name){
+        
+        for(int i=0;i<this.getPersonageMessages(name).size();i++){
+            Message message = (Message) this.getPersonageMessages(name).get(i);
+            
+        }
+    }
+    
+    public ArrayList getPersonageMessages(String name){
+        for(int i=0;i<Main.getPlayer().getMap().getLocations().size();i++){
+            Location location = (Location) Main.getPlayer().getMap().getLocations().get(i);
+            for(int a=0;a<location.getScene().size();i++){
+                Scene scene = (Scene) location.getScene().get(a);
+                for(int c=0;c<scene.getPersonages().size();c++){
+                    Personage personage = (Personage) scene.getPersonages().get(c);
+                    if(personage.getName().toUpperCase().equals(name.toUpperCase())){
+                        return personage.getMessage();
+                    }
+                }
+            }    
+        }
+    return null;    
+    }
+    
     public static void setInitialPeople (){
         // Instantiate personages
         Personage father = new Personage();
@@ -27,7 +54,7 @@ public class PeopleTownControl {
         
         //father attributes
         father.setName("James");
-        
+        SceneControl.setPersonageInScene(Main.getPlayer(), father, "liveroom");
         //Message 1
         Message message1 = new Message();
         message1.setMessage("\"Dad! I'm your son from the future! I've traveled in a strange time machine! Can you help me?\"");

@@ -62,7 +62,10 @@ public class Map implements Serializable{
         stable.setSceneName("STABLE");
         majorOffice.setSceneName("MAJOR OFFICE");
         fireOffice.setSceneName("FIRE OFFICE");
-        
+        policeOffice.setSceneName("POLICE OFFICE");
+        liveroom.setSceneName("LIVEROOM");
+        kitchen.setSceneName("KITCHEN");
+        doctorOffice.setSceneName("DOCTOR'S OFFICE");
         //Set Scenes to Locations
         barn.setScene(stable);
         cityHall.setScene(majorOffice);

@@ -13,26 +13,25 @@ import Time_Machine.Model.Inventory;
 /**
  * @author Group 7
  */
-public class InventoryView {
-   private String inventoryMenu;
+public class InventoryView extends View {
    
    public InventoryView(){
-       this.inventoryMenu =
-            "\n-------------------------------------------"+
-            "\n|              Invetory Menu                  |"+    
-            "\n-------------------------------------------\n"+    
-            "D - Drop Item\n" +
-            "U - Use Item\n" +
-            "B - Back to Game Menu\n" + 
-            "-------------------------------------------\n";
+       super(   "\n-------------------------------------------"+
+                "\n|              Invetory Menu                  |"+    
+                "\n-------------------------------------------\n"+    
+                "S - See inventory items\n" +
+                "D - Drop Item\n" +
+                "U - Use Item\n" +
+                "B - Back to Game Menu\n" + 
+                "-------------------------------------------\n");
    }
-   public String getInventoryOption(){
-        String option = GetInput.getString();
-        return option;
-    }
-    public boolean helpMenuAction(String option){
+
+    public boolean action(String option){
         option = option.toUpperCase();
         switch (option){
+            case "S":
+                this.seeInventoryItems();
+                break;
             case "D":
                 this.dropItem();
                 break;
@@ -46,32 +45,21 @@ public class InventoryView {
         return false;
     
     }
-    public void displayInventoryView(){
-        InventoryControl.listInventoryItems(Main.getPlayer());
-        System.out.println(this.inventoryMenu);
-        boolean done = false;
-        do{
-            System.out.println("Enter a option:");
-            String menuOption = this.getInventoryOption();
-            if (menuOption.toUpperCase().equals("B")){
-                return;
-            }else{
-            done = this.helpMenuAction(menuOption);
-            }    
-        } while(!done);
-    }
-
-
-
+ 
     private void dropItem(){
         System.out.println("Enter the item's name to drop:");
-        String itemOption = this.getInventoryOption();
+        String itemOption = this.getInputValue();
         InventoryControl.dropInventoryItem(Main.getPlayer(), itemOption);
-       
+         System.out.println("Enter a option:");
     }
 
     private void useItem() {
         System.out.println("In constrution! It will be available soon!");
    }
+
+    private void seeInventoryItems() {
+        InventoryControl.listInventoryItems(Main.getPlayer());
+        System.out.println("Enter a option:");
+    }
     
 }

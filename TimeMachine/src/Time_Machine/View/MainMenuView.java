@@ -15,15 +15,14 @@ import Time_Machine.Model.Player;
  *
  * @author Group 7
  */
-public class MainMenuView {
-    private String menu;
+public class MainMenuView extends View {
+   
     
     // Function that display the Main Menu
-    public MainMenuView(Player player){    
-        String name = player.getName();
-        String capitalizedName = name.substring(0, 1).toUpperCase()+ name.substring(1);
-        this.menu =
-            "\tWelcome "+capitalizedName+"!"+
+    public MainMenuView(){    
+        
+        super(
+            "\tWelcome "+Main.getPlayer().getName()+"!"+
             "\n-------------------------------------------"+
             "\n|              Main Menu                  |"+    
             "\n-------------------------------------------\n"+    
@@ -32,14 +31,9 @@ public class MainMenuView {
             "S - Save Current cGame\n" +
             "H - Get Help on How to Play the Game\n" +
             "E - Exit\n\n" + 
-            "---------------------------------------------\n";
+            "---------------------------------------------\n");
     }
-    public String getMainMenuOption(){
-        System.out.println("Enter a option:");
-        String option = GetInput.getString();
-        return option;
-    }
-    public boolean MainMenuAction(String option){
+    public boolean action(String option){
         option = option.toUpperCase();
         switch (option){
             case "N"://create and start a new game
@@ -61,19 +55,7 @@ public class MainMenuView {
         return false;
     
     }
-    public void displayMainMenuView(){
-        System.out.println(this.menu);
-        boolean done = false;
-        do{
-            String menuOption = this.getMainMenuOption();
-            if (menuOption.toUpperCase().equals("E")){
-                GameDetailView.endView();
-                return;
-            }else{
-            done = this.MainMenuAction(menuOption);
-            }    
-        } while(!done);
-    }
+
 
     private void startNewGame(){
         // Start the inventory Items
@@ -82,7 +64,7 @@ public class MainMenuView {
         GameDetailView.displayIntroduction(Main.getPlayer());
         // Display the Game Menu
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayGameMenuView();
+        gameMenu.displayMenu();
         System.out.println(this.menu);
     }
 
@@ -96,7 +78,7 @@ public class MainMenuView {
 
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenuView();
+        helpMenu.displayMenu();
         System.out.println(this.menu);
     }    
 }

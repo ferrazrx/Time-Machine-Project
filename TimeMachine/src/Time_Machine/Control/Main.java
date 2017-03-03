@@ -28,9 +28,9 @@ public class Main {
         //Store the player in the current Player variable
         Main.setPlayer(mainPlayer);
         //Create a Main Menu
-        MainMenuView mainMenuView = new MainMenuView(mainPlayer);
+        MainMenuView mainMenuView = new MainMenuView();
         // Display the Main Menu and get value
-        mainMenuView.displayMainMenuView();
+        mainMenuView.displayMenu();
         
     }
 

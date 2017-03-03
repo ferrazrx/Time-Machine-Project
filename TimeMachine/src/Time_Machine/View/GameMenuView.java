@@ -13,12 +13,10 @@ import Time_Machine.Control.MapControl;
  *
  * Group 7
  */
-class GameMenuView {
-    private String menu;
+class GameMenuView extends View {
     
     public GameMenuView(){
-    this.menu = 
-            "\n-------------------------------------------"+
+    super(  "\n-------------------------------------------"+
             "\n|              Game Menu                  |"+    
             "\n-------------------------------------------\n"+    
             "V - View Map of Bozeman\n" +
@@ -31,27 +29,10 @@ class GameMenuView {
             "E - Talk with John\n" +
             "T - Use tools available\n" +
             "B - Back to Main Menu\n" + 
-            "-------------------------------------------\n";
+            "-------------------------------------------\n");
     }
-    public String getGameMenuOption(){
-        System.out.println("Enter a option:");
-        String option = GetInput.getString();
-        return option;
-    }
-    public void displayGameMenuView(){
-        System.out.println(this.menu);
-        boolean done = false;
-        do{
-            String menuOption = this.getGameMenuOption();
-            if(menuOption.toUpperCase().equals("B")){
-                return;
-            }else{
-                done= this.gameMenuAction(menuOption);
-            }
-        }while(!done);
-    }
-
-    private boolean gameMenuAction(String menuOption) {
+    
+    public boolean action(String menuOption) {
         menuOption = menuOption.toUpperCase();
         switch (menuOption){
             case "V":
@@ -89,19 +70,19 @@ class GameMenuView {
     private void viewBozemanMap() {
         GameDetailView.displayBozemanMap();
         MapView mapView = new MapView();
-        mapView.displayMapView();
+        mapView.displayMenu();
         System.out.println(this.menu);
     }
 
     private void seeInventoryItems() {
         InventoryView inventoryView = new InventoryView();
-        inventoryView.displayInventoryView();
+        inventoryView.displayMenu();
         System.out.println(this.menu);     
     }
 
     private void seeTimeMachineStatus() {
         TimeMachineView timeMachineView = new TimeMachineView();
-        timeMachineView.displayTimeMachineView();
+        timeMachineView.displayMenu();
         System.out.println(this.menu);  
     }
     

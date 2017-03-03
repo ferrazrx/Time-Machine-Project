@@ -14,24 +14,22 @@ import Time_Machine.Control.MapControl;
  *
  * @author Group 7
  */
-public class MapView {
-   private String mapMenu;
+public class MapView extends View {
+   
    
    public MapView(){
-       this.mapMenu =
+       super(
             "\n-------------------------------------------"+
             "\n|              Map Menu                  |"+    
             "\n-------------------------------------------\n"+    
             "C - Current Location\n"
           + "M - Move to Another Location\n" +
             "B - Back to Game Menu\n" + 
-            "-------------------------------------------\n";
+            "-------------------------------------------\n");
    }
-   public String getMapOption(){
-        String option = GetInput.getString();
-        return option;
-    }
-    public boolean mapAction(String option){
+   
+   @Override
+    public boolean action(String option){
         option = option.toUpperCase();
         switch (option){
             case "C":
@@ -47,20 +45,7 @@ public class MapView {
         return false;
     
     }
-    public void displayMapView(){
-        System.out.println(this.mapMenu);
-        boolean done = false;
-        do{
-            System.out.println("Enter a option:");
-            String menuOption = this.getMapOption();
-            if (menuOption.toUpperCase().equals("B")){
-                return;
-            }else{
-            done = this.mapAction(menuOption);
-            }    
-        } while(!done);
-    }
-
+    
     private void currentLocation() {
         MapControl.playerPlaceInMap(Main.getPlayer());
         MapControl.listLocations(Main.getPlayer());
@@ -68,8 +53,8 @@ public class MapView {
 
     private void movePlayerToAnotherLocation() {
         System.out.println("Enter a place(it can be part of the name) to move:");
-        String placeOption = this.getMapOption();
+        String placeOption = this.getInputValue();
         MapControl.movePlayerLocation(Main.getPlayer(), placeOption);
-        System.out.println(this.mapMenu);
+        System.out.println(this.getMenu());
     }
 }

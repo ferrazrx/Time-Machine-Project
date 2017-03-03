@@ -14,29 +14,25 @@ import Time_Machine.Model.Player;
  *
  * Group 7
  */
-public class HelpMenuView {
-     private String helpMenu; 
+public class HelpMenuView extends View {
+     
     
      public HelpMenuView(){    
-        this.helpMenu=
-            "\n-------------------------------------------"+
-            "\n|              Help Menu                  |"+    
-            "\n-------------------------------------------\n"+    
-            "G - What is the goal of the game?\n" +
-            "T - How to talk with people?\n" +
-            "I - How to collect items n the inventory\n" +
-            "M - How to move to different places?\n" +
-            "E - How to use items\n" + 
-            "C - Clues to play the game\n" +
-            "B - Back to Main Menu\n" + 
-            "-------------------------------------------\n";
+        super(  "\n-------------------------------------------"+
+                "\n|              Help Menu                  |"+    
+                "\n-------------------------------------------\n"+    
+                "G - What is the goal of the game?\n" +
+                "T - How to talk with people?\n" +
+                "I - How to collect items n the inventory\n" +
+                "M - How to move to different places?\n" +
+                "E - How to use items\n" + 
+                "C - Clues to play the game\n" +
+                "B - Back to Main Menu\n" + 
+                "-------------------------------------------\n");
     }
-    public String getHelpMenuOption(){
-        System.out.println("Enter a option:");
-        String option = GetInput.getString();
-        return option;
-    }
-    public boolean helpMenuAction(String option){
+
+     @Override
+    public boolean action(String option){
         option = option.toUpperCase();
         switch (option){
             case "G"://create and start a new game
@@ -64,19 +60,6 @@ public class HelpMenuView {
         return false;
     
     }
-    public void displayHelpMenuView(){
-        System.out.println(this.helpMenu);
-        boolean done = false;
-        do{
-            String menuOption = this.getHelpMenuOption();
-            if (menuOption.toUpperCase().equals("B")){
-                return;
-            }else{
-            done = this.helpMenuAction(menuOption);
-            }    
-        } while(!done);
-    }
-
     private void cluesView() {
         System.out.println("This is a test");
       }

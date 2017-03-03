@@ -14,12 +14,10 @@ import Time_Machine.Control.TimeMachineControl;
  *
  * @author Group 7
  */
-public class TimeMachineView {
-    
-    private String menu;
+public class TimeMachineView extends View {
     
     public TimeMachineView(){
-    this.menu = 
+    super( 
             "\n-------------------------------------------"+
             "\n|              Time Machine Menu          |"+    
             "\n-------------------------------------------\n"+    
@@ -27,27 +25,11 @@ public class TimeMachineView {
           + "I - Try to combine items with the Time Machine\n"
           + "R - Try to turn the Time Machine on\n"
           + "B - Back to Game Manu\n"
-          + "-------------------------------------------\n";
+          + "-------------------------------------------\n");
     }
-    public String getTimeMachineOption(){
-        String option = GetInput.getString();
-        return option;
-    }
-    public void displayTimeMachineView(){
-        System.out.println(this.menu);
-        boolean done = false;
-        do{
-            System.out.println("Enter a option:");
-            String menuOption = this.getTimeMachineOption();
-            if(menuOption.toUpperCase().equals("B")){
-                return;
-            }else{
-                done= this.gameTimeMachineAction(menuOption);
-            }
-        }while(!done);
-    }
-
-    private boolean gameTimeMachineAction(String menuOption) {
+    
+    @Override
+    public boolean action (String menuOption) {
         menuOption = menuOption.toUpperCase();
         switch (menuOption){
             case "F":
@@ -73,7 +55,7 @@ public class TimeMachineView {
     private void combineItem() {
         InventoryControl.listInventoryItems(Main.getPlayer());
         System.out.println("Enter the item's name you want to combine with the time machine:");
-        String item = this.getTimeMachineOption();
+        String item = this.getInputValue();
         TimeMachineControl.addPart(Main.getPlayer(), item);
     }
 

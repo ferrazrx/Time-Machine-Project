@@ -19,12 +19,11 @@ class GameMenuView extends View {
     super(  "\n-------------------------------------------"+
             "\n|              Game Menu                  |"+    
             "\n-------------------------------------------\n"+    
-            "V - View Map of Bozeman\n" +
-            "I - View Inventory Ttems\n" +
-            "A - View list of People in Town\n" +
-            "S - View the Time Machine status\n" +
+            "V - Map of Bozeman\n" +
+            "I - Inventory Items\n" +
+            "A - People in Town\n" +
+            "S - Time Machine Options\n" +
             "P - Back to Barn\n" +
-            "X - Try to turn on the Time Machine\n" +
             "L - Look around for clues, stuff and food\n" +
             "E - Talk with John\n" +
             "T - Use tools available\n" +
@@ -42,13 +41,12 @@ class GameMenuView extends View {
                 this.seeInventoryItems();
                 break;
             case "A":
+                this.peopleInTown();
                 break;
             case "S":
                 this.seeTimeMachineStatus();
                 break;
-            case "P":
-                break;    
-            case "X":
+            case "P": MapControl.movePlayerLocation(Main.getPlayer(), "BARN");
                 break;
             case "M":
                 break;    
@@ -84,6 +82,12 @@ class GameMenuView extends View {
         TimeMachineView timeMachineView = new TimeMachineView();
         timeMachineView.displayMenu();
         System.out.println(this.menu);  
+    }
+
+    private void peopleInTown() {
+        PeopleTownView  peopleTownView = new PeopleTownView();
+        peopleTownView.displayMenu();
+        System.out.println(this.menu);
     }
     
 }

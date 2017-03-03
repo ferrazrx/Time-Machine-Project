@@ -27,6 +27,7 @@ public class Map implements Serializable{
         Location policeDepartment = new Location();
         Location fatherHouse = new Location();
         Location bakery = new Location();
+        Location fireStation = new Location();
         
         //Set Locations Name
         barn.setLocationName("BARN");
@@ -34,36 +35,43 @@ public class Map implements Serializable{
         policeDepartment.setLocationName("POLICE DEPARTMENT");
         fatherHouse.setLocationName("YOUR FATHER'S HOUSE");
         bakery.setLocationName("BAKERY");
+        fireStation.setLocationName("FIRE STATION");
         // Set Locations Description
         barn.setLocationDescription("Old build full of livestock");
         cityHall.setLocationDescription("The administration building of the municipal government.");
         policeDepartment.setLocationDescription("A police force is a constituted body of persons\n empowered by the state to enforce the law, protect\n property, and limit civil disorder.");
         fatherHouse.setLocationDescription("Where your father lives! Remember he is a kid now!");
-        bakery.setLocationDescription("Establishment that produces and sells flour-based food baked in an oven such as bread, cookies, cakes");
-        
+        bakery.setLocationDescription("Establishment that produces and sells flour-based food baked in an oven such as bread, cookies, cakes.");
+        fireStation.setLocationDescription("Area set aside for storage of firefighting apparatus\n such as fire engines and related vehicles,\n personal protective equipment.");
         //Set Locations Visit status
         barn.setLocationVisited(false);
         cityHall.setLocationVisited(false);
         policeDepartment.setLocationVisited(false);
         fatherHouse.setLocationVisited(false);
         bakery.setLocationVisited(false);
-        
+        fireStation.setLocationVisited(false);
         //Start Scenes
         Scene stable = new Scene();
         Scene majorOffice = new Scene();
-        Scene fireStation = new Scene();
+        Scene fireOffice = new Scene();
         Scene policeOffice = new Scene();
         Scene liveroom = new Scene();
         Scene kitchen = new Scene();
+        Scene doctorOffice = new Scene();
+        //Set Scenes Name
+        stable.setSceneName("STABLE");
+        majorOffice.setSceneName("MAJOR OFFICE");
+        fireOffice.setSceneName("FIRE OFFICE");
         
         //Set Scenes to Locations
         barn.setScene(stable);
         cityHall.setScene(majorOffice);
-        cityHall.setScene(fireStation);
+        fireStation.setScene(fireOffice);
         policeDepartment.setScene(policeOffice);
         fatherHouse.setScene(liveroom);
         bakery.setScene(kitchen);
-        
+        cityHall.setScene(doctorOffice);
+                
         //add locations to the array
         this.setLocation(barn);
         this.setLocation(cityHall);

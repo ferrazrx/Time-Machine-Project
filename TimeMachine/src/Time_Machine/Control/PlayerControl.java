@@ -9,7 +9,7 @@ import Time_Machine.Model.Player;
 
 /**
  *
- * @author ? 
+ * @author Group 7
  */
 public class PlayerControl {
     public static Player startNewPlayer(String playerName){

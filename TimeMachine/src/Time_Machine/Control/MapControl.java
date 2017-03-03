@@ -44,17 +44,19 @@ public class MapControl {
      }    
     
     public static void movePlayerLocation(Player player, String place) {
-        place = place.toUpperCase();
-        if(player.getMap().getLocationByString(place)== null){
-            System.out.println("*** Location not found! Try again! ***");
-        } else {
-            Location location = player.getMap().getLocationByString(place);
-            player.setCurrentLocation(location);
-            System.out.println("*** Now you're at "+ player.getCurrentLocation().getLocationName()+" ***");
-            playerPlaceInMap(player);
-            player.getMap().getLocationByString(place).setLocationVisited(true);
-        }
-        
-        
-    }    
+        if(player.getCurrentLocation().getLocationName().toUpperCase().equals(place.toUpperCase())){
+            System.out.println("You're already at "+player.getCurrentLocation().getLocationName().substring(0,1).toUpperCase()+player.getCurrentLocation().getLocationName().substring(1).toLowerCase()+".");
+        }else{
+            place = place.toUpperCase();
+            if(player.getMap().getLocationByString(place)== null){
+                System.out.println("*** Location not found! Try again! ***");
+            } else {
+                Location location = player.getMap().getLocationByString(place);
+                player.setCurrentLocation(location);
+                System.out.println("*** Now you're at "+ player.getCurrentLocation().getLocationName()+" ***");
+                playerPlaceInMap(player);
+                player.getMap().getLocationByString(place).setLocationVisited(true);
+            }
+        }   
+    } 
 }

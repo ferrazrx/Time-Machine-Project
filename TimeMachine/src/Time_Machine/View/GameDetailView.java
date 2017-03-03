@@ -90,14 +90,14 @@ public class GameDetailView {
 "            ,'    o            Police Department    ;_,-',.__'--.\n" +
 "           :    CityHall                           ,--```    `--'\n" +
 "           :                                      ;\n" +
-"           :                                      :\n" +
-"           ;                                      :\n" +
+"           :               o                       :\n" +
+"           ;           Fire Station                :\n" +
 "          (                                       ;\n" +
 "           `-.                           *      ,'\n" +
 "             ;                         Barn    :\n" +
 "           .'                             .-._,'\n" +
-"         .'        o                       `.\n" +
-"      _.'       Your Father's House      .__;\n" +
+"         .'             o                 `.\n" +
+"      _.'       Your Parent's House      .__;\n" +
 "      `._                  o            ;\n" +
 "         `.             Bakery         :    ,------------------------.\n" +
 "           `.               ,..__,---._;    |      BOZEMAN CITY      |\n" +

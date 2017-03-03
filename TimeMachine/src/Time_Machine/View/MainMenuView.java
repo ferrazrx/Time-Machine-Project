@@ -5,11 +5,8 @@
  */
 package Time_Machine.View;
 
-import Time_Machine.Control.MainMenuControl;
-import Time_Machine.Control.GetInput;
 import Time_Machine.Control.InventoryControl;
 import Time_Machine.Control.Main;
-import Time_Machine.Model.Player;
 
 /**
  *
@@ -22,13 +19,13 @@ public class MainMenuView extends View {
     public MainMenuView(){    
         
         super(
-            "\tWelcome "+Main.getPlayer().getName()+"!"+
+            "\tWelcome "+Main.getPlayer().getName().substring(0,1).toUpperCase()+ Main.getPlayer().getName().substring(1).toLowerCase()+"!"+
             "\n-------------------------------------------"+
             "\n|              Main Menu                  |"+    
             "\n-------------------------------------------\n"+    
             "N - Start the a New Game\n" +
             "G - Saved Games\n" +
-            "S - Save Current cGame\n" +
+            "S - Save Current Game\n" +
             "H - Get Help on How to Play the Game\n" +
             "E - Exit\n\n" + 
             "---------------------------------------------\n");

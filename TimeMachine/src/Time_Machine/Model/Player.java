@@ -14,7 +14,6 @@ import java.util.Objects;
  * @author rxfer_000
  */
 public class Player extends Person implements Serializable {
-    private String name;
     private int statusBar;
     private Date currentTime;
     private Location currentLocation;
@@ -59,12 +58,6 @@ public class Player extends Person implements Serializable {
         this.timeMachine = timeMachine;
     }
     
-    public String getName(){
-        return name;
-    }
-    public void setName(String name){
-        this.name = name;
-    }
     public int getStatusBar() {
         return statusBar;
     }
@@ -100,7 +93,6 @@ public class Player extends Person implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.name);
         hash = 29 * hash + this.statusBar;
         hash = 29 * hash + Objects.hashCode(this.currentTime);
         hash = 29 * hash + Objects.hashCode(this.currentLocation);
@@ -117,9 +109,7 @@ public class Player extends Person implements Serializable {
             return false;
         }
         final Player other = (Player) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
+       
         if (this.statusBar != other.statusBar) {
             return false;
         }
@@ -137,8 +127,10 @@ public class Player extends Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", statusBar=" + statusBar + ", currentTime=" + currentTime + ", currentLocation=" + currentLocation + ", currentYear=" + currentYear + '}';
+        return "Player{" + "statusBar=" + statusBar + ", currentTime=" + currentTime + ", currentLocation=" + currentLocation + ", currentYear=" + currentYear + ", inventory=" + inventory + ", map=" + map + ", timeMachine=" + timeMachine + '}';
     }
+
+    
 
     
 }

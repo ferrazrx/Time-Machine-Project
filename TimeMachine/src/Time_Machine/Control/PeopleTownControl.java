@@ -8,6 +8,7 @@ package Time_Machine.Control;
 import Time_Machine.Model.Location;
 import Time_Machine.Model.Message;
 import Time_Machine.Model.Personage;
+import Time_Machine.Model.Player;
 import Time_Machine.Model.Scene;
 import java.util.ArrayList;
 
@@ -20,18 +21,22 @@ public class PeopleTownControl {
         
         for(int i=0;i<this.getPersonageMessages(name).size();i++){
             Message message = (Message) this.getPersonageMessages(name).get(i);
+            System.out.println("___________________________________________________________");
+            System.out.println("#"+i+" - "+message.getMessage());
             
         }
     }
     
+    
+    
     public ArrayList getPersonageMessages(String name){
         for(int i=0;i<Main.getPlayer().getMap().getLocations().size();i++){
             Location location = (Location) Main.getPlayer().getMap().getLocations().get(i);
-            for(int a=0;a<location.getScene().size();i++){
-                Scene scene = (Scene) location.getScene().get(a);
+            for(int a=0;a<location.getSceneLocation().size();i++){
+                Scene scene = (Scene) location.getSceneLocation().get(a);
                 for(int c=0;c<scene.getPersonages().size();c++){
                     Personage personage = (Personage) scene.getPersonages().get(c);
-                    if(personage.getName().toUpperCase().equals(name.toUpperCase())){
+                    if(personage.getName().toUpperCase().contains(name.toUpperCase())){
                         return personage.getMessage();
                     }
                 }

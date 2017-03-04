@@ -7,6 +7,7 @@ package Time_Machine.View;
 
 import Time_Machine.Control.InventoryControl;
 import Time_Machine.Control.Main;
+import Time_Machine.Control.PeopleTownControl;
 
 /**
  *
@@ -57,6 +58,8 @@ public class MainMenuView extends View {
     private void startNewGame(){
         // Start the inventory Items
         InventoryControl.setInitialItems(Main.getPlayer());
+        // Start the people in the city
+        PeopleTownControl.setInitialPeople();
         // Display the story introduction
         GameDetailView.displayIntroduction(Main.getPlayer());
         // Display the Game Menu

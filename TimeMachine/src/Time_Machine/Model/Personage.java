@@ -15,6 +15,10 @@ public class Personage extends Person {
     private ArrayList message;
     private boolean visited;
 
+    public Personage() {
+        this.message = new ArrayList();
+    }
+
     public ArrayList getMessage() {
         return message;
     }

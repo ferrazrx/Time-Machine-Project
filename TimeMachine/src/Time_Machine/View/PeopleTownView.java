@@ -5,6 +5,9 @@
  */
 package Time_Machine.View;
 
+import Time_Machine.Control.Main;
+import Time_Machine.Control.SceneControl;
+
 /**
  *
  * @author Group 7
@@ -26,6 +29,7 @@ public class PeopleTownView extends View {
         option = option.toUpperCase();
         switch (option){
             case "P":
+                this.peopleLocation();
                 break;
             case "T":
                 break;
@@ -34,6 +38,10 @@ public class PeopleTownView extends View {
                 break;
         }
         return false;
+    }
+
+    private void peopleLocation() {
+        SceneControl.getScenesAndPersonages(Main.getPlayer());
     }
     
 }

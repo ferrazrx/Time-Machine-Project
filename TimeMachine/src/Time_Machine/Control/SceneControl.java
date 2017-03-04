@@ -18,8 +18,8 @@ public class SceneControl {
     public static boolean setPersonageInScene (Player player, Personage personage, String name){
         for (int i=0; i<player.getMap().getLocations().size(); i++){
             Location location = (Location) player.getMap().getLocations().get(i);
-            for (int a=0; a<location.getScene().size(); a++){
-               Scene scene = (Scene) location.getScene().get(a);
+            for (int a=0; a<location.getSceneLocation().size(); a++){
+               Scene scene = (Scene) location.getSceneLocation().get(a);
                if(scene.getSceneName().toUpperCase().contains(name.toUpperCase())){
                    scene.setPersonage(personage);
                    return true;
@@ -27,5 +27,27 @@ public class SceneControl {
             }     
         }    
     return false;           
+    }
+    
+    public static void getScenesAndPersonages(Player player){
+            System.out.println("Places Available in the " +player.getCurrentLocation().getLocationName().toLowerCase()+":\n");
+            if(player.getCurrentLocation().getSceneLocation().size()<1){
+                System.out.println("No places available!");
+            } else {
+                for (int i=0; i<player.getCurrentLocation().getSceneLocation().size(); i++){
+                    Scene scene = (Scene) player.getCurrentLocation().getSceneLocation().get(i);
+                    System.out.println(scene.getSceneName().substring(0, 1).toUpperCase()+scene.getSceneName().substring(1).toLowerCase()+":");
+                    System.out.println("_____________________________________________\n");
+                    System.out.println("\tPeople available to talk in "+scene.getSceneName().substring(0, 1).toUpperCase()+scene.getSceneName().substring(1).toLowerCase()+":");
+                    if(scene.getPersonages().size()<1){
+                        System.out.println("There is no one available in this place!");
+                    }else{
+                        for (int a=0;a<scene.getPersonages().size();a++){
+                            Personage personage = (Personage) scene.getPersonages().get(a);
+                            System.out.println("\t"+a+" - "+personage.getName());
+                        }
+                    }    
+                }
+            }    
     }
 }

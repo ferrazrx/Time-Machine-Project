@@ -21,6 +21,14 @@ public class Map implements Serializable{
 	public Map() {
 	this.locations = new ArrayList();
         
+        Scene stable = new Scene("STABLE");
+        Scene majorOffice = new Scene("MAJOR OFFICE");
+        Scene fireOffice = new Scene("FIRE OFFICE");
+        Scene policeOffice = new Scene("POLICE OFFICE");
+        Scene liveroom = new Scene("LIVEROOM");
+        Scene kitchen = new Scene("KITCHEN");
+        Scene doctorOffice = new Scene("DOCTOR'S OFFICE");
+        
         //Start Locations
         Location barn = new Location();
         Location cityHall = new Location();
@@ -50,30 +58,16 @@ public class Map implements Serializable{
         fatherHouse.setLocationVisited(false);
         bakery.setLocationVisited(false);
         fireStation.setLocationVisited(false);
-        //Start Scenes
-        Scene stable = new Scene();
-        Scene majorOffice = new Scene();
-        Scene fireOffice = new Scene();
-        Scene policeOffice = new Scene();
-        Scene liveroom = new Scene();
-        Scene kitchen = new Scene();
-        Scene doctorOffice = new Scene();
-        //Set Scenes Name
-        stable.setSceneName("STABLE");
-        majorOffice.setSceneName("MAJOR OFFICE");
-        fireOffice.setSceneName("FIRE OFFICE");
-        policeOffice.setSceneName("POLICE OFFICE");
-        liveroom.setSceneName("LIVEROOM");
-        kitchen.setSceneName("KITCHEN");
-        doctorOffice.setSceneName("DOCTOR'S OFFICE");
+        
+        
         //Set Scenes to Locations
-        barn.setScene(stable);
-        cityHall.setScene(majorOffice);
-        fireStation.setScene(fireOffice);
-        policeDepartment.setScene(policeOffice);
-        fatherHouse.setScene(liveroom);
-        bakery.setScene(kitchen);
-        cityHall.setScene(doctorOffice);
+        //barn.setSceneLocation(stable);
+        cityHall.setSceneLocation(majorOffice);
+        policeDepartment.setSceneLocation(policeOffice);
+        fatherHouse.setSceneLocation(liveroom);
+        bakery.setSceneLocation(kitchen);
+        fireStation.setSceneLocation(fireOffice);
+        cityHall.setSceneLocation(doctorOffice);
                 
         //add locations to the array
         this.setLocation(barn);

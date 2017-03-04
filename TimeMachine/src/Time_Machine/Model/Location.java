@@ -7,21 +7,21 @@
 package Time_Machine.Model;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Objects;
-
+import Time_Machine.Model.Scene;
 /**
  *
- * @author  sinitcyna-elena
+ * @author  Group 7
  */
 public class Location implements Serializable{
 
 // Class instance variables
         private String locationName;
-	private ArrayList scene;
+	private ArrayList sceneLocation;
 	private Boolean locationVisited;
 	private String locationDescription;    
 
 	public Location() {
+            this.sceneLocation = new ArrayList();
 	}    
 
     public String getLocationName() {
@@ -32,12 +32,12 @@ public class Location implements Serializable{
         this.locationName = locationName;
     }
 
-    public ArrayList getScene() {
-        return scene;
+    public ArrayList getSceneLocation() {
+        return sceneLocation;
     }
 
-    public void setScene(Scene scene) {
-        this.scene.add(scene);
+    public void setSceneLocation(Scene sceneLocation) {
+        this.sceneLocation.add(sceneLocation);
     }
 
     public Boolean getLocationVisited() {
@@ -56,6 +56,7 @@ public class Location implements Serializable{
         this.locationDescription = locationDescription;
     }
 
+    
     
         
 	

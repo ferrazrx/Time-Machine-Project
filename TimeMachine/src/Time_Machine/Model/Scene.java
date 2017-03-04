@@ -19,9 +19,12 @@ public class Scene implements Serializable{
         private String sceneName;
 	private ArrayList Personages;
 	private String sceneDescription;
-	private ArrayList ItemsAvailable;
+	private ArrayList itemsAvailable;
 
-    public Scene() {
+    public Scene(String name) {
+        this.Personages = new ArrayList();
+        this.itemsAvailable = new ArrayList();
+        this.sceneName = name;
     }
 
     public String getSceneName() {
@@ -49,11 +52,11 @@ public class Scene implements Serializable{
     }
 
     public ArrayList getItemsAvailable() {
-        return ItemsAvailable;
+        return itemsAvailable;
     }
 
     public void setItemsAvailable(Item ItemsAvailable) {
-        this.ItemsAvailable.add(ItemsAvailable);
+        this.itemsAvailable.add(ItemsAvailable);
     }
   
 
@@ -63,13 +66,13 @@ public class Scene implements Serializable{
         hash = 79 * hash + Objects.hashCode(this.sceneName);
         hash = 79 * hash + Objects.hashCode(this.Personages);
         hash = 79 * hash + Objects.hashCode(this.sceneDescription);
-        hash = 79 * hash + Objects.hashCode(this.ItemsAvailable);
+        hash = 79 * hash + Objects.hashCode(this.itemsAvailable);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Scene{" + "sceneName=" + sceneName + ", Personages=" + Personages + ", sceneDescription=" + sceneDescription + ", ItemsAvailable=" + ItemsAvailable + '}';
+        return "Scene{" + "sceneName=" + sceneName + ", Personages=" + Personages + ", sceneDescription=" + sceneDescription + ", ItemsAvailable=" + itemsAvailable + '}';
     }
     
 
@@ -91,7 +94,7 @@ public class Scene implements Serializable{
         if (!Objects.equals(this.sceneDescription, other.sceneDescription)) {
             return false;
         }
-        if (!Objects.equals(this.ItemsAvailable, other.ItemsAvailable)) {
+        if (!Objects.equals(this.itemsAvailable, other.itemsAvailable)) {
             return false;
         }
         return true;

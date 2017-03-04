@@ -6,7 +6,9 @@
 package Time_Machine.View;
 
 import Time_Machine.Control.Main;
+import Time_Machine.Control.PeopleTownControl;
 import Time_Machine.Control.SceneControl;
+import java.util.ArrayList;
 
 /**
  *
@@ -32,6 +34,7 @@ public class PeopleTownView extends View {
                 this.peopleLocation();
                 break;
             case "T":
+                this.talkPerson();
                 break;
             default:
                 System.out.println("*** Invalid selection *** Try Again!");
@@ -42,6 +45,17 @@ public class PeopleTownView extends View {
 
     private void peopleLocation() {
         SceneControl.getScenesAndPersonages(Main.getPlayer());
+        this.pause();
+        return;
+    }
+
+    private void talkPerson() {
+        System.out.println("Enter the person option: (e.g. 0,1,2...)");
+        int option = this.getInputInt();
+        ArrayList messages = PeopleTownControl.getPersonageMessages(option);
+        PeopleTownControl.printPersonageMessage(messages);
+        this.pause();
+        
     }
     
 }

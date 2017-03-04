@@ -61,7 +61,7 @@ public class Map implements Serializable{
         
         
         //Set Scenes to Locations
-        //barn.setSceneLocation(stable);
+        barn.setSceneLocation(stable);
         cityHall.setSceneLocation(majorOffice);
         policeDepartment.setSceneLocation(policeOffice);
         fatherHouse.setSceneLocation(liveroom);

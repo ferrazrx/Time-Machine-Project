@@ -20,7 +20,7 @@ public class MainMenuView extends View {
     public MainMenuView(){    
         
         super(
-            "\tWelcome "+Main.getPlayer().getName().substring(0,1).toUpperCase()+ Main.getPlayer().getName().substring(1).toLowerCase()+"!"+
+            "\n\t***  Welcome "+Main.getPlayer().getName().substring(0,1).toUpperCase()+ Main.getPlayer().getName().substring(1).toLowerCase()+"!  ***"+
             "\n-------------------------------------------"+
             "\n|              Main Menu                  |"+    
             "\n-------------------------------------------\n"+    
@@ -65,7 +65,7 @@ public class MainMenuView extends View {
         // Display the Game Menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayMenu();
-        System.out.println(this.menu);
+        
     }
 
     private void startExistingGame() {
@@ -79,6 +79,6 @@ public class MainMenuView extends View {
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.displayMenu();
-        System.out.println(this.menu);
+        
     }    
 }

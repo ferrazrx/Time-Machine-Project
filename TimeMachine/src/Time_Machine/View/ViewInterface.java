@@ -14,4 +14,5 @@ public interface ViewInterface {
     public String getInputValue();
     public boolean action(String value);
     
+    
 }

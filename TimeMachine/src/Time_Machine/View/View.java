@@ -24,23 +24,32 @@ public abstract class View implements ViewInterface {
     
     @Override
     public void displayMenu() {
-        System.out.println("Enter a option:");
-        System.out.println(this.menu);
         boolean done = false;
         do{
+            System.out.println("Enter a option:");
+            System.out.println(this.menu);
             String option = this.getInputValue();
-            if(option.toUpperCase().equals("B") ||option.toUpperCase().equals("E") ){
-                return;
-            }else{
-                done= this.action(option);
+            switch (option.toUpperCase()) {
+                case "B":
+                    return;
+                case "E":
+                    GameDetailView.endView();
+                    return;
+                default:
+                    done= this.action(option);
+                    break;
             }
         }while(!done);
     }
 
     @Override
     public String getInputValue(){
-     String option = GetInput.getString();
-     return option;
+         String option = GetInput.getString();
+        return option;
+    }
+    public int getInputInt(){
+        int option = GetInput.getInt();
+        return option;
     }
 
     /**
@@ -50,5 +59,11 @@ public abstract class View implements ViewInterface {
      */
     @Override
     public abstract boolean action(String value);
+    
+    public void pause() {
+        System.out.println("\n\n\t****  Press enter to continue... ****");
+        this.getInputValue();
+        return;
+    }
     
 }

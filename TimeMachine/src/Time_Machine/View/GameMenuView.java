@@ -69,25 +69,25 @@ class GameMenuView extends View {
         GameDetailView.displayBozemanMap();
         MapView mapView = new MapView();
         mapView.displayMenu();
-        System.out.println(this.menu);
+        
     }
 
     private void seeInventoryItems() {
         InventoryView inventoryView = new InventoryView();
         inventoryView.displayMenu();
-        System.out.println(this.menu);     
+            
     }
 
     private void seeTimeMachineStatus() {
         TimeMachineView timeMachineView = new TimeMachineView();
         timeMachineView.displayMenu();
-        System.out.println(this.menu);  
+          
     }
 
     private void peopleInTown() {
         PeopleTownView  peopleTownView = new PeopleTownView();
         peopleTownView.displayMenu();
-        System.out.println(this.menu);
+        
     }
     
 }

@@ -17,6 +17,15 @@ import java.util.ArrayList;
  * @author Group 7
  */
 public class PeopleTownControl {
+    public static void printPersonageMessage(ArrayList messages){
+        for(int i=0;i<messages.size();i++){
+            Message message = (Message) messages.get(i);
+            System.out.println("___________________________________________________________");
+            System.out.println("#"+i+" - "+message.getMessage());
+            
+        }
+    
+    }
     public void printPersonageMessage(String name){
         
         for(int i=0;i<this.getPersonageMessages(name).size();i++){
@@ -26,10 +35,19 @@ public class PeopleTownControl {
             
         }
     }
+
+    public void printPersonageMessage(int index){
+        
+        for(int i=0;i<this.getPersonageMessages(index).size();i++){
+            Message message = (Message) this.getPersonageMessages(index).get(i);
+            System.out.println("___________________________________________________________");
+            System.out.println("#"+i+" - "+message.getMessage());
+            
+        }
+    }
     
     
-    
-    public ArrayList getPersonageMessages(String name){
+    public static ArrayList getPersonageMessages(String name){
         for(int i=0;i<Main.getPlayer().getMap().getLocations().size();i++){
             Location location = (Location) Main.getPlayer().getMap().getLocations().get(i);
             for(int a=0;a<location.getSceneLocation().size();i++){
@@ -45,6 +63,19 @@ public class PeopleTownControl {
     return null;    
     }
     
+    public static ArrayList getPersonageMessages(int index){
+        for(int i=0;i<Main.getPlayer().getMap().getLocations().size();i++){
+                Location location = (Location) Main.getPlayer().getMap().getLocations().get(i);
+                for(int a=0;a<location.getSceneLocation().size();i++){
+                    Scene scene = (Scene) location.getSceneLocation().get(a);
+                    Personage personage = (Personage) scene.getPersonages().get(index);
+                    return personage.getMessage();
+                }
+        }    
+        return null;
+    }
+    
+    
     public static void setInitialPeople (){
         // Instantiate personages
         Personage father = new Personage();
@@ -59,7 +90,7 @@ public class PeopleTownControl {
         
         //father attributes
         father.setName("James");
-        SceneControl.setPersonageInScene(Main.getPlayer(), father, "liveroom");
+        SceneControl.setPersonageInScene(Main.getPlayer(), father, "stable");
         //Message 1
         Message message1 = new Message();
         message1.setMessage("\"Dad! I'm your son from the future! I've traveled in a strange time machine! Can you help me?\"");

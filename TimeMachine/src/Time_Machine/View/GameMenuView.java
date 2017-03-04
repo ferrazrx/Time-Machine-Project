@@ -21,7 +21,7 @@ class GameMenuView extends View {
             "\n-------------------------------------------\n"+    
             "V - Map of Bozeman\n" +
             "I - Inventory Items\n" +
-            "A - People in Town\n" +
+            "A - People in this location\n" +
             "S - Time Machine Options\n" +
             "P - Back to Barn\n" +
             "L - Look around for clues, stuff and food\n" +

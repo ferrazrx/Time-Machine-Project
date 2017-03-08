@@ -29,6 +29,8 @@ public class Map implements Serializable{
         Scene kitchen = new Scene("KITCHEN");
         Scene doctorOffice = new Scene("DOCTOR'S OFFICE");
         
+        //
+        liveroom.setPersonage(Personage.FATHER);
         //Start Locations
         Location barn = new Location();
         Location cityHall = new Location();

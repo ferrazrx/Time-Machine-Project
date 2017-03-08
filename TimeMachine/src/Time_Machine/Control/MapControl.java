@@ -14,7 +14,7 @@ import Time_Machine.Model.Player;
  */
 public class MapControl {
     
-    public static void playerPlaceInMap(Player player){
+    public static Location playerPlaceInMap(Player player){
         Location currentLocation = player.getCurrentLocation();
         System.out.println("Your current localization:");
         System.out.println(
@@ -27,7 +27,7 @@ public class MapControl {
             System.out.println("\tNew Location.");            
         }
         System.out.println("__________________________________\n");
-    
+        return player.getCurrentLocation();
         
     
     }

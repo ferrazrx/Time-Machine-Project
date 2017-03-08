@@ -16,9 +16,10 @@ public class Item extends Inventory implements Serializable {
     
     private String name;
     private String Description;
-    private int Amount;
+    private int amount;
 
-    public Item() {
+    public Item(int amount) {
+        this.amount = amount;
     }
 
     public String getName() {
@@ -39,11 +40,14 @@ public class Item extends Inventory implements Serializable {
     }
 
     public int getAmount() {
-        return Amount;
+        return amount;
     }
 
     public void setAmount(int Amount) {
-        this.Amount = Amount;
+        this.amount = Amount;
+    }
+    public void AddAmount(){
+        this.amount+=1;
     }
     
     public void useItem(){
@@ -55,7 +59,7 @@ public class Item extends Inventory implements Serializable {
         int hash = 3;
         hash = 97 * hash + Objects.hashCode(this.name);
         hash = 97 * hash + Objects.hashCode(this.Description);
-        hash = 97 * hash + this.Amount;
+        hash = 97 * hash + this.amount;
         return hash;
     }
 
@@ -71,7 +75,7 @@ public class Item extends Inventory implements Serializable {
             return false;
         }
         final Item other = (Item) obj;
-        if (this.Amount != other.Amount) {
+        if (this.amount != other.amount) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -85,7 +89,7 @@ public class Item extends Inventory implements Serializable {
 
     @Override
     public String toString() {
-        return "Item{" + "Name=" + name + ", Description=" + Description + ", Amount=" + Amount + '}';
+        return "Item{" + "Name=" + name + ", Description=" + Description + ", Amount=" + amount + '}';
     }
     
     

@@ -35,15 +35,28 @@ public class InventoryControl {
     
     public static void addInventoryItem(Player player, Item newItem){
         // Add items on inventory
-        player.getInventory().setItem(newItem);
-        System.out.println("*** Item Added to your inventory! ***");
-        listInventoryItems(player);
+        boolean found = false;
+        for (int i=0;i<player.getInventory().getAmountItems();i++){
+            Item item = (Item) player.getInventory().getItems().get(i);
+            if(item.getName().toUpperCase().equals(newItem.getName().toUpperCase())){
+                item.AddAmount();
+                System.out.println("** Now you have "+item.getAmount()+" " + item.getName()+ " ***");
+                found = true;
+                listInventoryItems(player);
+            }
+        }
+        if(found == false){
+                player.getInventory().setItem(newItem);
+                System.out.println("*** Item Added to your inventory! ***");
+                listInventoryItems(player);
+        }
     }
     public static void dropInventoryItem(Player player,String removeItem){
         // Drop items from inventory
         boolean found = false;
         for (int i=0;i<player.getInventory().getAmountItems();i++){
-            if(player.getInventory().getItemName(i).toUpperCase().contains(removeItem.toUpperCase())){
+            Item item = (Item) player.getInventory().getItems().get(i);
+            if(item.getName().toUpperCase().contains(removeItem.toUpperCase())){
                found = true; 
                player.getInventory().removeItem(i);
                System.out.println("*** Item deleted! ***\n");
@@ -57,16 +70,14 @@ public class InventoryControl {
     
     public static void setInitialItems (Player player){
         //Start some items in the Inventory
-        Item bubbleGum = new Item();
+        Item bubbleGum = new Item(1);
         bubbleGum.setName("Bubble gum");
         bubbleGum.setDescription("1 Bubble Gum in your pocket.");
-        bubbleGum.setAmount(1);
         player.getInventory().setItem(bubbleGum);
         
-        Item pencil = new Item();
+        Item pencil = new Item(1);
         pencil.setName("Pencil");
         pencil.setDescription("A black pencil very used.");
-        pencil.setAmount(1);
         player.getInventory().setItem(pencil);
     }
 }

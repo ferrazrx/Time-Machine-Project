@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author rxfer_000
+ * @author Group 7 
  */
 public class GetInput {
     public static String getString () {

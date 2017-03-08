@@ -55,6 +55,5 @@ public class MapView extends View {
         System.out.println("Enter a place(it can be part of the name) to move:");
         String placeOption = this.getInputValue();
         MapControl.movePlayerLocation(Main.getPlayer(), placeOption);
-        System.out.println(this.getMenu());
     }
 }

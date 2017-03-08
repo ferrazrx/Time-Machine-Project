@@ -31,6 +31,7 @@ public class MainMenuView extends View {
             "E - Exit\n\n" + 
             "---------------------------------------------\n");
     }
+    @Override
     public boolean action(String option){
         option = option.toUpperCase();
         switch (option){
@@ -58,8 +59,6 @@ public class MainMenuView extends View {
     private void startNewGame(){
         // Start the inventory Items
         InventoryControl.setInitialItems(Main.getPlayer());
-        // Start the people in the city
-        PeopleTownControl.setInitialPeople();
         // Display the story introduction
         GameDetailView.displayIntroduction(Main.getPlayer());
         // Display the Game Menu

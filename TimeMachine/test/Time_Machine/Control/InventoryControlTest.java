@@ -23,14 +23,28 @@ public class InventoryControlTest {
      * Test of addInventoryItem method, of class InventoryControl.
      */
     @Test
+    
     public void testAddInventoryItem() {
+    // TEST 1
         System.out.println("addInventoryItem");
         Player player = new Player();
-        Item testItem = new Item();
+        Item testItem = new Item(1);
+        testItem.setName("Shoe");
         InventoryControl.addInventoryItem(player, testItem);
         assertEquals(1, player.getInventory().getAmountItems(), 0.0);
+    // TEST 2
+        System.out.println("addInventoryItem");
+        Item testItem1 = new Item(1);
+        Item testItem2 = new Item(1);
+        testItem1.setName("box");
+        testItem2.setName("box");
+        InventoryControl.addInventoryItem(player, testItem1);
+        InventoryControl.addInventoryItem(player, testItem2);
+        assertEquals(2, player.getInventory().getAmountItems(), 0.0);
     }
-
+    
+  
+   
     /**
      * Test of dropInventoryItem method, of class InventoryControl.
      */
@@ -38,13 +52,16 @@ public class InventoryControlTest {
     public void testDropInventoryItem() {
         System.out.println("dropInventoryItem");
         Player player = new Player();
-        Item testItem1 = new Item();
-        Item testItem2 = new Item();
+        Item testItem1 = new Item(1);
+        Item testItem2 = new Item(1);
         String name = "test";
-        testItem2.setName(name);
-        player.getInventory().setItem(testItem1);
-        player.getInventory().setItem(testItem2);
-        InventoryControl.dropInventoryItem(player,name);
+        String name2 = "test2";
+        testItem1.setName(name);
+        testItem2.setName(name2);
+        InventoryControl.addInventoryItem(player, testItem1);
+        InventoryControl.addInventoryItem(player, testItem2);
+        InventoryControl.dropInventoryItem(player,"2");
+        System.out.println(player.getInventory().getAmountItems());
         assertEquals(1, player.getInventory().getAmountItems(), 0.0);
     }
     

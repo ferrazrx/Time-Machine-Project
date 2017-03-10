@@ -7,7 +7,6 @@
 package Time_Machine.Model;
 import java.io.Serializable;
 import java.util.ArrayList;
-import Time_Machine.Model.Scene;
 /**
  *
  * @author  Group 7

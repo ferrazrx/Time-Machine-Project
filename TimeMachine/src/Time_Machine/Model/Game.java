@@ -5,10 +5,15 @@
  */
 package Time_Machine.Model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Group 7
  */
-public class Game {
+public class Game implements Serializable {
+
+    public Game() {
+    }
     
 }

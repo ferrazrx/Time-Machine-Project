@@ -11,9 +11,10 @@ import java.util.Objects;
 
 /**
  *
- * @author rxfer_000
+ * @author Group 7
  */
-public class Player extends Person implements Serializable {
+public class Player implements Serializable {
+    private String name;
     private int statusBar;
     private Date currentTime;
     private Location currentLocation;
@@ -29,9 +30,14 @@ public class Player extends Person implements Serializable {
         // Start the initial Location
         this.currentLocation = this.map.getLocationByString("FATHER");
         this.currentLocation.setLocationVisited(true);
-        
-        
-        
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Inventory getInventory() {

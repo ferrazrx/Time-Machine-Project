@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 package Time_Machine.Model;
+
+import java.io.Serializable;
+
 /**
  *
  * @author Group 7
  */
-public enum Personage {
+public enum Personage implements Serializable{
 
     FATHER("James", 
             new String[]{

@@ -17,12 +17,12 @@ import java.util.Objects;
 public class Scene implements Serializable{
   // Class instance variables
         private String sceneName;
-	private ArrayList Personages;
+	private ArrayList personages;
 	private String sceneDescription;
 	private ArrayList itemsAvailable;
 
     public Scene(String name) {
-        this.Personages = new ArrayList();
+        this.personages = new ArrayList();
         this.itemsAvailable = new ArrayList();
         this.sceneName = name;
     }
@@ -36,11 +36,11 @@ public class Scene implements Serializable{
     }
 
     public ArrayList getPersonages() {
-        return Personages;
+        return personages;
     }
 
     public void setPersonage(Personage personage) {
-        this.Personages.add(personage);
+        this.personages.add(personage);
     }
 
     public String getSceneDescription() {
@@ -57,47 +57,5 @@ public class Scene implements Serializable{
 
     public void setItemsAvailable(Item ItemsAvailable) {
         this.itemsAvailable.add(ItemsAvailable);
-    }
-  
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.sceneName);
-        hash = 79 * hash + Objects.hashCode(this.Personages);
-        hash = 79 * hash + Objects.hashCode(this.sceneDescription);
-        hash = 79 * hash + Objects.hashCode(this.itemsAvailable);
-        return hash;
-    }
-
-    @Override
-    public String toString() {
-        return "Scene{" + "sceneName=" + sceneName + ", Personages=" + Personages + ", sceneDescription=" + sceneDescription + ", ItemsAvailable=" + itemsAvailable + '}';
-    }
-    
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Scene other = (Scene) obj;
-        if (!Objects.equals(this.sceneName, other.sceneName)) {
-            return false;
-        }
-        if (!Objects.equals(this.Personages, other.Personages)) {
-            return false;
-        }
-        if (!Objects.equals(this.sceneDescription, other.sceneDescription)) {
-            return false;
-        }
-        if (!Objects.equals(this.itemsAvailable, other.itemsAvailable)) {
-            return false;
-        }
-        return true;
-    }
-    
+    }    
 }

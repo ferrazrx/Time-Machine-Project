@@ -10,9 +10,9 @@ import java.util.Arrays;
 
 /**
  *
- * @author rxfer_000
+ * @author Group 7
  */
-public class John extends Person implements Serializable {
+public class John implements Serializable {
     
     private String[] JohnMessages;
 

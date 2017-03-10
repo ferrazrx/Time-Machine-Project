@@ -5,15 +5,16 @@
  */
 package Time_Machine.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
 /**
  *
- * @author sinitsyndmitriy
+ * @author Group 7
  */
-public class TimeMachine {
+public class TimeMachine implements Serializable {
     private String statusTimeMachine;
     private String descriptionTimeMachine;
     private ArrayList partsListTimeMachine;

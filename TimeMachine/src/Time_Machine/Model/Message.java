@@ -5,14 +5,23 @@
  */
 package Time_Machine.Model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Group 7
  */
-public class Message {
+
+public class Message implements Serializable {
     private String message;
     private String answer;
     private boolean read;
+
+    public Message(String message, String answer, boolean read) {
+        this.message = message;
+        this.answer = answer;
+        this.read = read;
+    }
 
     public String getMessage() {
         return message;

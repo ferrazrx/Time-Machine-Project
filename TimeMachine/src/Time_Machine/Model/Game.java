@@ -6,14 +6,61 @@
 package Time_Machine.Model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
  * @author Group 7
  */
 public class Game implements Serializable {
-
+    private Location location;
+    private Inventory inventory;
+    private Map map;
+    private TimeMachine timeMachine;
+    private Player player;
+        
+    
     public Game() {
+    }
+
+    public Location getCurrentLocation() {
+        return location;
+    }
+
+    public void setCurrentLocation(Location currentLocation) {
+        this.location = currentLocation;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public TimeMachine getTimeMachine() {
+        return timeMachine;
+    }
+
+    public void setTimeMachine(TimeMachine timeMachine) {
+        this.timeMachine = timeMachine;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
     
 }

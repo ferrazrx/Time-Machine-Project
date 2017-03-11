@@ -17,6 +17,7 @@ public class Item extends Inventory implements Serializable {
     private String name;
     private String Description;
     private int amount;
+    private int requiredAmount;
 
     public Item(int amount) {
         this.amount = amount;
@@ -37,6 +38,14 @@ public class Item extends Inventory implements Serializable {
 
     public void setDescription(String Description) {
         this.Description = Description;
+    }
+
+    public int getRequiredAmount() {
+        return requiredAmount;
+    }
+
+    public void setRequiredAmount(int requiredAmount) {
+        this.requiredAmount = requiredAmount;
     }
 
     public int getAmount() {

@@ -19,9 +19,10 @@ public class TimeMachine implements Serializable {
     private String descriptionTimeMachine;
     private ArrayList partsListTimeMachine;
 
-    public TimeMachine() {
+    public TimeMachine(String statusTimeMachine, String description) {
         this.partsListTimeMachine = new ArrayList();
-        this.statusTimeMachine = "Broken";
+        this.statusTimeMachine = statusTimeMachine;
+        this.descriptionTimeMachine = description;
     }
 
     public String getStatusTimeMachine() {

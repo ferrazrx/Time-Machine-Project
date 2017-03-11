@@ -5,9 +5,10 @@
  */
 package Time_Machine.View;
 
+import Time_Machine.Control.GameControl;
 import Time_Machine.Control.InventoryControl;
 import Time_Machine.Control.Main;
-import Time_Machine.Control.PeopleTownControl;
+import Time_Machine.Model.Game;
 
 /**
  *
@@ -57,14 +58,12 @@ public class MainMenuView extends View {
 
 
     private void startNewGame(){
-        // Start the inventory Items
-        InventoryControl.setInitialItems(Main.getPlayer());
+        GameControl.createNewGame(Main.getPlayer());
         // Display the story introduction
         GameDetailView.displayIntroduction(Main.getPlayer());
         // Display the Game Menu
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
-        
+        gameMenu.displayMenu();     
     }
 
     private void startExistingGame() {

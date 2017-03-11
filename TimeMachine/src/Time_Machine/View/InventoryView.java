@@ -5,10 +5,8 @@
  */
 package Time_Machine.View;
 
-import Time_Machine.Control.GetInput;
 import Time_Machine.Control.InventoryControl;
 import Time_Machine.Control.Main;
-import Time_Machine.Model.Inventory;
 
 /**
  * @author Group 7
@@ -49,7 +47,7 @@ public class InventoryView extends View {
     private void dropItem(){
         System.out.println("Enter the item's name to drop:");
         String itemOption = this.getInputValue();
-        InventoryControl.dropInventoryItem(Main.getPlayer(), itemOption);
+        InventoryControl.dropInventoryItem(Main.getCurrentGame(), itemOption);
          System.out.println("Enter a option:");
     }
 
@@ -58,7 +56,7 @@ public class InventoryView extends View {
    }
 
     private void seeInventoryItems() {
-        InventoryControl.listInventoryItems(Main.getPlayer());
+        InventoryControl.listInventoryItems(Main.getCurrentGame());
         System.out.println("Enter a option:");
     }
     

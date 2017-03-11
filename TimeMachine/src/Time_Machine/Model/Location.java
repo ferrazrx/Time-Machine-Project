@@ -16,12 +16,17 @@ public class Location implements Serializable{
 // Class instance variables
         private String locationName;
 	private ArrayList sceneLocation;
-	private Boolean locationVisited;
+	private boolean locationVisited;
 	private String locationDescription;    
 
-	public Location() {
-            this.sceneLocation = new ArrayList();
-	}    
+    public Location(String locationName, boolean locationVisited, String locationDescription) {
+        this.locationName = locationName;
+        this.sceneLocation = new ArrayList();
+        this.locationVisited = locationVisited;
+        this.locationDescription = locationDescription;
+    }
+
+        
 
     public String getLocationName() {
         return locationName;
@@ -39,11 +44,11 @@ public class Location implements Serializable{
         this.sceneLocation.add(sceneLocation);
     }
 
-    public Boolean getLocationVisited() {
+    public boolean getLocationVisited() {
         return locationVisited;
     }
 
-    public void setLocationVisited(Boolean locationVisited) {
+    public void setLocationVisited(boolean locationVisited) {
         this.locationVisited = locationVisited;
     }
 

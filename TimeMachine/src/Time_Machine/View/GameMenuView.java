@@ -5,7 +5,6 @@
  */
 package Time_Machine.View;
 
-import Time_Machine.Control.GetInput;
 import Time_Machine.Control.Main;
 import Time_Machine.Control.MapControl;
 
@@ -31,6 +30,7 @@ class GameMenuView extends View {
             "-------------------------------------------\n");
     }
     
+    @Override
     public boolean action(String menuOption) {
         menuOption = menuOption.toUpperCase();
         switch (menuOption){
@@ -46,7 +46,7 @@ class GameMenuView extends View {
             case "S":
                 this.seeTimeMachineStatus();
                 break;
-            case "P": MapControl.movePlayerLocation(Main.getPlayer(), "BARN");
+            case "P": MapControl.setPlayerStartLocation(Main.getCurrentGame());
                 break;
             case "M":
                 break;    

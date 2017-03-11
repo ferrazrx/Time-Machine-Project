@@ -5,8 +5,11 @@
  */
 package Time_Machine.Control;
 
+import Time_Machine.Model.Game;
 import Time_Machine.Model.Location;
-import Time_Machine.Model.Player;
+import Time_Machine.Model.Map;
+import Time_Machine.Model.Scene;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,8 +17,9 @@ import Time_Machine.Model.Player;
  */
 public class MapControl {
     
-    public static Location playerPlaceInMap(Player player){
-        Location currentLocation = player.getCurrentLocation();
+    //Print current player's location on map 
+    public static Location playerPlaceInMap(Game game){
+        Location currentLocation = game.getCurrentLocation();
         System.out.println("Your current localization:");
         System.out.println(
                 "__________________________________\n"
@@ -27,15 +31,14 @@ public class MapControl {
             System.out.println("\tNew Location.");            
         }
         System.out.println("__________________________________\n");
-        return player.getCurrentLocation();
-        
-    
+        return game.getCurrentLocation();
     }
-      
-     public static void listLocations(Player player){
+    
+    //Print all locations available on Map
+    public static void listLocations(Game game){
         System.out.println("\tOther Locations:");
-        for(int i=0;i<player.getMap().getLocations().size();i++){
-            Location location = (Location) player.getMap().getLocations().get(i);
+        for(int i=0;i<game.getMap().getLocations().size();i++){
+            Location location = (Location) game.getMap().getLocations().get(i);
             String locationName = location.getLocationName().substring(0, 1).toUpperCase()+location.getLocationName().substring(1).toLowerCase();
             System.out.println(
                     " - " + locationName + " - " + (location.getLocationVisited()== true? "Visited" : "Not Visited")  + ";"
@@ -43,20 +46,53 @@ public class MapControl {
         }
      }    
     
-    public static void movePlayerLocation(Player player, String place) {
-        if(player.getCurrentLocation().getLocationName().toUpperCase().equals(place.toUpperCase())){
-            System.out.println("You're already at "+player.getCurrentLocation().getLocationName().substring(0,1).toUpperCase()+player.getCurrentLocation().getLocationName().substring(1).toLowerCase()+".");
+    public static void movePlayerLocation(Game game, String place) {
+        if(game.getCurrentLocation().getLocationName().toUpperCase().equals(place.toUpperCase())){
+            System.out.println("You're already at "+game.getCurrentLocation().getLocationName().substring(0,1).toUpperCase()+game.getCurrentLocation().getLocationName().substring(1).toLowerCase()+".");
         }else{
             place = place.toUpperCase();
-            if(player.getMap().getLocationByString(place)== null){
+            if(game.getMap().getLocationByString(place)== null){
                 System.out.println("*** Location not found! Try again! ***");
             } else {
-                Location location = player.getMap().getLocationByString(place);
-                player.setCurrentLocation(location);
-                System.out.println("*** Now you're at "+ player.getCurrentLocation().getLocationName()+" ***");
-                playerPlaceInMap(player);
-                player.getMap().getLocationByString(place).setLocationVisited(true);
+                Location location = game.getMap().getLocationByString(place);
+                game.setCurrentLocation(location);
+                System.out.println("*** Now you're at "+ game.getCurrentLocation().getLocationName()+" ***");
+                playerPlaceInMap(game);
+                game.getMap().getLocationByString(place).setLocationVisited(true);
             }
         }   
-    } 
+    }
+    
+    //Create a new Map and set initial location;
+    public static Map createMap(){
+        //Create Map
+        Map map = new Map();
+        
+         //Start Locations
+        Location barn = new Location("BARN",false,"Old build full of livestock");
+        Location cityHall = new Location("CITY HALL",false,"The administration building of the municipal government.");
+        Location policeDepartment = new Location("POLICE STATION",false,"A police force is a constituted body of persons\n empowered by the state to enforce the law, protect\n property, and limit civil disorder.");
+        Location parentsHouse = new Location("PARENT'S HOUSE",false,"Where your father lives! Remember he is a kid now!");
+        Location bakery = new Location("BAKERY",false,"Establishment that produces and sells flour-based food baked in an oven such as bread, cookies, cakes.");
+        Location fireStation = new Location("FIRE STATION",false,"Area set aside for storage of firefighting apparatus\n such as fire engines and related vehicles,\n personal protective equipment.");
+        
+        //Add locations on Map
+        ArrayList locations;        
+        locations = new ArrayList(){{
+        add(barn);
+        add(cityHall);
+        add(policeDepartment);
+        add(parentsHouse);
+        add(bakery);
+        add(fireStation);
+        }};
+        map.setLocation(locations);
+        
+        //return Map
+        return map;
+    }
+
+    public static void setPlayerStartLocation(Game game) {
+        MapControl.movePlayerLocation(game, "BARN");
+    }
 }

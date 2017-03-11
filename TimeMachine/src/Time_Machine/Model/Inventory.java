@@ -29,6 +29,10 @@ public class Inventory implements Serializable{
         items.add(newItem);
     }
 
+    public void setItemById(int index, Item newItem) {
+        items.add(index, newItem);
+    }
+    
     public int getAmountItems() {
         return items.size();
     }

@@ -8,7 +8,6 @@ package Time_Machine.Control;
 import Time_Machine.Model.Game;
 import Time_Machine.Model.Location;
 import Time_Machine.Model.Map;
-import Time_Machine.Model.Scene;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +18,7 @@ public class MapControl {
     
     //Print current player's location on map 
     public static Location playerPlaceInMap(Game game){
-        Location currentLocation = game.getCurrentLocation();
+        Location currentLocation = game.getLocation();
         System.out.println("Your current localization:");
         System.out.println(
                 "__________________________________\n"
@@ -31,7 +30,7 @@ public class MapControl {
             System.out.println("\tNew Location.");            
         }
         System.out.println("__________________________________\n");
-        return game.getCurrentLocation();
+        return game.getLocation();
     }
     
     //Print all locations available on Map
@@ -47,16 +46,16 @@ public class MapControl {
      }    
     
     public static void movePlayerLocation(Game game, String place) {
-        if(game.getCurrentLocation().getLocationName().toUpperCase().equals(place.toUpperCase())){
-            System.out.println("You're already at "+game.getCurrentLocation().getLocationName().substring(0,1).toUpperCase()+game.getCurrentLocation().getLocationName().substring(1).toLowerCase()+".");
+        if(game.getLocation().getLocationName().toUpperCase().equals(place.toUpperCase())){
+            System.out.println("You're already at "+game.getLocation().getLocationName().substring(0,1).toUpperCase()+game.getLocation().getLocationName().substring(1).toLowerCase()+".");
         }else{
             place = place.toUpperCase();
             if(game.getMap().getLocationByString(place)== null){
                 System.out.println("*** Location not found! Try again! ***");
             } else {
                 Location location = game.getMap().getLocationByString(place);
-                game.setCurrentLocation(location);
-                System.out.println("*** Now you're at "+ game.getCurrentLocation().getLocationName()+" ***");
+                game.setLocation(location);
+                System.out.println("*** Now you're at "+ game.getLocation().getLocationName()+" ***");
                 playerPlaceInMap(game);
                 game.getMap().getLocationByString(place).setLocationVisited(true);
             }

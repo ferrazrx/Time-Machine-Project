@@ -14,11 +14,12 @@ import java.util.ArrayList;
  */
 public class Inventory implements Serializable{
     
-    private ArrayList items;
-    private int AmountItems;
+    private ArrayList<Item> items;
+    private int amountItems;
 
     public Inventory() {
         this.items = new ArrayList();
+        amountItems = 0;
     }
 
     public ArrayList getItems() {

@@ -44,12 +44,12 @@ public class PeopleTownView extends View {
     }
 
     private void peopleLocation() {
-        SceneControl.getScenesAndPersonages(Main.getPlayer());
+        SceneControl.getScenesAndPersonages(Main.getCurrentGame());
         this.pause();
     }
 
     private void talkPerson() {
-        SceneControl.getScenesAndPersonages(Main.getPlayer());
+        SceneControl.getScenesAndPersonages(Main.getCurrentGame());
         System.out.println("Enter the person option: (e.g. 0,1,2...)");
         String personageIndex = this.getInputValue();
         boolean verification = PeopleTownControl.printPersonageMessage(personageIndex);

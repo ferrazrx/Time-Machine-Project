@@ -26,7 +26,7 @@ public class TimeMachineControl {
     
         public static void addPart(Game game, String item){
              item = item.toUpperCase();
-             if(game.getCurrentLocation().getLocationName().toUpperCase().equals("BARN")){
+             if(game.getLocation().getLocationName().toUpperCase().equals("BARN")){
                 for(int i=0; i<game.getInventory().getAmountItems();i++){
                    if(game.getInventory().getItemByIndex(i).getName().toUpperCase().contains(item)){
                        Item itemToTimeMachine = game.getInventory().getItemByIndex(i);
@@ -50,13 +50,13 @@ public class TimeMachineControl {
                    }
                 }
              }else{
-                 System.out.println("You must be at the Barn to combine item with the time machine, you're now at the " + game.getCurrentLocation().getLocationName().substring(0,1).toUpperCase()+ game.getCurrentLocation().getLocationName().substring(1).toLowerCase()+".");
+                 System.out.println("You must be at the Barn to combine item with the time machine, you're now at the " + game.getLocation().getLocationName().substring(0,1).toUpperCase()+ game.getLocation().getLocationName().substring(1).toLowerCase()+".");
              }    
              
         }
     
         public static void tryToFixTimeMachine(Game game){
-            if(game.getCurrentLocation().getLocationName().toUpperCase().equals("BARN")){
+            if(game.getLocation().getLocationName().toUpperCase().equals("BARN")){
                 int count = game.getTimeMachine().getPartsListTimeMachine().size();
                 ArrayList items = new ArrayList(); 
                 for (int i=0; i<count;i++){
@@ -76,7 +76,7 @@ public class TimeMachineControl {
                     System.out.println("You still don't have all the items to fix the Time Machine."); 
                 }
             } else {
-                System.out.println("You must be at the Barn to try to fix the time machine, you're now at the " + game.getCurrentLocation().getLocationName().substring(0,1).toUpperCase()+ game.getCurrentLocation().getLocationName().substring(1).toLowerCase()+".");
+                System.out.println("You must be at the Barn to try to fix the time machine, you're now at the " + game.getLocation().getLocationName().substring(0,1).toUpperCase()+ game.getLocation().getLocationName().substring(1).toLowerCase()+".");
             }    
         }
 

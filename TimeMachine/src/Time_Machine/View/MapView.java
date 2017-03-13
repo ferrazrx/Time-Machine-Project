@@ -5,8 +5,6 @@
  */
 package Time_Machine.View;
 
-import Time_Machine.Control.GetInput;
-import Time_Machine.Control.InventoryControl;
 import Time_Machine.Control.Main;
 import Time_Machine.Control.MapControl;
 
@@ -47,13 +45,13 @@ public class MapView extends View {
     }
     
     private void currentLocation() {
-        MapControl.playerPlaceInMap(Main.getPlayer());
-        MapControl.listLocations(Main.getPlayer());
+        MapControl.playerPlaceInMap(Main.getCurrentGame());
+        MapControl.listLocations(Main.getCurrentGame());
     }
 
     private void movePlayerToAnotherLocation() {
         System.out.println("Enter a place(it can be part of the name) to move:");
         String placeOption = this.getInputValue();
-        MapControl.movePlayerLocation(Main.getPlayer(), placeOption);
+        MapControl.movePlayerLocation(Main.getCurrentGame(), placeOption);
     }
 }

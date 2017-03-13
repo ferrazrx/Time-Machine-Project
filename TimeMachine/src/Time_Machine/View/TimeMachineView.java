@@ -5,7 +5,6 @@
  */
 package Time_Machine.View;
 
-import Time_Machine.Control.GetInput;
 import Time_Machine.Control.InventoryControl;
 import Time_Machine.Control.Main;
 import Time_Machine.Control.TimeMachineControl;
@@ -48,19 +47,19 @@ public class TimeMachineView extends View {
     }
 
     private void fixTimeMachine() {
-        TimeMachineControl.returnTimeMachineItems(Main.getPlayer());
-        TimeMachineControl.tryToFixTimeMachine(Main.getPlayer());
+        TimeMachineControl.returnTimeMachineItems(Main.getCurrentGame());
+        TimeMachineControl.tryToFixTimeMachine(Main.getCurrentGame());
     }
 
     private void combineItem() {
-        InventoryControl.listInventoryItems(Main.getPlayer());
+        InventoryControl.listInventoryItems(Main.getCurrentGame());
         System.out.println("Enter the item's name you want to combine with the time machine:");
         String item = this.getInputValue();
-        TimeMachineControl.addPart(Main.getPlayer(), item);
+        TimeMachineControl.addPart(Main.getCurrentGame(), item);
     }
 
     private void turnOn() {
-       TimeMachineControl.tryToFixTimeMachine(Main.getPlayer());
+       TimeMachineControl.tryToFixTimeMachine(Main.getCurrentGame());
     }
 
 

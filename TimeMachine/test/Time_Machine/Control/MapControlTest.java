@@ -8,7 +8,6 @@ package Time_Machine.Control;
 /*import org.junit.After;*/
 import Time_Machine.Model.Game;
 import Time_Machine.Model.Location;
-import Time_Machine.Model.Player;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -23,7 +22,7 @@ public class MapControlTest {
         System.out.println("playerPlaceInMap");
         Game game = new Game();
         Location location = new Location("name",false,"description");
-        game.setCurrentLocation(location);
+        game.setLocation(location);
         Location currentLocation = MapControl.playerPlaceInMap(game);
         assertEquals(currentLocation, location);
     }
@@ -37,7 +36,7 @@ public class MapControlTest {
         Game game = new Game();
         MapControl.listLocations(game);
         Location location = new Location("name",false,"description");
-        game.setCurrentLocation(location);
+        game.setLocation(location);
     }
 
     /**

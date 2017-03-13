@@ -7,7 +7,6 @@
 package Time_Machine.Model;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Objects;
 
 
 /**
@@ -17,9 +16,9 @@ import java.util.Objects;
 public class Scene implements Serializable{
   // Class instance variables
         private String sceneName;
-	private ArrayList personages;
+	private ArrayList<Personage> personages;
 	private String sceneDescription;
-	private ArrayList itemsAvailable;
+	private ArrayList<item> itemsAvailable;
 
     public Scene(String name) {
         this.personages = new ArrayList();
@@ -42,6 +41,16 @@ public class Scene implements Serializable{
     public void setPersonage(Personage personage) {
         this.personages.add(personage);
     }
+
+    public void setPersonages(ArrayList personages) {
+        this.personages = personages;
+    }
+
+    public void setItemsAvailable(ArrayList itemsAvailable) {
+        this.itemsAvailable = itemsAvailable;
+    }
+
+    
 
     public String getSceneDescription() {
         return sceneDescription;

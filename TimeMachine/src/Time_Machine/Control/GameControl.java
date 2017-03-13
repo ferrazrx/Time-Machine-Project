@@ -10,6 +10,7 @@ import Time_Machine.Model.Inventory;
 import Time_Machine.Model.Map;
 import Time_Machine.Model.Player;
 import Time_Machine.Model.TimeMachine;
+import java.util.ArrayList;
 
 /**
  *
@@ -41,4 +42,14 @@ public class GameControl {// Class that set a new game
     //Create a new Time Machine
     TimeMachine timeMachine = TimeMachineControl.createTimeMachine();
     game.setTimeMachine(timeMachine);
+    
+    //Create new personages
+    ArrayList personages = PeopleTownControl.createPersonages();
+    game.setPersonages(personages);
+    
+    return 1;
+    //Create array of scenes
+    
+    
+    }
 }

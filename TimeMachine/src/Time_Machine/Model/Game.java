@@ -18,17 +18,26 @@ public class Game implements Serializable {
     private Map map;
     private TimeMachine timeMachine;
     private Player player;
+    private ArrayList<Personage> personages;
         
     
     public Game() {
     }
 
-    public Location getCurrentLocation() {
+    public Location getLocation() {
         return location;
     }
 
-    public void setCurrentLocation(Location currentLocation) {
-        this.location = currentLocation;
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public ArrayList getPersonages() {
+        return personages;
+    }
+
+    public void setPersonages(ArrayList personages) {
+        this.personages = personages;
     }
 
     public Inventory getInventory() {

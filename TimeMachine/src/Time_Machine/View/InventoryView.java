@@ -48,7 +48,6 @@ public class InventoryView extends View {
         System.out.println("Enter the item's name to drop:");
         String itemOption = this.getInputValue();
         InventoryControl.dropInventoryItem(Main.getCurrentGame(), itemOption);
-         System.out.println("Enter a option:");
     }
 
     private void useItem() {
@@ -57,7 +56,6 @@ public class InventoryView extends View {
 
     private void seeInventoryItems() {
         InventoryControl.listInventoryItems(Main.getCurrentGame());
-        System.out.println("Enter a option:");
     }
     
 }

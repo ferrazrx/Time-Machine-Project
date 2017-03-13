@@ -18,12 +18,14 @@ public class Scene implements Serializable{
         private String sceneName;
 	private ArrayList<Personage> personages;
 	private String sceneDescription;
-	private ArrayList<item> itemsAvailable;
+	private ArrayList<Item> itemsAvailable;
+        private boolean blocked; 
 
-    public Scene(String name) {
+    public Scene(String name, String description) {
         this.personages = new ArrayList();
         this.itemsAvailable = new ArrayList();
         this.sceneName = name;
+        this.sceneDescription = description;
     }
 
     public String getSceneName() {
@@ -50,8 +52,6 @@ public class Scene implements Serializable{
         this.itemsAvailable = itemsAvailable;
     }
 
-    
-
     public String getSceneDescription() {
         return sceneDescription;
     }
@@ -64,7 +64,16 @@ public class Scene implements Serializable{
         return itemsAvailable;
     }
 
-    public void setItemsAvailable(Item ItemsAvailable) {
+    public void addItems (Item ItemsAvailable) {
         this.itemsAvailable.add(ItemsAvailable);
-    }    
+    }
+
+    public boolean isBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
+    }
+    
 }

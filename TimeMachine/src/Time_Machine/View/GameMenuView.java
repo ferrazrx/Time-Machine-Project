@@ -85,7 +85,7 @@ class GameMenuView extends View {
     }
 
     private void peopleInTown() {
-        PeopleTownView  peopleTownView = new PeopleTownView();
+        PersonageView  peopleTownView = new PersonageView();
         peopleTownView.displayMenu();
         
     }

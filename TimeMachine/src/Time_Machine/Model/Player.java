@@ -17,7 +17,7 @@ public class Player implements Serializable {
     private int statusBar;
     private Date currentTime;
     private int currentYear;
-    
+    private Location currentLocation;
 
     public Player() {
      
@@ -32,6 +32,14 @@ public class Player implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    public Location getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void setCurrentLocation(Location currentLocation) {
+        this.currentLocation = currentLocation;
     }
 
     public void setName(String name) {

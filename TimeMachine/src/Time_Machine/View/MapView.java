@@ -45,7 +45,7 @@ public class MapView extends View {
     }
     
     private void currentLocation() {
-        MapControl.playerPlaceInMap(Main.getCurrentGame());
+        MapControl.playerCurrentLocation(Main.getCurrentGame());
         MapControl.listLocations(Main.getCurrentGame());
     }
 

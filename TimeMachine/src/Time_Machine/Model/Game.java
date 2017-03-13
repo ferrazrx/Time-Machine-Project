@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author Group 7
  */
 public class Game implements Serializable {
-    private Location location;
+
     private Inventory inventory;
     private Map map;
     private TimeMachine timeMachine;
@@ -23,15 +23,7 @@ public class Game implements Serializable {
     
     public Game() {
     }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
+    
     public ArrayList getPersonages() {
         return personages;
     }

@@ -9,6 +9,7 @@ import Time_Machine.Model.Game;
 import Time_Machine.Model.Inventory;
 import Time_Machine.Model.Map;
 import Time_Machine.Model.Player;
+import Time_Machine.Model.Scene;
 import Time_Machine.Model.TimeMachine;
 import java.util.ArrayList;
 
@@ -35,7 +36,7 @@ public class GameControl {// Class that set a new game
     Map map = MapControl.createMap();
     //Set map on the game
     game.setMap(map);
-    //Move actor to start location
+    //Move player to start location
     MapControl.setPlayerStartLocation(game);
     game.setMap(map);
     
@@ -44,8 +45,17 @@ public class GameControl {// Class that set a new game
     game.setTimeMachine(timeMachine);
     
     //Create new personages
-    ArrayList personages = PeopleTownControl.createPersonages();
+    ArrayList personages = PersonageControl.createPersonages();
     game.setPersonages(personages);
+    
+    //Create new Scenes
+    Scene[] scenes = SceneControl.createScene();
+    LocationControl.assignScenesToLocations(map, scenes);
+    
+    //Assign personages to scenes
+    PersonageControl.createPersonages();
+    
+    
     
     return 1;
     //Create array of scenes

@@ -17,8 +17,8 @@ import java.util.ArrayList;
 public class MapControl {
     
     //Print current player's location on map 
-    public static Location playerPlaceInMap(Game game){
-        Location currentLocation = game.getLocation();
+    public static Location playerCurrentLocation(Game game){
+        Location currentLocation = game.getPlayer().getCurrentLocation();
         System.out.println("Your current localization:");
         System.out.println(
                 "__________________________________\n"
@@ -30,7 +30,7 @@ public class MapControl {
             System.out.println("\tNew Location.");            
         }
         System.out.println("__________________________________\n");
-        return game.getLocation();
+        return game.getPlayer().getCurrentLocation();
     }
     
     //Print all locations available on Map
@@ -46,18 +46,21 @@ public class MapControl {
      }    
     
     public static void movePlayerLocation(Game game, String place) {
-        if(game.getLocation().getLocationName().toUpperCase().equals(place.toUpperCase())){
-            System.out.println("You're already at "+game.getLocation().getLocationName().substring(0,1).toUpperCase()+game.getLocation().getLocationName().substring(1).toLowerCase()+".");
+        boolean found = false;
+        if(game.getPlayer().getCurrentLocation().getLocationName().toUpperCase().contains(place.toUpperCase())){
+            System.out.println("You're already at "+game.getPlayer().getCurrentLocation().getLocationName().substring(0,1).toUpperCase()+game.getPlayer().getCurrentLocation().getLocationName().substring(1).toLowerCase()+".");
         }else{
-            place = place.toUpperCase();
-            if(game.getMap().getLocationByString(place)== null){
-                System.out.println("*** Location not found! Try again! ***");
-            } else {
-                Location location = game.getMap().getLocationByString(place);
-                game.setLocation(location);
-                System.out.println("*** Now you're at "+ game.getLocation().getLocationName()+" ***");
-                playerPlaceInMap(game);
-                game.getMap().getLocationByString(place).setLocationVisited(true);
+            for(int i=0;i<game.getMap().getLocations().size();i++){
+                Location location = (Location) game.getMap().getLocations().get(i);
+                if(location.getLocationName().toUpperCase().contains(place.toUpperCase())){
+                    found = true;
+                    game.getPlayer().setCurrentLocation(location);
+                     System.out.println("*** Now you're at "+ game.getPlayer().getCurrentLocation().getLocationName()+" ***");
+                     game.getPlayer().getCurrentLocation().setLocationVisited(true);
+                }
+            }
+            if(found == false){
+                System.out.println("Place not found!");
             }
         }   
     }
@@ -92,6 +95,8 @@ public class MapControl {
     }
 
     public static void setPlayerStartLocation(Game game) {
-        MapControl.movePlayerLocation(game, "BARN");
+        Location location = (Location) game.getMap().getLocations().get(0);
+        game.getPlayer().setCurrentLocation(location);
+        game.getPlayer().getCurrentLocation().setLocationVisited(true);
     }
 }

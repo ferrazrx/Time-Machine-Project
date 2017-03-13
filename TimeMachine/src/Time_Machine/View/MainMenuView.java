@@ -6,9 +6,7 @@
 package Time_Machine.View;
 
 import Time_Machine.Control.GameControl;
-import Time_Machine.Control.InventoryControl;
 import Time_Machine.Control.Main;
-import Time_Machine.Model.Game;
 
 /**
  *

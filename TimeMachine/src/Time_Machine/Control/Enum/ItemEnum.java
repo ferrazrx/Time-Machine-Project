@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Time_Machine.Control;
-
-import Time_Machine.Model.Map;
-import Time_Machine.Model.Player;
+package Time_Machine.Control.Enum;
 
 /**
  *
- * Group 7
+ * 
  */
-public class MainMenuControl {
-
+public enum ItemEnum {
+    bubbleGum,
+    pencil,
+    fluxCapacitor,
+    wire,
+    pliers,
+    coil,
+    capacitor
 }

@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Time_Machine.Control;
+package Time_Machine.Control.Enum;
 
 /**
  *
- * 
+ * @author Group 7
  */
-public enum ItemEnum {
-    bubbleGum,
-    pencil,
-    fluxCapacitor,
-    wire,
-    pliers,
-    coil,
-    capacitor
+public enum SceneType {
+    stable,
+    majorOffice,
+    policeOffice,
+    liveroom,
+    kitchen,
+    vehiclesYard
 }

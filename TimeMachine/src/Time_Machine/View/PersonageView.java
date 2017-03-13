@@ -6,17 +6,17 @@
 package Time_Machine.View;
 
 import Time_Machine.Control.Main;
-import Time_Machine.Control.PeopleTownControl;
+import Time_Machine.Control.PersonageControl;
 import Time_Machine.Control.SceneControl;
 
 /**
  *
  * @author Group 7
  */
-public class PeopleTownView extends View {
+public class PersonageView extends View {
 
 
-    public PeopleTownView() {
+    public PersonageView() {
         super("\n-------------------------------------------"+
               "\n|              People in Town             |"+    
               "\n-------------------------------------------\n"+    
@@ -50,14 +50,14 @@ public class PeopleTownView extends View {
 
     private void talkPerson() {
         SceneControl.getScenesAndPersonages(Main.getCurrentGame());
-        System.out.println("Enter the person option: (e.g. 0,1,2...)");
-        String personageIndex = this.getInputValue();
-        boolean verification = PeopleTownControl.printPersonageMessage(personageIndex);
+        System.out.println("Enter the person's name that you want to talk: ");
+        String personage = this.getInputValue();
+        boolean verification = PersonageControl.printPersonageMessage(Main.getCurrentGame(), personage);
         if(verification == true){
             System.out.println("\n\tWhat do you want to say? Enter the index option: ");
             String message = this.getInputValue();
             int messageInt = Integer.parseInt(message) ;
-                PeopleTownControl.getAnswer(personageIndex, messageInt);
+                PersonageControl.getPersonageAnswer(Main.getCurrentGame(),personage, messageInt);
         }    
     }
     

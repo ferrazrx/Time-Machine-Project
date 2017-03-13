@@ -5,6 +5,7 @@
  */
 package Time_Machine.Control;
 
+import Time_Machine.Control.Enum.SceneType;
 import Time_Machine.Model.Game;
 import Time_Machine.Model.Location;
 import Time_Machine.Model.Personage;
@@ -15,6 +16,8 @@ import Time_Machine.Model.Scene;
  * @author Group 7
  */
 public class SceneControl {
+    
+    //Function used to set personages in a specific scene
     public static boolean setPersonageInScene (Game game, Personage personage, String name){
         for (int i=0; i<game.getMap().getLocations().size(); i++){
             Location location = (Location) game.getMap().getLocations().get(i);
@@ -29,13 +32,14 @@ public class SceneControl {
     return false;           
     }
     
+    //Function used to get personages from a specific scene
     public static void getScenesAndPersonages(Game game){
-            System.out.println("Places Available in the " +game.getLocation().getLocationName().toLowerCase()+":\n");
-            if(game.getLocation().getSceneLocation().size()<1){
+            System.out.println("Places Available in the " +game.getPlayer().getCurrentLocation().getLocationName().toLowerCase()+":\n");
+            if(game.getPlayer().getCurrentLocation().getSceneLocation().size()<1){
                 System.out.println("No places available!");
             } else {
-                for (int i=0; i<game.getLocation().getSceneLocation().size(); i++){
-                    Scene scene = (Scene) game.getLocation().getSceneLocation().get(i);
+                for (int i=0; i<game.getPlayer().getCurrentLocation().getSceneLocation().size(); i++){
+                    Scene scene = (Scene) game.getPlayer().getCurrentLocation().getSceneLocation().get(i);
                     System.out.println(scene.getSceneName().substring(0, 1).toUpperCase()+scene.getSceneName().substring(1).toLowerCase()+":");
                     System.out.println("_____________________________________________\n");
                     System.out.println("\tPeople available to talk in "+scene.getSceneName().substring(0, 1).toUpperCase()+scene.getSceneName().substring(1).toLowerCase()+":");
@@ -49,5 +53,44 @@ public class SceneControl {
                     }    
                 }
             }    
+    }
+    
+    //Create inicial scenes
+    public static Scene[] createScene(){
+        Scene[] scenes = new Scene[SceneType.values().length];
+        
+        //Scene stable
+        Scene stable = new Scene("STABLE","An old place without any horses.");
+        stable.setBlocked(false);
+        scenes[SceneType.stable.ordinal()] = stable;
+        
+        
+        //Scene major Office
+        Scene majorOffice = new Scene("MAJOR OFFICE", "Office where the major works.");
+        majorOffice.setBlocked(true);
+        scenes[SceneType.majorOffice.ordinal()] = majorOffice;
+        
+        //Scene police office
+        Scene policeOffice = new Scene("POLICE OFFICE", "An office with a table and a chair.");
+        policeOffice.setBlocked(true);
+        scenes[SceneType.policeOffice.ordinal()] = policeOffice;
+        
+        //Scene liveroom
+        Scene liveroom = new Scene("LIVEROOM", "The liveroom of your grandparent's house.");
+        liveroom.setBlocked(false);
+        scenes[SceneType.liveroom.ordinal()] = liveroom;
+        
+        //Scene vehicles yard
+        Scene vehiclesYard = new Scene("VEHICLES YARD", "Place where the fire trucks are parked.");
+        vehiclesYard.setBlocked(false);
+        scenes[SceneType.vehiclesYard.ordinal()] = vehiclesYard;
+        
+        //Scene kitchen
+        Scene kitchen = new Scene("KITCHEN", "The place where the breads are produced.");
+        kitchen.setBlocked(true);
+        scenes[SceneType.kitchen.ordinal()] = kitchen;
+                
+        return scenes;
+    
     }
 }

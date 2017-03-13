@@ -5,6 +5,7 @@
  */
 package Time_Machine.Control;
 
+import Time_Machine.Control.Enum.ItemEnum;
 import Time_Machine.Model.Game;
 import Time_Machine.Model.Inventory;
 import Time_Machine.Model.Item;
@@ -14,25 +15,27 @@ import Time_Machine.Model.Item;
  */
 public class InventoryControl {
     
+    //Display all item in player's inventory
     public static void listInventoryItems(Game game){
-        System.out.println("Inventory Items:");
-        if(game.getInventory().getAmountItems()<1){
-            System.out.println("*** Your inventory is empty ***");
-        }else{
-            System.out.println("\nYour inventory has:\n");
-            for (int i=0;i<game.getInventory().getAmountItems();i++){
-                Item item = game.getInventory().getItemByIndex(i);
-                if(item.getAmount()>1){
-                System.out.println(
-                    "\t_________________________________________________\n"
-                  +  "\tItem's Name: " + item.getName()+".\n"
-                  + "\tDescription: " + item.getDescription() +".\n"
+        boolean found = false;
+         System.out.println("Inventory Items:");
+        for (int i=0;i<game.getInventory().getAmountItems();i++){
+        Item item = (Item) game.getInventory().getItems().get(i);
+            if(item.getAmount()>0){
+                found =true;
+                System.out.println("\nYour inventory has:\n");
+                System.out.println("_____________________________________________");
+                System.out.println("Name: "+ item.getName()+";");
+                System.out.println("\tDescription: " + item.getDescription() +".\n"
                   + "\tAmount: "+ item.getAmount() +".");
-                }
             }
-        }    
+        }
+        if(found == false){
+            System.out.println("***   Your Inventory is empty!   ***");
+        }
     }
     
+    //Add a new item into player's inventory
     public static void addInventoryItem(Game game, Item newItem){
         // Add items on inventory
         boolean found = false;
@@ -51,6 +54,8 @@ public class InventoryControl {
                 listInventoryItems(game);
         }
     }
+    
+    //Drop item from player's inventory
     public static void dropInventoryItem(Game game,String removeItem){
         // Drop items from inventory
         boolean found = false;
@@ -68,6 +73,7 @@ public class InventoryControl {
         }    
     }
     
+    //Create initial item to the new inventory
     public static Inventory createInventoryItems (){// Create a new inventory and set initial item 
         //Create a new inventory
         Inventory inventory = new Inventory();

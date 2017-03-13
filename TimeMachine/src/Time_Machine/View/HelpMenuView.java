@@ -4,12 +4,6 @@
  * and open the template in the editor.
  */
 package Time_Machine.View;
-
-import Time_Machine.Control.GetInput;
-import Time_Machine.Control.Main;
-import Time_Machine.Control.MainMenuControl;
-import Time_Machine.Model.Player;
-
 /**
  *
  * Group 7

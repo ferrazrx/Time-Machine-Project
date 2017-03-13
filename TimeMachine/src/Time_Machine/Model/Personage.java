@@ -6,14 +6,47 @@
 package Time_Machine.Model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
  * @author Group 7
  */
-public enum Personage implements Serializable{
+public class Personage implements Serializable{
+    
+    private String name;
+    private ArrayList<Message> message;
+    
+        public Personage(String name) {
+            this.name = name;
+            this.message = new ArrayList();
+        }
+        public String getName() {
+        return name;
+    }
 
-    FATHER("James", 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ArrayList<Message> getMessage() {
+        return message;
+    }
+
+    public void setMessage(ArrayList<Message> message) {
+        this.message = message;
+    }
+    public void addMessage(Message message){
+        this.message.add(message);
+    
+    }
+    
+    public String getAnswerById(int a){
+        Message answer = this.message.get(a);
+        return answer.getAnswer();
+   }
+
+    /*FATHER("James", 
             new String[]{
                 "\"Dad! I'm your son from the future! I've traveled in a strange time machine! Can you help me?\"",
                 "\"Could you give me something to eat?\"",
@@ -30,64 +63,9 @@ public enum Personage implements Serializable{
             },
             new boolean[]{false,false,false,false,false}
             ,true);
-    
-    private final String name;
-    private final String[] messages;
-    private final String[] answers;
-    private boolean[] messageRead;
-    private boolean visited;
+*/    
 
-    private Personage(String name, String[] messages, String[] answers, boolean[] messageRead, boolean visited) {
-        this.name = name;
-        this.messages = messages;
-        this.answers = answers;
-        this.messageRead = messageRead;
-        this.visited = visited;
-    }
 
-    public String getName() {
-        return name;
-    }
 
-    public String[] getMessages() {
-        return messages;
-    }
-    public Personage getFather(int i){
-        return Personage.FATHER;
-    }
- 
-    public String[] getAnswers() {
-        return answers;
-    }
 
-    public boolean[] getMessageRead() {
-        return messageRead;
-    }
-
-    public void setMessageRead(boolean[] messageRead) {
-        this.messageRead = messageRead;
-    }
-
-    public boolean isVisited() {
-        return visited;
-    }
-
-    public void setVisited(boolean visited) {
-        this.visited = visited;
-    }
-    public String getMessage(int i){
-        return messages[i];
-    }
-    public String getAnswer(int i){
-        return answers[i];
-    }
-    public void setReadTrue(int i){
-        this.messageRead[i] = true;
-    }
-    public boolean getReadMessage(int i){
-        return messageRead[i];
-    } 
-    
-    
- 
 }

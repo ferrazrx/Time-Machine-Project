@@ -16,5 +16,13 @@ public enum ItemEnum {
     wire,
     pliers,
     coil,
-    capacitor
+    capacitor,
+    apple,
+    bread,
+    newspaper,
+    bottle,
+    metalnails,
+    crowbar
+    
+    
 }

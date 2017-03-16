@@ -130,7 +130,6 @@ public class InventoryControl {
         //Add pencil in the inventory
         inventory.setItemById(ItemEnum.coil.ordinal(),coil);
         
-        
         //Start some items in the Inventory
         Item capacitor1 = new Item(0);
         capacitor1.setRequiredAmount(3);
@@ -138,6 +137,48 @@ public class InventoryControl {
         capacitor1.setDescription("Util to fix the time machine.");
         //Add pencil in the inventory
         inventory.setItemById(ItemEnum.capacitor.ordinal(),capacitor1);
+        
+        Item apple = new Item(0);
+        apple.setRequiredAmount(0);
+        apple.setName("Apple");
+        apple.setDescription("A good fruit to eat.");
+        //Add pencil in the inventory
+        inventory.setItemById(ItemEnum.apple.ordinal(),apple);
+        
+        Item bread = new Item(0);
+        bread.setRequiredAmount(0);
+        bread.setName("Bread");
+        bread.setDescription("A half chunk of bread.");
+        //Add pencil in the inventory
+        inventory.setItemById(ItemEnum.bread.ordinal(),bread);
+        
+        Item newspaper = new Item(0);
+        newspaper.setRequiredAmount(0);
+        newspaper.setName("Bread");
+        newspaper.setDescription("An important news paper that bring a news about a scientist\nthat said he was building a time machine.");
+        //Add pencil in the inventory
+        inventory.setItemById(ItemEnum.apple.ordinal(),newspaper);
+        
+        Item bottle = new Item(0);
+        bottle.setRequiredAmount(0);
+        bottle.setName("Bottle of Water");
+        bottle.setDescription("Just water.");
+        //Add pencil in the inventory
+        inventory.setItemById(ItemEnum.bottle.ordinal(),bottle);
+        
+        Item metalnails = new Item(0);
+        metalnails.setRequiredAmount(0);
+        metalnails.setName("Metal Nails");
+        metalnails.setDescription("A bunck of nails.");
+        //Add pencil in the inventory
+        inventory.setItemById(ItemEnum.metalnails.ordinal(),metalnails);
+        
+        Item crowbar = new Item(0);
+        crowbar.setRequiredAmount(0);
+        crowbar.setName("Crowbar");
+        crowbar.setDescription("A metal bar.");
+        //Add pencil in the inventory
+        inventory.setItemById(ItemEnum.metalnails.ordinal(),crowbar);
         //return Inventory
         return inventory;
     }

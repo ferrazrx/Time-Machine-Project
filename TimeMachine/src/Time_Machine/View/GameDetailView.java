@@ -216,6 +216,7 @@ public class GameDetailView {
     GameDetailView.pause();   
     }
     public static void TimeMachineItemDetail(){
+        System.out.println("\n\tPieces that catch fire during the the travel:\n");
         System.out.println(
 "       =======\n" +
 "        =====  Flux Capacitor\n" +

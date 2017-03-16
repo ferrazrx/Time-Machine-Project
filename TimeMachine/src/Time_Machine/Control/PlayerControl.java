@@ -14,8 +14,13 @@ import Time_Machine.exceptions.PlayerControlException;
  */
 public class PlayerControl {
     public static Player startNewPlayer(String playerName) throws PlayerControlException{
-        if(playerName.equals("") || playerName == null || playerName.split(" ").length>1){
-            throw new PlayerControlException("Your name cannot be null or greater than one name. Try Again.");
+        if(playerName.equals("") || playerName == null || playerName.split(" ").length>1 || playerName.split("").length==1){
+            throw new PlayerControlException(
+                    "********************************\n"+
+                    "*  Your name cannot be empty,  *\n" +
+                    "*  just one letter or greater  *\n"+
+                    "*  than one name. Try Again!   *\n" +
+                    "********************************\n");
         } else{
             Player newPlayer = new Player();
             newPlayer.setName(playerName);

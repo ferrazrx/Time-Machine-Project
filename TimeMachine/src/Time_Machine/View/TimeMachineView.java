@@ -21,7 +21,7 @@ public class TimeMachineView extends View {
             "\n-------------------------------------------"+
             "\n|              Time Machine Menu          |"+    
             "\n-------------------------------------------\n"+    
-            "D - See detail to fix the Time Machine"
+            "D - See detail to fix the Time Machine\n"
           + "F - Try to fix the Time Machine\n"
           + "I - Try to combine items with the Time Machine\n"
           + "R - Try to turn the Time Machine on\n"

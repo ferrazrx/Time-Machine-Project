@@ -8,7 +8,7 @@ package Time_Machine.Control;
 import Time_Machine.Model.Game;
 import Time_Machine.Model.Message;
 import Time_Machine.Model.Personage;
-import Time_Machine.Model.Scene;
+import Time_Machine.exceptions.PersonageControlException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,14 +18,17 @@ import java.util.Arrays;
  */
 public class PersonageControl {
     
-    public static boolean printPersonageMessage(Game game, String name){
+    public static void printPersonageMessage(Game game, String name) throws PersonageControlException{
+        if(name == null || name.equals("")){
+            throw new PersonageControlException("The personage's name cannot be empty. Try Again.");
+        }
         boolean found = false;
         for(int i=0;i<game.getPersonages().size();i++){
            Personage personage = (Personage) game.getPersonages().get(i);
            if(personage.getName().toUpperCase().contains(name.toUpperCase())){
                found = true;
                System.out.println("Choose a option to talk:");
-               for(int a=0;a<personage.getMessage().size();i++){
+               for(int a=0;a<personage.getMessage().size();a++){
                 Message message = (Message) personage.getMessage().get(a);
                    System.out.println("\t____________________________________________________________");
                    System.out.println("\t" + a + " - " + message.getMessage());    
@@ -33,13 +36,14 @@ public class PersonageControl {
            }   
         }
         if(found==false){
-            System.out.println("Personage not found!");
-        return false;
-        }
-    return true;    
+            throw new PersonageControlException("Personage not found. Try again.");
+        }  
     }
     
-    public static void getPersonageAnswer(Game game, String name, int index) {
+    public static void getPersonageAnswer(Game game, String name, int index) throws PersonageControlException {
+        if(name == null || name.equals("") || index < 0){
+            throw new PersonageControlException("Personage name and message index cannot be empty. Try again.");
+        }
         boolean found = false;
         for(int i=0;i<game.getPersonages().size();i++){
            Personage personage = (Personage) game.getPersonages().get(i);
@@ -50,7 +54,7 @@ public class PersonageControl {
            }
         }
         if(found==false){
-            System.out.println("Personage not found!");
+            throw new PersonageControlException("Personage not found. Try again.");
         }
         
     }

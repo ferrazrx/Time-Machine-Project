@@ -7,6 +7,9 @@ package Time_Machine.View;
 
 import Time_Machine.Control.InventoryControl;
 import Time_Machine.Control.Main;
+import Time_Machine.exceptions.InventoryControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Group 7
@@ -47,7 +50,11 @@ public class InventoryView extends View {
     private void dropItem(){
         System.out.println("Enter the item's name to drop:");
         String itemOption = this.getInputValue();
-        InventoryControl.dropInventoryItem(Main.getCurrentGame(), itemOption);
+       try {
+           InventoryControl.dropInventoryItem(Main.getCurrentGame(), itemOption);
+       } catch (InventoryControlException ex) {
+           System.out.println(ex.getMessage());
+       }
     }
 
     private void useItem() {

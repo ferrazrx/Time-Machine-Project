@@ -10,6 +10,7 @@ import Time_Machine.Model.Game;
 import Time_Machine.Model.Location;
 import Time_Machine.Model.Personage;
 import Time_Machine.Model.Scene;
+import Time_Machine.exceptions.SceneControlException;
 
 /**
  *
@@ -18,18 +19,24 @@ import Time_Machine.Model.Scene;
 public class SceneControl {
     
     //Function used to set personages in a specific scene
-    public static boolean setPersonageInScene (Game game, Personage personage, String name){
+    public static void setPersonageInScene (Game game, Personage personage, String name) throws SceneControlException{
+        if(name == null || name.equals("")){
+            throw new SceneControlException("The personage's name cannot be empty. Try Again.");
+        }
+        boolean found = false;
         for (int i=0; i<game.getMap().getLocations().size(); i++){
             Location location = (Location) game.getMap().getLocations().get(i);
             for (int a=0; a<location.getSceneLocation().size(); a++){
                Scene scene = (Scene) location.getSceneLocation().get(a);
                if(scene.getSceneName().toUpperCase().contains(name.toUpperCase())){
+                   found = true;
                    scene.setPersonage(personage);
-                   return true;
                }
             }     
         }    
-    return false;           
+        if(found == false){
+            throw new SceneControlException("Scene not found. Try again.");
+        }
     }
     
     //Function used to get personages from a specific scene

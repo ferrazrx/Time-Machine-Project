@@ -8,6 +8,7 @@ package Time_Machine.View;
 import Time_Machine.Control.Main;
 import Time_Machine.Control.PersonageControl;
 import Time_Machine.Control.SceneControl;
+import Time_Machine.exceptions.PersonageControlException;
 
 /**
  *
@@ -50,15 +51,28 @@ public class PersonageView extends View {
 
     private void talkPerson() {
         SceneControl.getScenesAndPersonages(Main.getCurrentGame());
-        System.out.println("Enter the person's name that you want to talk: ");
+        System.out.println("Enter the person's name that you want to talk:");
         String personage = this.getInputValue();
-        boolean verification = PersonageControl.printPersonageMessage(Main.getCurrentGame(), personage);
-        if(verification == true){
+        try{
+            int messageInt = 0;
+            PersonageControl.printPersonageMessage(Main.getCurrentGame(), personage);
             System.out.println("\n\tWhat do you want to say? Enter the index option: ");
             String message = this.getInputValue();
-            int messageInt = Integer.parseInt(message) ;
+            try{
+                messageInt = Integer.parseInt(message);
                 PersonageControl.getPersonageAnswer(Main.getCurrentGame(),personage, messageInt);
-        }    
+            }
+            catch(NumberFormatException n){
+                System.out.println(n.getMessage());
+            }
+            catch(ArrayIndexOutOfBoundsException e){
+                System.out.println("Speech invalid!");
+                System.out.println(e.getMessage());
+            }
+        }
+        catch(PersonageControlException message){
+            System.out.println(message.getMessage());
+        };   
     }
     
 }

@@ -9,6 +9,7 @@ import Time_Machine.Control.Enum.ItemEnum;
 import Time_Machine.Model.Game;
 import Time_Machine.Model.Inventory;
 import Time_Machine.Model.Item;
+import Time_Machine.exceptions.InventoryControlException;
 /**
  *
  * @author Group 7
@@ -56,7 +57,10 @@ public class InventoryControl {
     }
     
     //Drop item from player's inventory
-    public static void dropInventoryItem(Game game,String removeItem){
+    public static void dropInventoryItem(Game game,String removeItem) throws InventoryControlException{
+        if(removeItem == null || removeItem.equals("")){
+            throw new InventoryControlException("Item's name cannot be empty. Try again.");
+        }
         // Drop items from inventory
         boolean found = false;
         for (int i=0;i<game.getInventory().getAmountItems();i++){

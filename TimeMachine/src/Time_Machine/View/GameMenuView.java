@@ -7,6 +7,9 @@ package Time_Machine.View;
 
 import Time_Machine.Control.Main;
 import Time_Machine.Control.MapControl;
+import Time_Machine.exceptions.MapControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -46,7 +49,8 @@ class GameMenuView extends View {
             case "S":
                 this.seeTimeMachineStatus();
                 break;
-            case "P": MapControl.setPlayerStartLocation(Main.getCurrentGame());
+            case "P": 
+                this.moveToBarn();
                 break;
             case "M":
                 break;    
@@ -88,6 +92,14 @@ class GameMenuView extends View {
         PersonageView  peopleTownView = new PersonageView();
         peopleTownView.displayMenu();
         
+    }
+
+    private void moveToBarn() {
+        try {
+            MapControl.movePlayerLocation(Main.getCurrentGame(), "barn");
+        } catch (MapControlException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
 }

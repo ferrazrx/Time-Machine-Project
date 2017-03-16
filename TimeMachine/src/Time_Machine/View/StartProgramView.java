@@ -8,6 +8,7 @@ package Time_Machine.View;
 import Time_Machine.Control.GetInput;
 import Time_Machine.Control.PlayerControl;
 import Time_Machine.Model.Player;
+import Time_Machine.exceptions.PlayerControlException;
 
 /*
  * @author Group 7
@@ -20,13 +21,15 @@ public class StartProgramView {
     
     //Function that get the player's name
     public Player displayStartProgramView (){
-        Player newPlayer;
+        Player newPlayer = null;
         do{
             System.out.println("\n\tPlease, enter your first name:");
             String playerName = GetInput.getString();
-            newPlayer = PlayerControl.startNewPlayer(playerName);
-            if(newPlayer == null){
-                System.out.println("You entered an invalid name. Your name must be greater then 1 characters in length.");
+            try{
+                newPlayer = PlayerControl.startNewPlayer(playerName);
+            }
+            catch(PlayerControlException ex){
+                System.out.println(ex.getMessage());
             }
         }while(newPlayer == null);
         return newPlayer;

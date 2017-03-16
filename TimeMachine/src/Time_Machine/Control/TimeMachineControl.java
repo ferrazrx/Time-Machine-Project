@@ -3,6 +3,7 @@ package Time_Machine.Control;
 import Time_Machine.Model.Game;
 import Time_Machine.Model.Item;
 import Time_Machine.Model.TimeMachine;
+import Time_Machine.exceptions.TimeMachineControlException;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +25,7 @@ public class TimeMachineControl {
             }    
         }
     
-        public static void addPart(Game game, String item){
+        public static void addPart(Game game, String item) throws TimeMachineControlException{
              item = item.toUpperCase();
              if(game.getPlayer().getCurrentLocation().getLocationName().toUpperCase().equals("BARN")){
                 for(int i=0; i<game.getInventory().getAmountItems();i++){
@@ -43,15 +44,15 @@ public class TimeMachineControl {
                            System.out.println("You add " +itemToTimeMachine.getName()+" to the Time Machine." );
                            return;
                        }else{
-                           System.out.println("This item cannot be combine with the Time Machine. Sorry!");
+                           throw new TimeMachineControlException("This item cannot be combine with the Time Machine. Sorry!");
                        }
 
                    }else{
-                        System.out.println("*** Item not found in your inventory ***");
+                       throw new TimeMachineControlException("*** Item not found in your inventory ***");
                    }
                 }
              }else{
-                 System.out.println("You must be at the Barn to combine item with the time machine, you're now at the " + game.getPlayer().getCurrentLocation().getLocationName().substring(0,1).toUpperCase()+ game.getPlayer().getCurrentLocation().getLocationName().substring(1).toLowerCase()+".");
+                 throw new TimeMachineControlException("You must be at the Barn to combine item with the time machine, you're now at the " + game.getPlayer().getCurrentLocation().getLocationName().substring(0,1).toUpperCase()+ game.getPlayer().getCurrentLocation().getLocationName().substring(1).toLowerCase()+".");
              }    
              
         }

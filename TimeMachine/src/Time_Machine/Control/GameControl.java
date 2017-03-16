@@ -8,10 +8,14 @@ package Time_Machine.Control;
 import Time_Machine.Model.Game;
 import Time_Machine.Model.Inventory;
 import Time_Machine.Model.Map;
+import Time_Machine.Model.Personage;
 import Time_Machine.Model.Player;
 import Time_Machine.Model.Scene;
 import Time_Machine.Model.TimeMachine;
+import Time_Machine.exceptions.SceneControlException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -51,9 +55,11 @@ public class GameControl {// Class that set a new game
     //Create new Scenes
     Scene[] scenes = SceneControl.createScene();
     LocationControl.assignScenesToLocations(map, scenes);
-    
-    //Assign personages to scenes
-    PersonageControl.createPersonages();
+        try {
+            SceneControl.setPersonageInScene(game, (Personage) personages.get(0),"liveroom");
+        } catch (SceneControlException ex) {
+            System.out.println(ex.getMessage());
+        }
     
     
     

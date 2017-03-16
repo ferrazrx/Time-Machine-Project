@@ -8,6 +8,7 @@ package Time_Machine.Control;
 import Time_Machine.Model.Game;
 import Time_Machine.Model.Location;
 import Time_Machine.Model.Map;
+import Time_Machine.exceptions.MapControlException;
 import java.util.ArrayList;
 
 /**
@@ -45,7 +46,10 @@ public class MapControl {
         }
      }    
     
-    public static void movePlayerLocation(Game game, String place) {
+    public static void movePlayerLocation(Game game, String place) throws MapControlException {
+        if(place == null || place.equals("")){
+            throw new MapControlException("The place's name cannot be empty.");
+        }
         boolean found = false;
         if(game.getPlayer().getCurrentLocation().getLocationName().toUpperCase().contains(place.toUpperCase())){
             System.out.println("You're already at "+game.getPlayer().getCurrentLocation().getLocationName().substring(0,1).toUpperCase()+game.getPlayer().getCurrentLocation().getLocationName().substring(1).toLowerCase()+".");

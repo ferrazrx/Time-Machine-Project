@@ -8,6 +8,7 @@ package Time_Machine.View;
 import Time_Machine.Control.InventoryControl;
 import Time_Machine.Control.Main;
 import Time_Machine.Control.TimeMachineControl;
+import Time_Machine.exceptions.TimeMachineControlException;
 
 /**
  *
@@ -55,7 +56,12 @@ public class TimeMachineView extends View {
         InventoryControl.listInventoryItems(Main.getCurrentGame());
         System.out.println("Enter the item's name you want to combine with the time machine:");
         String item = this.getInputValue();
-        TimeMachineControl.addPart(Main.getCurrentGame(), item);
+        try{
+            TimeMachineControl.addPart(Main.getCurrentGame(), item);
+        }
+        catch(TimeMachineControlException ex){
+            System.out.println(ex.getMessage());
+        }
     }
 
     private void turnOn() {

@@ -21,7 +21,8 @@ public class TimeMachineView extends View {
             "\n-------------------------------------------"+
             "\n|              Time Machine Menu          |"+    
             "\n-------------------------------------------\n"+    
-            "F - Try to fix the Time Machine\n"
+            "D - See detail to fix the Time Machine"
+          + "F - Try to fix the Time Machine\n"
           + "I - Try to combine items with the Time Machine\n"
           + "R - Try to turn the Time Machine on\n"
           + "B - Back to Game Manu\n"
@@ -32,6 +33,9 @@ public class TimeMachineView extends View {
     public boolean action (String menuOption) {
         menuOption = menuOption.toUpperCase();
         switch (menuOption){
+            case "D":
+                this.seeDetail();
+                break;
             case "F":
                 this.fixTimeMachine();
                 break;
@@ -66,6 +70,10 @@ public class TimeMachineView extends View {
 
     private void turnOn() {
        TimeMachineControl.tryToFixTimeMachine(Main.getCurrentGame());
+    }
+
+    private void seeDetail() {
+       GameDetailView.TimeMachineItemDetail();
     }
 
 

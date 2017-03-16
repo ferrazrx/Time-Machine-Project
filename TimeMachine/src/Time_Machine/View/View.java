@@ -25,9 +25,8 @@ public abstract class View implements ViewInterface {
     @Override
     public void displayMenu() {
         boolean done = false;
-        do{
+        do{ System.out.println(this.menu);
             System.out.println("Enter a option:");
-            System.out.println(this.menu);
             String option = this.getInputValue();
             switch (option.toUpperCase()) {
                 case "B":

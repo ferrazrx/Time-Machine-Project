@@ -5,13 +5,24 @@
  */
 package Time_Machine.View;
 
+import Time_Machine.Control.GetInput;
 import Time_Machine.Model.Player;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Group 7
  */
 public class GameDetailView {
+    
+    private static void pause() {
+        System.out.println("\n\n\t****  Press enter to continue... ****");
+        GetInput.getString();
+    }
+    
+    
+    
     public static void displayGameBanner(){
         System.out.println(
             "\t████████╗██╗███╗     ███╗███████╗     ███╗   ███╗ █████╗  ██████╗██╗   ██╗██╗███╗     ██╗███████╗\n"+
@@ -37,6 +48,7 @@ public class GameDetailView {
               + "\n* future!                                             *"
               + "\n*      Good luck and have fun in this adventure!      *"
               + "\n*******************************************************");
+    GameDetailView.pause();
     }
     public static void displayTitleDetail (){
         System.out.println(
@@ -76,7 +88,7 @@ public class GameDetailView {
             "   :      . /x' /~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/ 'x/      \\__/__/   /   /");
     }
 
-    static void displayBozemanMap() {
+    public static void displayBozemanMap() {
         System.out.println(
                 
 " ,____________________________________________________________________\n"+                
@@ -106,19 +118,31 @@ public class GameDetailView {
 "                                            | Area: 1,772 sq.mi.     |\n" +
 "                                            |      (5,086 sq.km.)    |\n" +
 "                                            `------------------------'");
+    GameDetailView.pause();
     }
 
     static void displayIntroduction(Player player) {
-        System.out.println(
+        String title =
 "  ____   ___ __________ __  __    _    _   _           _  ___   ___   ___  \n" +
 " | __ ) / _ \\__  / ____|  \\/  |  / \\  | \\ | |         / |/ _ \\ ( _ ) ( _ ) \n" +
 " |  _ \\| | | |/ /|  _| | |\\/| | / _ \\ |  \\| |  _____  | | (_) |/ _ \\ / _ \\ \n" +
 " | |_) | |_| / /_| |___| |  | |/ ___ \\| |\\  | |_____| | |\\__, | (_) | (_) |\n" +
 " |____/ \\___/____|_____|_|  |_/_/   \\_\\_| \\_|         |_|  /_/ \\___/ \\___/ \n" +
-"                                                                           ");
-        System.out.println(
-                "-------------------------------------------\n" +
-                "   Welcome" + player.getName()+ " to 1988! \n" +               
+"                                                                           ";
+       String[] titles = title.split("\n");
+       for(String line : titles){
+            System.out.println(line);
+            try {
+               Thread.sleep(300);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(GameDetailView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       }      
+          
+        
+        String text =
+                "\n-------------------------------------------\n" +
+                "   Welcome " + player.getName().substring(0, 1).toUpperCase() + player.getName().substring(1).toLowerCase()+ " to 1988! \n" +               
                 "-------------------------------------------\n" +
                 "You live in the small city Bozeman, Montana, US.\n" +
                 "You're  a  sixteen-year  old  boy  that  love a \n "
@@ -135,21 +159,65 @@ public class GameDetailView {
               + "looks like a carriage. John and you that were \n"
               + "playing inside the machine thinking that it would\n"
               + " be a kind of old vehicle. Accidentally John turns\n"
-              + " the machine on and both travel in time 20 years back. "
-        );
+              + " the machine on and both travel in time 20 years back.\n \n \n"
+              + "                 ____\n" +
+"                /___.`--.____ .--. ____.--(\n" +
+"                       .'_.- (    ) -._'.\n" +
+"                     .'.'    |'..'|    '.'.\n" +
+"              .-.  .' /'--.__|____|__.--'\\ '.  .-.\n" +
+"             (O).)-| |  \\    |    |    /  | |-(.(O)\n" +
+"              `-'  '-'-._'-./      \\.-'_.-'-'  `-'\n" +
+"                 _ | |   '-.________.-'   | | _\n" +
+"              .' _ | |     |   __   |     | | _ '.\n" +
+"             / .' ''.|     | /    \\ |     |.'' '. \\\n" +
+"             | |( )| '.    ||      ||    .' |( )| |\n" +
+"             \\ '._.'   '.  | \\    / |  .'   '._.' /\n" +
+"              '.__ ______'.|__'--'__|.'______ __.'\n" +
+"             .'_.-|         |------|         |-._'.\n" +
+"            //\\\\  |         |--::--|         |  //\\\\\n" +
+"           //  \\\\ |         |--::--|         | //  \\\\\n" +
+"          //    \\\\|        /|--::--|\\        |//    \\\\\n" +
+"         / '._.-'/|_______/ |--::--| \\_______|\\`-._.' \\\n" +
+"        / __..--'        /__|--::--|__\\        `--..__ \\\n" +
+"       / /               '-.|--::--|.-'               \\ \\\n" +
+"      / /                   |--::--|                   \\ \\\n" +
+"     / /                    |--::--|                    \\ \\\n" +
+" _.-'  `-._                 _..||.._                  _.-` '-._\n" +
+"'--..__..--'           '-.____.-'                '--..__..-' "+ "\n \n \n ... \n";
+       String[] textDivided = text.split("\n");
+       for(String line : textDivided){
+            try {
+                System.out.println(line);
+                Thread.sleep(600);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(GameDetailView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       }
+       
         System.out.println(
 "  _____                      __    _______             ______  ____ ___ \n" +
 " / ___/_ _____________ ___  / /_  /_  __(_)_ _  ___   <  / _ \\/ __/( _ )\n" +
 "/ /__/ // / __/ __/ -_) _ \\/ __/   / / / /  ' \\/ -_)  / /\\_, / _ \\/ _  |\n" +
 "\\___/\\_,_/_/ /_/  \\__/_//_/\\__/   /_/ /_/_/_/_/\\__/  /_//___/\\___/\\___/ \n" +
 "                                                                        ");
-        System.out.println("Now you're in 1968 and your goal is to try to travel\n"
+        String text2 ="Now you're in 1968 and your goal is to try to travel\n"
                 + "20 years in the future without ruin your future!\n\n"
-                + "The time machine broke during the travel. You must fix it!\n"
-                + "Select the options below to start the game:");        
+                + "The time machine broke during the travel. You must fix it!\n";       
+        
+    String[] textDivided2 = text2.split("\n");
+       for(String line : textDivided2){
+            try {
+                System.out.println(line);
+                Thread.sleep(700);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(GameDetailView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       }
+    GameDetailView.pause();   
     }
-    public void TimeMachineItemDetail(){
-        System.out.println("  =======\n" +
+    public static void TimeMachineItemDetail(){
+        System.out.println(
+"       =======\n" +
 "        =====  Flux Capacitor\n" +
 "         ===\n" +
 "          =\n" +
@@ -199,5 +267,38 @@ public class GameDetailView {
 "  | |_   _. ._  |   _   _|_ _  ._   |_) |  _.    o ._   _  | \n" +
 "  | | | (_| | | |< _>    | (_) |    |   | (_| \\/ | | | (_| o \n" +
 "                                              /         _|   ");
+    }
+
+    private void getInputValue() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    private static void timeMachine(){
+        System.out.println(
+"                 ____\n" +
+"                /___.`--.____ .--. ____.--(\n" +
+"                       .'_.- (    ) -._'.\n" +
+"                     .'.'    |'..'|    '.'.\n" +
+"              .-.  .' /'--.__|____|__.--'\\ '.  .-.\n" +
+"             (O).)-| |  \\    |    |    /  | |-(.(O)\n" +
+"              `-'  '-'-._'-./      \\.-'_.-'-'  `-'\n" +
+"                 _ | |   '-.________.-'   | | _\n" +
+"              .' _ | |     |   __   |     | | _ '.\n" +
+"             / .' ''.|     | /    \\ |     |.'' '. \\\n" +
+"             | |( )| '.    ||      ||    .' |( )| |\n" +
+"             \\ '._.'   '.  | \\    / |  .'   '._.' /\n" +
+"              '.__ ______'.|__'--'__|.'______ __.'\n" +
+"             .'_.-|         |------|         |-._'.\n" +
+"            //\\\\  |         |--::--|         |  //\\\\\n" +
+"           //  \\\\ |         |--::--|         | //  \\\\\n" +
+"          //    \\\\|        /|--::--|\\        |//    \\\\\n" +
+"         / '._.-'/|_______/ |--::--| \\_______|\\`-._.' \\\n" +
+"        / __..--'        /__|--::--|__\\        `--..__ \\\n" +
+"       / /               '-.|--::--|.-'               \\ \\\n" +
+"      / /                   |--::--|                   \\ \\\n" +
+"     / /                    |--::--|                    \\ \\\n" +
+" _.-'  `-._                 _..||.._                  _.-` '-._\n" +
+"'--..__..--'               '-.____.-'                '--..__..-'");
+    
     }
 }

@@ -99,7 +99,7 @@ public class InventoryControl {
         inventory.setItemById(ItemEnum.pencil.ordinal(),pencil);
         
         //Start some items in the Inventory
-        Item capacitor = new Item(0);
+        Item capacitor = new Item(1);
         capacitor.setRequiredAmount(1);
         capacitor.setName("New Flux capacitor");
         capacitor.setDescription("A big part of the machine");
@@ -109,7 +109,7 @@ public class InventoryControl {
         //Start some items in the Inventory
         Item wire = new Item(0);
         wire.setRequiredAmount(1);
-        wire.setName("High voltage wire");
+        wire.setName("High Voltage Wire");
         wire.setDescription("A essential part of the time machine.");
         //Add pencil in the inventory
         inventory.setItemById(ItemEnum.wire.ordinal(),wire);
@@ -123,9 +123,9 @@ public class InventoryControl {
         inventory.setItemById(ItemEnum.pliers.ordinal(),pliers);
 
         //Start some items in the Inventory
-        Item coil = new Item(0);
+        Item coil = new Item(1);
         coil.setRequiredAmount(2);
-        coil.setName("Pliers");
+        coil.setName("Air Core Wire Coils");
         coil.setDescription("Util to fix the time machine.");
         //Add pencil in the inventory
         inventory.setItemById(ItemEnum.coil.ordinal(),coil);
@@ -133,7 +133,7 @@ public class InventoryControl {
         //Start some items in the Inventory
         Item capacitor1 = new Item(0);
         capacitor1.setRequiredAmount(3);
-        capacitor1.setName("Pliers");
+        capacitor1.setName("Capacitor of 1500uf 25V");
         capacitor1.setDescription("Util to fix the time machine.");
         //Add pencil in the inventory
         inventory.setItemById(ItemEnum.capacitor.ordinal(),capacitor1);

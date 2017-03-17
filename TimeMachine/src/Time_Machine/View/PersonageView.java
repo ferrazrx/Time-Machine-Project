@@ -69,6 +69,10 @@ public class PersonageView extends View {
                 System.out.println("Speech invalid!");
                 System.out.println(e.getMessage());
             }
+            catch(PersonageControlException e){
+                System.out.println("Speech invalid!");
+                System.out.println(e.getMessage());
+            }
         }
         catch(PersonageControlException message){
             System.out.println(message.getMessage());

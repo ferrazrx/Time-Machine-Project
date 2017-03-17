@@ -5,6 +5,9 @@
  */
 package Time_Machine.Control;
 
+import Time_Machine.exceptions.ItemControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,7 +22,7 @@ public class ItemControlTest {
      * Test of CalculatePowerDissipationInResistor method, of class ItemControl.
      */
     @Test
-    public void testCalculatePowerDissipationInResistor() {
+    public void testCalculatePowerDissipationInResistor() throws ItemControlException {
         /**********************************
                  * Test case #1
         **********************************/
@@ -27,7 +30,12 @@ public class ItemControlTest {
         int voltage = 150;
         int resistor = 120;
         double expResult = 187.50;
-        double result = ItemControl.CalculatePowerDissipationInResistor(voltage, resistor);
+        double result = 0;
+        try {
+            result = ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+        } catch (ItemControlException ex) {
+            Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         /**********************************
@@ -37,7 +45,11 @@ public class ItemControlTest {
         voltage = 200;
         resistor = 100;
         expResult = -1;
-        result = ItemControl.CalculatePowerDissipationInResistor(voltage, resistor);
+        try {
+            result = ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+        } catch (ItemControlException ex) {
+            Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         /**********************************
@@ -47,7 +59,11 @@ public class ItemControlTest {
         voltage = 60;
         resistor = 50;
         expResult = -1;
-        result = ItemControl.CalculatePowerDissipationInResistor(voltage, resistor);
+        try {
+            result = ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+        } catch (ItemControlException ex) {
+            Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         /**********************************
@@ -57,7 +73,11 @@ public class ItemControlTest {
         voltage = 10;
         resistor = 0;
         expResult = -1;
-        result = ItemControl.CalculatePowerDissipationInResistor(voltage, resistor);
+        try {
+            result = ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+        } catch (ItemControlException ex) {
+            Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         /**********************************
@@ -67,7 +87,11 @@ public class ItemControlTest {
         voltage = -20;
         resistor = 30;
         expResult = -1;
-        result = ItemControl.CalculatePowerDissipationInResistor(voltage, resistor);
+        try {
+            result = ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+        } catch (ItemControlException ex) {
+            Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         /**********************************
@@ -77,7 +101,11 @@ public class ItemControlTest {
         voltage = 100;
         resistor = -40;
         expResult = -1;
-        result = ItemControl.CalculatePowerDissipationInResistor(voltage, resistor);
+        try {
+            result = ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+        } catch (ItemControlException ex) {
+            Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         /**********************************
@@ -87,7 +115,7 @@ public class ItemControlTest {
         voltage = 1;
         resistor = 1;
         expResult = -1;
-        result = ItemControl.CalculatePowerDissipationInResistor(voltage, resistor);
+        result = ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
         assertEquals(expResult, result, 0.0);
     }
 
@@ -103,7 +131,12 @@ public class ItemControlTest {
         double acceleration = 100.0;
         double time = 10.0;
         double expResult = 5000.0;
-        double result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+        double result = 0;
+        try {
+            result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+        } catch (ItemControlException ex) {
+            Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         /**********************************
@@ -113,7 +146,11 @@ public class ItemControlTest {
         acceleration = 99.0;
         time = 10.0;
         expResult = -1;
-        result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+        try {
+            result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+        } catch (ItemControlException ex) {
+            Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         /**********************************
@@ -123,7 +160,11 @@ public class ItemControlTest {
         acceleration = 101.0;
         time = 10.0;
         expResult = -1;
-        result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+        try {
+            result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+        } catch (ItemControlException ex) {
+            Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         /**********************************
@@ -133,7 +174,11 @@ public class ItemControlTest {
         acceleration = -1;
         time = 10.0;
         expResult = -1;
-        result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+        try {
+            result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+        } catch (ItemControlException ex) {
+            Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         /**********************************
@@ -143,7 +188,11 @@ public class ItemControlTest {
         acceleration = 10.0;
         time = -1;
         expResult = -1;
-        result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+        try {
+            result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+        } catch (ItemControlException ex) {
+            Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
          /**********************************
@@ -153,7 +202,11 @@ public class ItemControlTest {
         acceleration = 1.0;
         time = 1.0;
         expResult = -1;
-        result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+        try {
+            result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+        } catch (ItemControlException ex) {
+            Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
     }

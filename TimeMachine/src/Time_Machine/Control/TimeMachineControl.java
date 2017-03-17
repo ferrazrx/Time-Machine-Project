@@ -26,19 +26,20 @@ public class TimeMachineControl {
         }
     
         public static void addPart(Game game, String item) throws TimeMachineControlException{
-             item = item.toUpperCase();
-             if(game.getPlayer().getCurrentLocation().getLocationName().toUpperCase().equals("BARN")){
+            boolean found = false; 
+            if(game.getPlayer().getCurrentLocation().getLocationName().toUpperCase().equals("BARN")){
                 for(int i=0; i<game.getInventory().getAmountItems();i++){
-                   if(game.getInventory().getItemByIndex(i).getName().toUpperCase().contains(item)){
+                   if(game.getInventory().getItemByIndex(i).getName().toUpperCase().contains(item.toUpperCase())){
+                       found = true;
                        Item itemToTimeMachine = game.getInventory().getItemByIndex(i);
                        System.out.println("You're trying to combine " + itemToTimeMachine.getName() + " with the time machine.");
                        String itemName = itemToTimeMachine.getName();
-                       if("New Flux Capacitor".equals(itemName)       ||
-                          "High Voltage Wire".equals(itemName)        ||
-                          "Pliers".equals(itemName)                   ||
-                          "Air Core Wire Coils".equals(itemName)      ||
-                          "Capacitor of 1500uf 25V".equals(itemName)  ||
-                          "Bubble gum".equals(itemName)
+                       if("New Flux Capacitor".toUpperCase().equals(itemName.toUpperCase())       ||
+                          "High Voltage Wire".toUpperCase().equals(itemName.toUpperCase())        ||
+                          "Pliers".toUpperCase().equals(itemName.toUpperCase())                   ||
+                          "Air Core Wire Coils".toUpperCase().equals(itemName.toUpperCase())      ||
+                          "Capacitor of 1500uf 25V".toUpperCase().equals(itemName.toUpperCase())  ||
+                          "Bubble gum".toUpperCase().equals(itemName.toUpperCase())
                        ){
                            game.getTimeMachine().AddPartsListTimeMachine(itemToTimeMachine);
                            System.out.println("You add " +itemToTimeMachine.getName()+" to the Time Machine." );
@@ -46,15 +47,14 @@ public class TimeMachineControl {
                        }else{
                            throw new TimeMachineControlException("This item cannot be combine with the Time Machine. Sorry!");
                        }
-
-                   }else{
-                       throw new TimeMachineControlException("*** Item not found in your inventory ***");
-                   }
-                }
+                    }
+                }   
              }else{
                  throw new TimeMachineControlException("You must be at the Barn to combine item with the time machine, you're now at the " + game.getPlayer().getCurrentLocation().getLocationName().substring(0,1).toUpperCase()+ game.getPlayer().getCurrentLocation().getLocationName().substring(1).toLowerCase()+".");
              }    
-             
+             if(found==false){
+                 throw new TimeMachineControlException("*** Item not found in your inventory ***");
+             }
         }
     
         public static void tryToFixTimeMachine(Game game){

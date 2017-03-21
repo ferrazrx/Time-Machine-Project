@@ -48,55 +48,55 @@ public class HelpMenuView extends View {
                 this.cluesView();
                 break;    
             default:
-                System.out.println("*** Invalid selection *** Try Again!");
+                ErrorView.display(this.getClass().getName(),"*** Invalid selection *** Try Again!");
                 break;
         }
         return false;
     
     }
     private void cluesView() {
-        System.out.println("\n\t*******************************************");
-        System.out.println("\t*  1º - Combine item with the machine     *\n"
+        this.console.println("\n\t*******************************************");
+        this.console.println("\t*  1º - Combine item with the machine     *\n"
                 +          "\t*  2º - Talk with all citizens            *\n"
                 +          "\t*  3º - Search for things in all places   *\n"
                 +          "\t*  4º - Use the information on images     *\n");
-        System.out.println("\t*******************************************");
+        this.console.println("\t*******************************************");
       }
 
     private void useItemsView() {
-        System.out.println("\n\t*******************************************");
-        System.out.println("\t*  You can combine items with you time    *\n"
+        this.console.println("\n\t*******************************************");
+        this.console.println("\t*  You can combine items with you time    *\n"
                 +          "\t*  machine.                               *\n");
-        System.out.println("\t*******************************************");
+        this.console.println("\t*******************************************");
        }
 
     private void movePlacesView() {
-        System.out.println("\n\t*******************************************");
-        System.out.println("\t*  To move to another place it's simple.  *\n"
+        this.console.println("\n\t*******************************************");
+        this.console.println("\t*  To move to another place it's simple.  *\n"
                 +          "\t*  Type:                                  *\n"
                 +          "\t*  V - Map of Bozeman                     *\n"
                 +          "\t*  M - Move to Another Location           *\n"
                 +          "\t*                                         *\n"
                 +          "\t*  Now you can enter the location name    *\n"
                 +          "\t*  to move.                               *");
-        System.out.println("\t*******************************************");
+        this.console.println("\t*******************************************");
        }
 
     private void collectItemView() {
-        System.out.println("\n\t********************************************");
-        System.out.println("\t*  To collect new items, type:             *\n"
+        this.console.println("\n\t********************************************");
+        this.console.println("\t*  To collect new items, type:             *\n"
                 +          "\t*  L - Look around for clues,              *\n"
                 +          "\t*  stuff and food                          *\n"
                 +          "\t*                                          *\n"
                 +          "\t*  The items will appear on your screen,   *\n"
                 +          "\t*  then type the item's name to collect it.*");
-        System.out.println("\t********************************************");
+        this.console.println("\t********************************************");
         
        }
 
     private void talkPeopleView() {
-        System.out.println("\n\t*******************************************");
-        System.out.println("\t*  The personages can change depending on *\n"
+        this.console.println("\n\t*******************************************");
+        this.console.println("\t*  The personages can change depending on *\n"
                 +          "\t*  scene you're on the game. To talk with *\n"
                 +          "\t*  determined personage you must be at    *\n"
                 +          "\t*  the same scene and then type:          *\n"
@@ -107,15 +107,15 @@ public class HelpMenuView extends View {
                 +          "\t*                                         *\n"
                 +          "\t*  Now you can choose what speech you     *\n"
                 +          "\t*  want to say.                           *");
-        System.out.println("\t*******************************************");
+        this.console.println("\t*******************************************");
        }
 
     private void goalGameView() {
-        System.out.println("\n\t*******************************************");
-        System.out.println("\t*  The goal of the game is to find the    *\n" +
+        this.console.println("\n\t*******************************************");
+        this.console.println("\t*  The goal of the game is to find the    *\n" +
                            "\t*  pieces of the Time Machine walking     *\n" +
                            "\t*  through the city of Bozeman and fix    *\n" +
                            "\t*  the machine to travel back in time.    *");
-        System.out.println("\t*******************************************");
+        this.console.println("\t*******************************************");
        }
 }

@@ -47,7 +47,7 @@ public class MainMenuView extends View {
                 this.displayHelpMenu();
                 break;
             default:
-                System.out.println("*** Invalid selection *** Try Again!");
+                ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try Again!");
                 break;
         }
         return false;
@@ -65,11 +65,11 @@ public class MainMenuView extends View {
     }
 
     private void startExistingGame() {
-        System.out.println("In contruction");  
+        this.console.println("In contruction");  
     }
 
     private void saveGame() {
-        System.out.println("In construction.");
+        this.console.println("In construction.");
     }
 
     private void displayHelpMenu() {

@@ -8,8 +8,6 @@ package Time_Machine.View;
 import Time_Machine.Control.Main;
 import Time_Machine.Control.MapControl;
 import Time_Machine.exceptions.MapControlException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -98,7 +96,7 @@ class GameMenuView extends View {
         try {
             MapControl.movePlayerLocation(Main.getCurrentGame(), "barn");
         } catch (MapControlException ex) {
-            System.out.println(ex.getMessage());
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
     }
     

@@ -8,8 +8,6 @@ package Time_Machine.View;
 import Time_Machine.Control.Main;
 import Time_Machine.Control.MapControl;
 import Time_Machine.exceptions.MapControlException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -40,7 +38,7 @@ public class MapView extends View {
                 this.movePlayerToAnotherLocation();
                 break;
             default:
-                System.out.println("*** Invalid selection *** Try Again!");
+                ErrorView.display(this.getClass().getName(),"*** Invalid selection *** Try Again!");
                 break;
         }
         return false;
@@ -50,15 +48,17 @@ public class MapView extends View {
     private void currentLocation() {
         MapControl.playerCurrentLocation(Main.getCurrentGame());
         MapControl.listLocations(Main.getCurrentGame());
+        this.pause();
     }
 
     private void movePlayerToAnotherLocation() {
-        System.out.println("Enter a place(it can be part of the name) to move:");
-        String placeOption = this.getInputValue();
+        this.console.println("Enter a place (it can be part of the name) to move:");
+        String placeOption = this.getInput();
        try {
            MapControl.movePlayerLocation(Main.getCurrentGame(), placeOption);
+           this.pause();
        } catch (MapControlException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
        }
     }
 }

@@ -5,14 +5,19 @@
  */
 package Time_Machine.View;
 
-import Time_Machine.Control.GetInput;
-
+import Time_Machine.Control.Main;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 /**
  *
  * @author Group 7
  */
 public abstract class View implements ViewInterface {
     protected String menu;
+    
+    protected final BufferedReader keyboard = Main.getInFile();
+    protected final PrintWriter console = Main.getOutFile();
     
     public View(String menu){
     this.menu = menu;
@@ -25,9 +30,9 @@ public abstract class View implements ViewInterface {
     @Override
     public void displayMenu() {
         boolean done = false;
-        do{ System.out.println(this.menu);
-            System.out.println("Enter a option:");
-            String option = this.getInputValue();
+        do{ this.console.println(this.menu);
+            this.console.println("Enter a option:");
+            String option = this.getInput();
             switch (option.toUpperCase()) {
                 case "B":
                     return;
@@ -42,27 +47,22 @@ public abstract class View implements ViewInterface {
     }
 
     @Override
-    public String getInputValue(){
-         String option = GetInput.getString();
-        return option;
+    public String getInput(){
+        String selection = null;
+        try {
+            selection = keyboard.readLine();
+        } catch (IOException ex) {
+            ErrorView.display(this.getClass().getName(), "Exception: " + ex.getMessage());
+        }
+        return selection;
     }
-    public int getInputInt(){
-        int option = GetInput.getInt();
-        return option;
-    }
-
-    /**
-     *
-     * @param value
-     * @return
-     */
+    
     @Override
     public abstract boolean action(String value);
     
     public void pause() {
-        System.out.println("\n\n\t****  Press enter to continue... ****");
-        this.getInputValue();
-        return;
+        this.console.println("\n\n\t****  Press enter to continue... ****");
+        this.getInput();
     }
     
 }

@@ -5,7 +5,6 @@
  */
 package Time_Machine.View;
 
-import Time_Machine.Control.GetInput;
 import Time_Machine.Control.PlayerControl;
 import Time_Machine.Model.Player;
 import Time_Machine.exceptions.PlayerControlException;
@@ -13,18 +12,18 @@ import Time_Machine.exceptions.PlayerControlException;
 /*
  * @author Group 7
  */
-public class StartProgramView {
+public class StartProgramView extends View {
 
     public StartProgramView() {
-    GameDetailView.displayGameBanner();
+        super(GameDetailView.displayGameBanner());
     }
-    
     //Function that get the player's name
     public Player displayStartProgramView (){
+        System.out.println(menu);
         Player newPlayer = null;
         do{
             System.out.println("\n\tPlease, enter your first name:");
-            String playerName = GetInput.getString();
+            String playerName = this.getInput();
             try{
                 newPlayer = PlayerControl.startNewPlayer(playerName);
             }
@@ -33,6 +32,11 @@ public class StartProgramView {
             }
         }while(newPlayer == null);
         return newPlayer;
+    }
+
+    @Override
+    public boolean action(String value) {
+        return true;
     }
 }
     

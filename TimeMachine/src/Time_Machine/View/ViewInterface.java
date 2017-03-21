@@ -11,7 +11,7 @@ package Time_Machine.View;
  */
 public interface ViewInterface {
     public void displayMenu();
-    public String getInputValue();
+    public String getInput();
     public boolean action(String value);
     
     

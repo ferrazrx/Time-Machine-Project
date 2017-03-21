@@ -38,7 +38,7 @@ public class PersonageView extends View {
                 this.talkPerson();
                 break;
             default:
-                System.out.println("*** Invalid selection *** Try Again!");
+                ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try Again!");
                 break;
         }
         return false;
@@ -51,31 +51,31 @@ public class PersonageView extends View {
 
     private void talkPerson() {
         SceneControl.getScenesAndPersonages(Main.getCurrentGame());
-        System.out.println("Enter the person's name that you want to talk:");
-        String personage = this.getInputValue();
+        this.console.println("Enter the person's name that you want to talk:");
+        String personage = this.getInput();
         try{
             int messageInt = 0;
             PersonageControl.printPersonageMessage(Main.getCurrentGame(), personage);
-            System.out.println("\n\tWhat do you want to say? Enter the index option: ");
-            String message = this.getInputValue();
+            this.console.println("\n\tWhat do you want to say? Enter the index option: ");
+            String message = this.getInput();
             try{
                 messageInt = Integer.parseInt(message);
                 PersonageControl.getPersonageAnswer(Main.getCurrentGame(),personage, messageInt);
             }
             catch(NumberFormatException n){
-                System.out.println(n.getMessage());
+                ErrorView.display(this.getClass().getName(),n.getMessage());
             }
             catch(ArrayIndexOutOfBoundsException e){
-                System.out.println("Speech invalid!");
-                System.out.println(e.getMessage());
+                ErrorView.display(this.getClass().getName(),"Speech invalid!");
+                ErrorView.display(this.getClass().getName(),e.getMessage());
             }
             catch(PersonageControlException e){
-                System.out.println("Speech invalid!");
-                System.out.println(e.getMessage());
+                ErrorView.display(this.getClass().getName(),"Speech invalid!");
+                ErrorView.display(this.getClass().getName(),e.getMessage());
             }
         }
         catch(PersonageControlException message){
-            System.out.println(message.getMessage());
+            ErrorView.display(this.getClass().getName(),message.getMessage());
         };   
     }
     

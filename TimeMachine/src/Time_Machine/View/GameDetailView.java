@@ -5,8 +5,8 @@
  */
 package Time_Machine.View;
 
-import Time_Machine.Control.GetInput;
 import Time_Machine.Model.Player;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,23 +18,23 @@ public class GameDetailView {
     
     private static void pause() {
         System.out.println("\n\n\t****  Press enter to continue... ****");
-        GetInput.getString();
+        Scanner key = new Scanner(System.in);
+        key.nextLine();
     }
     
     
     
-    public static void displayGameBanner(){
-        System.out.println(
+    public static String displayGameBanner(){
+        String banner = 
             "\t████████╗██╗███╗     ███╗███████╗     ███╗   ███╗ █████╗  ██████╗██╗   ██╗██╗███╗     ██╗███████╗\n"+
             "\t╚══██╔══╝██║████╗  ████║██╔════╝    ████╗ ████║██╔══██╗██╔═══╝██║  ██║██║████╗    ██║██╔════╝\n" +
             "\t     ██║     ██║██╔████╔██║█████╗       ██╔████╔██║███████║██║     ███████║██║██╔██╗  ██║█████╗  \n" +
             "\t     ██║     ██║██║╚██╔╝██║██╔══╝       ██║╚██╔╝██║██╔══██║██║     ██╔══██║██║██║╚██╗██║██╔══╝  \n"+ 
             "\t     ██║     ██║██║ ╚═╝  ██║███████╗    ██║ ╚═╝  ██║██║  ██║╚██████╗██║  ██║██║██║ ╚████║███████╗\n" +
             "\t     ╚═╝     ╚═╝╚═╝       ╚═╝╚══════╝     ╚═╝        ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝   ╚═══╝╚══════╝ \n" +
-            "\n\t\t\t\t\t\t\t AN ADVENTURE IN TIME");
-        GameDetailView.displayTitleDetail();
-        System.out.println("\nWelcome to a new adventure!");
-        System.out.println(
+            "\n\t\t\t\t\t\t\t AN ADVENTURE IN TIME"+
+        GameDetailView.displayTitleDetail() +
+        "\nWelcome to a new adventure!" +
                 "\n*******************************************************"
               + "\n*                                                     *"
               + "\n*           This is the Time Machine Game!            *"
@@ -47,16 +47,17 @@ public class GameDetailView {
               + "\n* city. Any interference in the past can change your  *"
               + "\n* future!                                             *"
               + "\n*      Good luck and have fun in this adventure!      *"
-              + "\n*******************************************************");
-    GameDetailView.pause();
+              + "\n*******************************************************";
+        return banner;
     }
-    public static void displayTitleDetail (){
-        System.out.println(
+    public static String displayTitleDetail (){
+        String detail = 
             "\t\t\t\t ___    _          ___               ___                 ___            \n" +
             "\t\t\t\t|===|  (_)   __   |===|        __   |===|        __     |===|           __   \n" +
             "\t\t\t\t|= =|__    _|==|_ |= =|__    _|==|_ |= =|__    _|==|_   |= =|__       _|==|_ \n" +
             "\t\t\t\t|= =|::|  |.|:|==||= =|::|  |.|:|==||= =|::|  |.|:|==|  |= =|::|     |.|:|==|\n" +
-            "\t\t\t\t|=|=|::|__|.|:|==||=|=|::|__|.|:|==||=|=|::|__|.|:|==|__|=|=|::|_____|.|:|==|\n");
+            "\t\t\t\t|=|=|::|__|.|:|==||=|=|::|__|.|:|==||=|=|::|__|.|:|==|__|=|=|::|_____|.|:|==|\n";
+        return detail;
     
     }
     public static void displayCity (){

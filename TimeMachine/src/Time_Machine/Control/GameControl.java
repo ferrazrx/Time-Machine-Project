@@ -14,8 +14,6 @@ import Time_Machine.Model.Scene;
 import Time_Machine.Model.TimeMachine;
 import Time_Machine.exceptions.SceneControlException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

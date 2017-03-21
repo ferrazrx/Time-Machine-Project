@@ -8,8 +8,6 @@ package Time_Machine.View;
 import Time_Machine.Control.InventoryControl;
 import Time_Machine.Control.Main;
 import Time_Machine.exceptions.InventoryControlException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author Group 7
@@ -40,7 +38,7 @@ public class InventoryView extends View {
                 this.useItem();
                 break;
             default:
-                System.out.println("*** Invalid selection *** Try Again!");
+                ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try Again!");
                 break;
         }
         return false;
@@ -48,17 +46,17 @@ public class InventoryView extends View {
     }
  
     private void dropItem(){
-        System.out.println("Enter the item's name to drop:");
-        String itemOption = this.getInputValue();
+        this.console.println("Enter the item's name to drop:");
+        String itemOption = this.getInput();
        try {
            InventoryControl.dropInventoryItem(Main.getCurrentGame(), itemOption);
        } catch (InventoryControlException ex) {
-           System.out.println(ex.getMessage());
+           this.console.println(ex.getMessage());
        }
     }
 
     private void useItem() {
-        System.out.println("In constrution! It will be available soon!");
+        this.console.println("In constrution! It will be available soon!");
    }
 
     private void seeInventoryItems() {

@@ -7,7 +7,9 @@ package Time_Machine.View;
 
 import Time_Machine.Control.InventoryControl;
 import Time_Machine.Control.Main;
+import Time_Machine.Model.Item;
 import Time_Machine.exceptions.InventoryControlException;
+import java.util.ArrayList;
 
 /**
  * @author Group 7
@@ -25,6 +27,7 @@ public class InventoryView extends View {
                 "-------------------------------------------\n");
    }
 
+   @Override
     public boolean action(String option){
         option = option.toUpperCase();
         switch (option){
@@ -46,21 +49,45 @@ public class InventoryView extends View {
     }
  
     private void dropItem(){
-        this.console.println("Enter the item's name to drop:");
-        String itemOption = this.getInput();
-       try {
-           InventoryControl.dropInventoryItem(Main.getCurrentGame(), itemOption);
-       } catch (InventoryControlException ex) {
-           this.console.println(ex.getMessage());
-       }
-    }
-
+        boolean deleted = false;
+        String itemOption = null;
+        while (deleted == false){
+            this.console.println("Enter the item's name to drop or enter \"Back\" to back to game menu:");
+            itemOption = this.getInput().toUpperCase();
+            if("BACK".equals(itemOption)){
+                return;
+            }else{
+                try {
+                    deleted = InventoryControl.dropInventoryItem(Main.getCurrentGame(), itemOption);
+                    if(deleted){
+                        this.console.println("*** Item deleted ***");
+                    }
+                } catch (InventoryControlException ex) {
+                    this.console.println(ex.getMessage());
+                }
+            }    
+        }
+    }    
     private void useItem() {
         this.console.println("In constrution! It will be available soon!");
    }
 
     private void seeInventoryItems() {
-        InventoryControl.listInventoryItems(Main.getCurrentGame());
+        this.console.println("Inventory Items:");
+        try {
+           ArrayList<Item> items = InventoryControl.listInventoryItems(Main.getCurrentGame());
+           for(Item item : items){
+                this.console.println("\nYour inventory has:\n");
+                this.console.println("_____________________________________________");
+                this.console.println("Name: "+ item.getName()+";");
+                this.console.println("\tDescription: " + item.getDescription() +".\n" + "\tAmount: "+ item.getAmount() +".");
+            }
+       } catch (InventoryControlException ex) {
+           ErrorView.display(this.getClass().getName(), ex.getMessage() );
+       }
+        
+                
+        
     }
     
 }

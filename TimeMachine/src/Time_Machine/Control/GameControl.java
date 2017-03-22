@@ -12,17 +12,16 @@ import Time_Machine.Model.Personage;
 import Time_Machine.Model.Player;
 import Time_Machine.Model.Scene;
 import Time_Machine.Model.TimeMachine;
-import Time_Machine.exceptions.SceneControlException;
 import java.util.ArrayList;
 
 /**
  *
  * @author Group 7
  */
-public class GameControl {// Class that set a new game
+public class GameControl  {// Class that set a new game
     
     //Create a new Game
-    public static int createNewGame(Player player) {
+    public static Game createNewGame(Player player) throws Exception {
     Game game = new Game(); // create new game
     Main.setCurrentGame(game);// save in Main
     
@@ -53,17 +52,8 @@ public class GameControl {// Class that set a new game
     //Create new Scenes
     Scene[] scenes = SceneControl.createScene();
     LocationControl.assignScenesToLocations(map, scenes);
-        try {
-            SceneControl.setPersonageInScene(game, (Personage) personages.get(0),"liveroom");
-        } catch (SceneControlException ex) {
-            System.out.println(ex.getMessage());
-        }
-    
-    
-    
-    return 1;
-    //Create array of scenes
-    
-    
+    SceneControl.setPersonageInScene(game, (Personage) personages.get(0),"liveroom");
+
+    return game;
     }
 }

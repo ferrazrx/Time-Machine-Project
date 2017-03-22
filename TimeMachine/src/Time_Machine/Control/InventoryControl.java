@@ -10,6 +10,7 @@ import Time_Machine.Model.Game;
 import Time_Machine.Model.Inventory;
 import Time_Machine.Model.Item;
 import Time_Machine.exceptions.InventoryControlException;
+import java.util.ArrayList;
 /**
  *
  * @author Group 7
@@ -17,47 +18,42 @@ import Time_Machine.exceptions.InventoryControlException;
 public class InventoryControl {
     
     //Display all item in player's inventory
-    public static void listInventoryItems(Game game){
+    public static ArrayList<Item> listInventoryItems(Game game) throws InventoryControlException{
         boolean found = false;
-         System.out.println("Inventory Items:");
-        for (int i=0;i<game.getInventory().getAmountItems();i++){
-        Item item = (Item) game.getInventory().getItems().get(i);
+        ArrayList<Item> items = new ArrayList<>();
+        for(Item item : game.getInventory().getItems()){
             if(item.getAmount()>0){
                 found =true;
-                System.out.println("\nYour inventory has:\n");
-                System.out.println("_____________________________________________");
-                System.out.println("Name: "+ item.getName()+";");
-                System.out.println("\tDescription: " + item.getDescription() +".\n"
-                  + "\tAmount: "+ item.getAmount() +".");
+                items.add(item);
             }
         }
         if(found == false){
-            System.out.println("***   Your Inventory is empty!   ***");
+           throw new InventoryControlException("***   Your Inventory is empty!   ***");
         }
+        return items;
     }
     
     //Add a new item into player's inventory
-    public static void addInventoryItem(Game game, Item newItem){
+    public static Item addInventoryItem(Game game, Item newItem){
         // Add items on inventory
         boolean found = false;
-        for (int i=0;i<game.getInventory().getAmountItems();i++){
-            Item item = (Item) game.getInventory().getItems().get(i);
+        Item addedItem = null; 
+        for(Item item : game.getInventory().getItems()){
             if(item.getName().toUpperCase().equals(newItem.getName().toUpperCase())){
-                item.AddAmount();
-                System.out.println("** Now you have "+item.getAmount()+" " + item.getName()+ " ***");
                 found = true;
-                listInventoryItems(game);
+                item.AddAmount();
+                addedItem = item;
+                
             }
         }
         if(found == false){
                 game.getInventory().setItem(newItem);
-                System.out.println("*** Item Added to your inventory! ***");
-                listInventoryItems(game);
         }
+        return addedItem;
     }
     
     //Drop item from player's inventory
-    public static void dropInventoryItem(Game game,String removeItem) throws InventoryControlException{
+    public static boolean dropInventoryItem(Game game,String removeItem) throws InventoryControlException{
         if(removeItem == null || removeItem.equals("")){
             throw new InventoryControlException("Item's name cannot be empty. Try again.");
         }
@@ -68,13 +64,13 @@ public class InventoryControl {
             if(item.getName().toUpperCase().contains(removeItem.toUpperCase())){
                found = true; 
                game.getInventory().removeItem(i);
-               System.out.println("*** Item deleted! ***\n");
-               listInventoryItems(game);
+               return true;
             }    
         }
         if(found==false){
-            System.out.println("*** Item not found in your inventory ***");
-        }    
+            throw new InventoryControlException("*** Item not found in your inventory ***");
+        }
+        return false;
     }
     
     //Create initial item to the new inventory

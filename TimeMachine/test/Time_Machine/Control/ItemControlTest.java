@@ -32,7 +32,8 @@ public class ItemControlTest {
         double expResult = 187.50;
         double result = 0;
         try {
-            result = ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+            ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+            result = ItemControl.getPowerDissipation();
         } catch (ItemControlException ex) {
             Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -46,7 +47,8 @@ public class ItemControlTest {
         resistor = 100;
         expResult = -1;
         try {
-            result = ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+            ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+            result = ItemControl.getPowerDissipation();
         } catch (ItemControlException ex) {
             Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -60,7 +62,8 @@ public class ItemControlTest {
         resistor = 50;
         expResult = -1;
         try {
-            result = ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+            ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+            result = ItemControl.getPowerDissipation();
         } catch (ItemControlException ex) {
             Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -74,7 +77,8 @@ public class ItemControlTest {
         resistor = 0;
         expResult = -1;
         try {
-            result = ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+            ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+             result = ItemControl.getPowerDissipation();
         } catch (ItemControlException ex) {
             Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -88,7 +92,8 @@ public class ItemControlTest {
         resistor = 30;
         expResult = -1;
         try {
-            result = ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+            ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+             result = ItemControl.getPowerDissipation();
         } catch (ItemControlException ex) {
             Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -102,7 +107,8 @@ public class ItemControlTest {
         resistor = -40;
         expResult = -1;
         try {
-            result = ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+            ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+             result = ItemControl.getPowerDissipation();
         } catch (ItemControlException ex) {
             Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -115,7 +121,8 @@ public class ItemControlTest {
         voltage = 1;
         resistor = 1;
         expResult = -1;
-        result = ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+        ItemControl.CalculatePowerDissipationInCapacitor(voltage, resistor);
+        result = ItemControl.getPowerDissipation();
         assertEquals(expResult, result, 0.0);
     }
 
@@ -133,7 +140,8 @@ public class ItemControlTest {
         double expResult = 5000.0;
         double result = 0;
         try {
-            result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+             ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+             result = ItemControl.getPowerDissipation();
         } catch (ItemControlException ex) {
             Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -147,7 +155,8 @@ public class ItemControlTest {
         time = 10.0;
         expResult = -1;
         try {
-            result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+            ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+            result = ItemControl.getPowerDissipation();
         } catch (ItemControlException ex) {
             Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -161,7 +170,8 @@ public class ItemControlTest {
         time = 10.0;
         expResult = -1;
         try {
-            result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+            ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+            result = ItemControl.getPowerDissipation();
         } catch (ItemControlException ex) {
             Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -175,7 +185,8 @@ public class ItemControlTest {
         time = 10.0;
         expResult = -1;
         try {
-            result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+            ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+            result = ItemControl.getPowerDissipation();
         } catch (ItemControlException ex) {
             Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -189,7 +200,8 @@ public class ItemControlTest {
         time = -1;
         expResult = -1;
         try {
-            result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+            ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+             result = ItemControl.getPowerDissipation();
         } catch (ItemControlException ex) {
             Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -203,7 +215,8 @@ public class ItemControlTest {
         time = 1.0;
         expResult = -1;
         try {
-            result = ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+            ItemControl.calculateAirCoreWireCoilDistance(acceleration, time);
+            result = ItemControl.getPowerDissipation();
         } catch (ItemControlException ex) {
             Logger.getLogger(ItemControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }

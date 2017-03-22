@@ -9,8 +9,11 @@ import Time_Machine.Control.InventoryControl;
 import Time_Machine.Control.ItemControl;
 import Time_Machine.Control.Main;
 import Time_Machine.Control.TimeMachineControl;
+import Time_Machine.Model.Item;
+import Time_Machine.exceptions.InventoryControlException;
 import Time_Machine.exceptions.ItemControlException;
 import Time_Machine.exceptions.TimeMachineControlException;
+import java.util.ArrayList;
 
 /**
  *
@@ -59,70 +62,82 @@ public class TimeMachineView extends View {
     }
 
     private void combineItem() {
-        InventoryControl.listInventoryItems(Main.getCurrentGame());
-        this.console.println("Enter the item's name you want to combine with the time machine:");
-        String item = this.getInput();
-        if("Air Core Wire Coils".toUpperCase().contains(item.toUpperCase())){
-            this.console.println("\n\t To install the air coil in your machine \n you have to calculate the distance of wire.");
-            this.console.println("\n\t Enter a acceleration to roll your wire:");
-            String acceleration = this.getInput();
-            this.console.println("\n\t Enter a time to roll your wire:");
-            String time = this.getInput();
-            try{
-                double acelerationDouble = Double.parseDouble(acceleration);
-                double timeDouble = Double.parseDouble(time);   
-                
+        this.console.println("Inventory Items:");
+        try {
+            ArrayList<Item> items = InventoryControl.listInventoryItems(Main.getCurrentGame());
+            for(Item item : items){
+                this.console.println("\nYour inventory has:\n");
+                this.console.println("_____________________________________________");
+                this.console.println("Name: "+ item.getName()+";");
+                this.console.println("\tDescription: " + item.getDescription() +".\n" + "\tAmount: "+ item.getAmount() +".");
+            }
+            this.console.println("\nEnter the item's name you want to combine with the time machine:");
+            String item = this.getInput();
+            if("Air Core Wire Coils".toUpperCase().contains(item.toUpperCase())){
+                this.console.println("\n\t To install the air coil in your machine \n you have to calculate the distance of wire.");
+                this.console.println("\n\t Enter a acceleration to roll your wire:");
+                String acceleration = this.getInput();
+                this.console.println("\n\t Enter a time to roll your wire:");
+                String time = this.getInput();
                 try{
-                    ItemControl.calculateAirCoreWireCoilDistance(acelerationDouble, timeDouble);
+                    double acelerationDouble = Double.parseDouble(acceleration);
+                    double timeDouble = Double.parseDouble(time);   
+                
                     try{
-                        TimeMachineControl.addPart(Main.getCurrentGame(), item);
+                        String message = ItemControl.calculateAirCoreWireCoilDistance(acelerationDouble, timeDouble);
+                        this.console.println(message);
+                        try{
+                            TimeMachineControl.addPart(Main.getCurrentGame(), item);
+                        }
+                        catch(TimeMachineControlException e){
+                            ErrorView.display(this.getClass().getName(),e.getMessage());
+                        }
                     }
-                    catch(TimeMachineControlException e){
+                    catch(ItemControlException e){
                         ErrorView.display(this.getClass().getName(),e.getMessage());
                     }
                 }
-                catch(ItemControlException e){
-                    ErrorView.display(this.getClass().getName(),e.getMessage());
+                catch(NumberFormatException e){
+                    ErrorView.display(this.getClass().getName(),"Invalid number\n" + e.getMessage());
                 }
-            }
-            catch(NumberFormatException e){
-                ErrorView.display(this.getClass().getName(),"Invalid number\n" + e.getMessage());
-            }
-        }else 
-        if("Capacitor of 1500uf 25V".toUpperCase().contains(item.toUpperCase())){
-            this.console.println("\n\t To install the capacitor in your machine \n you have to calculate its power dissipatio.");
-            this.console.println("\n\t Enter a voltage to the capacitor:");
-            String voltage = this.getInput();
-            this.console.println("\n\t Enter a resistance of your resistor:");
-            String resistance = this.getInput();
-            try{
-                int voltageDouble = Integer.parseInt(voltage);
-                int resistanceDouble = Integer.parseInt(resistance);   
-                
+            }else if("Capacitor of 1500uf 25V".toUpperCase().contains(item.toUpperCase())){
+                this.console.println("\n\t To install the capacitor in your machine \n you have to calculate its power dissipatio.");
+                this.console.println("\n\t Enter a voltage to the capacitor:");
+                String voltage = this.getInput();
+                this.console.println("\n\t Enter a resistance of your resistor:");
+                String resistance = this.getInput();
                 try{
-                    ItemControl.CalculatePowerDissipationInCapacitor(voltageDouble, resistanceDouble);
+                    int voltageDouble = Integer.parseInt(voltage);
+                    int resistanceDouble = Integer.parseInt(resistance);   
+                
                     try{
-                        TimeMachineControl.addPart(Main.getCurrentGame(), item);
+                        String message = ItemControl.CalculatePowerDissipationInCapacitor(voltageDouble, resistanceDouble);
+                        this.console.println(message);
+                        try{
+                            TimeMachineControl.addPart(Main.getCurrentGame(), item);
+                        }
+                        catch(TimeMachineControlException e){
+                            ErrorView.display(this.getClass().getName(),e.getMessage());
+                        }
                     }
-                    catch(TimeMachineControlException e){
+                    catch(ItemControlException e){
                         ErrorView.display(this.getClass().getName(),e.getMessage());
                     }
                 }
-                catch(ItemControlException e){
-                    ErrorView.display(this.getClass().getName(),e.getMessage());
+                catch(NumberFormatException e){
+                    ErrorView.display(this.getClass().getName(),"Invalid number\n"+ e.getMessage());
+                } 
+            }else{
+                try{
+                    TimeMachineControl.addPart(Main.getCurrentGame(), item);
+                }
+                catch(TimeMachineControlException ex){
+                    ErrorView.display(this.getClass().getName(),ex.getMessage());
                 }
             }
-            catch(NumberFormatException e){
-                ErrorView.display(this.getClass().getName(),"Invalid number\n"+ e.getMessage());
-            } 
-        }else{
-            try{
-                TimeMachineControl.addPart(Main.getCurrentGame(), item);
-            }
-            catch(TimeMachineControlException ex){
-                ErrorView.display(this.getClass().getName(),ex.getMessage());
-            }
-        }
+       } catch (InventoryControlException ex) {
+           ErrorView.display(this.getClass().getName(), ex.getMessage() );
+       }   
     }
 
     private void turnOn() {

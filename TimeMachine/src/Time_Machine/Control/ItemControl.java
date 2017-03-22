@@ -19,7 +19,7 @@ public class ItemControl {
         return powerDissipation;
     }
     
-    public static double CalculatePowerDissipationInCapacitor(int voltage, int resistor) throws ItemControlException{
+    public static String CalculatePowerDissipationInCapacitor(int voltage, int resistor) throws ItemControlException{
         if (voltage>220 || voltage<0){
             throw new ItemControlException("You eletrical network just provide the maximum of 220V and the minimum of 0V.");
         } else if(resistor>200 || resistor<1){
@@ -33,15 +33,15 @@ public class ItemControl {
             if(ItemControl.powerDissipation>200){
                 throw new ItemControlException("Your power dissipation is:"+ItemControl.powerDissipation+"w. It must be less than 200w.");
             }else {
-                System.out.println("Congratulations! Your power dissipation is:"+ ItemControl.powerDissipation+".");
-                return ItemControl.powerDissipation;
+                return "Congratulations! Your power dissipation is:"+ ItemControl.powerDissipation+".";
+                
             }
         }
     
     }
     // Calculate the Air Core Wire Coil distance.
     private static double airCoreWireCoilDistance;
-    public static double calculateAirCoreWireCoilDistance(double acceleration, double time) throws ItemControlException{
+    public static String calculateAirCoreWireCoilDistance(double acceleration, double time) throws ItemControlException{
         if(acceleration<0){
             throw new ItemControlException("You must increase the acceleration, not decrease!");
         } else 
@@ -56,8 +56,7 @@ public class ItemControl {
                 throw new ItemControlException("The distance is not enough! You just circulate the Air Core Wire "+ ItemControl.airCoreWireCoilDistance +"m."
                         + "\n You must reach 5.000m or more."); 
             } else {
-                System.out.println("Yeah! You got it! Now you have a Air Core Wire Coil with "+ItemControl.airCoreWireCoilDistance+"m.");
-                return ItemControl.airCoreWireCoilDistance;
+                return "Yeah! You got it! Now you have a Air Core Wire Coil with "+ItemControl.airCoreWireCoilDistance+"m.";  
             }
         }
         

@@ -8,6 +8,7 @@ package Time_Machine.Control;
 
 import Time_Machine.Model.Game;
 import Time_Machine.Model.Player;
+import Time_Machine.View.ErrorView;
 import Time_Machine.View.MainMenuView;
 import Time_Machine.View.StartProgramView;
 import java.io.BufferedReader;
@@ -43,7 +44,7 @@ public class Main {
                 Main.logFile = new PrintWriter(filePath);
             }
             catch(Exception e){
-               System.out.println("Exception: " + e.toString() + "\nCause: " + e.getCause() + "\nMessage: "+ e.getMessage());
+               ErrorView.display("Main","Exception: " + e.toString() + "\nCause: " + e.getCause() + "\nMessage: "+ e.getMessage());
             }
             //Create StartProgramView and start the program
             StartProgramView startProgramView = new StartProgramView();
@@ -57,7 +58,7 @@ public class Main {
             mainMenuView.displayMenu();
         }
         catch(Throwable e){
-            System.out.println("Exception: " + e.toString() + "\nCause: " + e.getCause() + "\nMessage: "+ e.getMessage());
+            ErrorView.display("Main","Exception: " + e.toString() + "\nCause: " + e.getCause() + "\nMessage: "+ e.getMessage());
             e.printStackTrace();
         }
         finally {
@@ -72,7 +73,7 @@ public class Main {
                     Main.logFile.close();
                 }
             } catch (IOException ex) {
-                System.out.println("Error closing files");
+                ErrorView.display("Main","Error closing files");
             }
             
         }

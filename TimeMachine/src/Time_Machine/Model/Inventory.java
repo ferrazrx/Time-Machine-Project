@@ -22,7 +22,7 @@ public class Inventory implements Serializable{
         amountItems = 0;
     }
 
-    public ArrayList getItems() {
+    public ArrayList<Item> getItems() {
         return items;
     }
 

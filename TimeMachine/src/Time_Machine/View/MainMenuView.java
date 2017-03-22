@@ -7,6 +7,9 @@ package Time_Machine.View;
 
 import Time_Machine.Control.GameControl;
 import Time_Machine.Control.Main;
+import Time_Machine.exceptions.SceneControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,7 +27,7 @@ public class MainMenuView extends View {
             "\n|              Main Menu                  |"+    
             "\n-------------------------------------------\n"+    
             "N - Start the a New Game\n" +
-            "G - Saved Games\n" +
+            "G - Get and Start a Saved Game\n" +
             "S - Save Current Game\n" +
             "H - Get Help on How to Play the Game\n" +
             "E - Exit\n\n" + 
@@ -56,13 +59,17 @@ public class MainMenuView extends View {
 
 
     private void startNewGame(){
-        GameControl.createNewGame(Main.getPlayer());
-        // Display the story introduction
-        GameDetailView.displayIntroduction(Main.getPlayer());
-        // Display the Game Menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();     
-    }
+        try {
+            GameControl.createNewGame(Main.getPlayer());
+            GameDetailView.displayIntroduction(Main.getPlayer());
+            // Display the Game Menu
+            GameMenuView gameMenu = new GameMenuView();
+            gameMenu.displayMenu();
+        } catch (Exception ex) {
+                ErrorView.display(this.getClass().getCanonicalName(), ex.getMessage());        
+        }
+        // Display the story introduction    
+    }   
 
     private void startExistingGame() {
         this.console.println("In contruction");  

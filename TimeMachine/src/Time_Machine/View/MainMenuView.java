@@ -72,11 +72,37 @@ public class MainMenuView extends View {
     }   
 
     private void startExistingGame() {
-        this.console.println("In contruction");  
+       this.console.println("\n\n\tEnter the file path for file where the game is to be saved:");
+        String filePath = this.getInput();
+        
+        try{
+            //save the game to specific file
+            GameControl.startSavedGame(filePath);
+            this.console.println("\n\t*** Game on " + filePath +" ***");
+            GameMenuView gameMenu = new GameMenuView();
+            gameMenu.displayMenu();
+        }
+        catch(Exception ex){
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
+       
     }
 
     private void saveGame() {
-        this.console.println("In construction.");
+        // prompt for and get the name of the file to save the game in
+        this.console.println("\n\n\tEnter the file path for file where the game is to be saved:");
+        String filePath = this.getInput();
+        
+        try{
+            //save the game to specific file
+            GameControl.saveGame(Main.getCurrentGame(), filePath);
+            this.console.println("\n\t*** Game saved at " + filePath +" ***");
+        }
+        catch(Exception ex){
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
+    
+    
     }
 
     private void displayHelpMenu() {

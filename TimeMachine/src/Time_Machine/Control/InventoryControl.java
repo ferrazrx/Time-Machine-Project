@@ -53,24 +53,25 @@ public class InventoryControl {
     }
     
     //Drop item from player's inventory
-    public static boolean dropInventoryItem(Game game,String removeItem) throws InventoryControlException{
+    public static Item dropInventoryItem(Game game,String removeItem) throws InventoryControlException{
         if(removeItem == null || removeItem.equals("")){
             throw new InventoryControlException("Item's name cannot be empty. Try again.");
         }
         // Drop items from inventory
         boolean found = false;
+        Item item = null;
         for (int i=0;i<game.getInventory().getAmountItems();i++){
-            Item item = (Item) game.getInventory().getItems().get(i);
+            item = (Item) game.getInventory().getItems().get(i);
             if(item.getName().toUpperCase().contains(removeItem.toUpperCase())){
                found = true; 
                game.getInventory().removeItem(i);
-               return true;
+               return item;
             }    
         }
         if(found==false){
             throw new InventoryControlException("*** Item not found in your inventory ***");
         }
-        return false;
+        return item;
     }
     
     //Create initial item to the new inventory

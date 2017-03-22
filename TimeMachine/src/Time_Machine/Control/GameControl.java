@@ -12,6 +12,11 @@ import Time_Machine.Model.Personage;
 import Time_Machine.Model.Player;
 import Time_Machine.Model.Scene;
 import Time_Machine.Model.TimeMachine;
+import Time_Machine.exceptions.GameControlException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -55,5 +60,29 @@ public class GameControl  {// Class that set a new game
     SceneControl.setPersonageInScene(game, (Personage) personages.get(0),"liveroom");
 
     return game;
+    }
+
+    public static void saveGame(Game currentGame, String filePath) throws GameControlException {
+        try(FileOutputStream fops = new FileOutputStream(filePath)){
+            ObjectOutputStream output = new ObjectOutputStream (fops);
+            output.writeObject(currentGame);
+        }
+        catch(Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+    }
+
+    public static void startSavedGame(String filePath) throws GameControlException {
+        Game game = null;
+        
+        try(FileInputStream fips = new FileInputStream (filePath)){
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            game = (Game) input.readObject();
+        }
+        catch(Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+        Main.setCurrentGame(game);
     }
 }

@@ -49,9 +49,9 @@ public class InventoryView extends View {
     }
  
     private void dropItem(){
-        boolean deleted = false;
+        Item deleted = null;
         String itemOption = null;
-        while (deleted == false){
+        while (deleted == null){
             this.console.println("Enter the item's name to drop or enter \"Back\" to back to game menu:");
             itemOption = this.getInput().toUpperCase();
             if("BACK".equals(itemOption)){
@@ -59,8 +59,8 @@ public class InventoryView extends View {
             }else{
                 try {
                     deleted = InventoryControl.dropInventoryItem(Main.getCurrentGame(), itemOption);
-                    if(deleted){
-                        this.console.println("*** Item deleted ***");
+                    if(deleted != null){
+                        this.console.println("*** Item \""+ deleted.getName() +"\" deleted ***");
                     }
                 } catch (InventoryControlException ex) {
                     this.console.println(ex.getMessage());

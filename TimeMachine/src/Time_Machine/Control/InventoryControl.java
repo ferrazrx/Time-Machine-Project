@@ -83,7 +83,7 @@ public class InventoryControl {
         Item bubbleGum = new Item(1);
         bubbleGum.setRequiredAmount(2);
         bubbleGum.setName("Bubble gum");
-        bubbleGum.setDescription("1 Bubble Gum in your pocket.");
+        bubbleGum.setDescription("A Bubble Gum in your pocket.");
         //Add bubbleGum in the inventory
         inventory.setItemById(ItemEnum.bubbleGum.ordinal(),bubbleGum);
         
@@ -152,7 +152,7 @@ public class InventoryControl {
         Item newspaper = new Item(0);
         newspaper.setRequiredAmount(0);
         newspaper.setName("Bread");
-        newspaper.setDescription("An important news paper that bring a news about a scientist\nthat said he was building a time machine.");
+        newspaper.setDescription("An important news paper that bring a news about a scientist that said he was building a time machine.");
         //Add pencil in the inventory
         inventory.setItemById(ItemEnum.apple.ordinal(),newspaper);
         

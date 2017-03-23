@@ -15,7 +15,7 @@ import java.util.Objects;
 public class Map implements Serializable{
     
 // Class instance variables
-	private ArrayList locations;
+	private ArrayList<Location> locations;
         private Location playerPlaceInMap;
         
 	public Map() {
@@ -23,7 +23,7 @@ public class Map implements Serializable{
         
         }
 
-    public ArrayList getLocations() {
+    public ArrayList<Location> getLocations() {
         return locations;
     }
 

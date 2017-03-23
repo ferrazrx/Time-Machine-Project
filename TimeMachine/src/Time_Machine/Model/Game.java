@@ -24,7 +24,7 @@ public class Game implements Serializable {
     public Game() {
     }
     
-    public ArrayList getPersonages() {
+    public ArrayList<Personage> getPersonages() {
         return personages;
     }
 

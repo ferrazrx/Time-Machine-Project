@@ -7,6 +7,7 @@ package Time_Machine.View;
 
 import Time_Machine.Control.GameControl;
 import Time_Machine.Control.Main;
+import Time_Machine.exceptions.GameControlException;
 import Time_Machine.exceptions.SceneControlException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,6 +31,7 @@ public class MainMenuView extends View {
             "G - Get and Start a Saved Game\n" +
             "S - Save Current Game\n" +
             "H - Get Help on How to Play the Game\n" +
+            "P - Print game report in a external file\n" +        
             "E - Exit\n\n" + 
             "---------------------------------------------\n");
     }
@@ -49,6 +51,9 @@ public class MainMenuView extends View {
             case "H":
                 this.displayHelpMenu();
                 break;
+            case "P":
+                this.printReport();
+                break;    
             default:
                 ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try Again!");
                 break;
@@ -89,19 +94,22 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
+        String filePath = "";
         // prompt for and get the name of the file to save the game in
-        this.console.println("\n\n\tEnter the file path for file where the game is to be saved:");
-        String filePath = this.getInput();
-        
-        try{
-            //save the game to specific file
-            GameControl.saveGame(Main.getCurrentGame(), filePath);
-            this.console.println("\n\t*** Game saved at " + filePath +" ***");
+        this.console.println("\n\n\tEnter the file path for file where the game is\n to be saved or \"b\" to return to main menu:");
+        filePath = this.getInput();
+        if(filePath.toUpperCase().equals("B")){
+            return;
+        }else {
+            try{
+                //save the game to specific file
+                GameControl.saveGame(Main.getCurrentGame(), filePath);
+                this.console.println("\n\t*** Game saved at " + filePath +" ***");
+            }
+            catch(GameControlException ex){
+                ErrorView.display(this.getClass().getName(), ex.getMessage());
+            }
         }
-        catch(Exception ex){
-            ErrorView.display(this.getClass().getName(), ex.getMessage());
-        }
-    
     
     }
 
@@ -109,5 +117,26 @@ public class MainMenuView extends View {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.displayMenu();
         
+    }    
+
+    private void printReport() {
+        if(Main.getCurrentGame() == null){
+            ErrorView.display(this.getClass().getName(), "You must start a new game or get a saved game before trying to create a report.");
+        }
+        else{
+            // prompt for and get the name of the file to save the game in
+            this.console.println("\n\n\tEnter the file path for file where the file will be created:");
+            String filePath = this.getInput();
+
+            try{
+                //save the game to specific file
+                GameControl.printReport(Main.getCurrentGame(), filePath);
+                this.console.println("\n\t*** File saved in " + filePath +" ***");
+            }
+            catch(GameControlException ex){
+                ErrorView.display(this.getClass().getName(), ex.getMessage());
+            }
+    
+        }
     }    
 }

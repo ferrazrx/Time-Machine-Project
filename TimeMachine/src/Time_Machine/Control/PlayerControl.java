@@ -28,12 +28,22 @@ public class PlayerControl {
     }
     
     public static void spendEnergyToMove(){
-        int energy = Main.getCurrentGame().getPlayer().getStatusBar() - 10;
-        Main.getCurrentGame().getPlayer().setStatusBar(energy);
+        if(Main.getCurrentGame().getPlayer().getStatusBar()<10){
+            int energy = 0;
+            Main.getCurrentGame().getPlayer().setStatusBar(energy);
+        }else{
+            int energy = Main.getCurrentGame().getPlayer().getStatusBar() - 10;
+            Main.getCurrentGame().getPlayer().setStatusBar(energy);
+        }
     }
     
     public static void gainEnergyEating(){
-        int energy = Main.getCurrentGame().getPlayer().getStatusBar() + 6;
-        Main.getCurrentGame().getPlayer().setStatusBar(energy);
+        if(Main.getCurrentGame().getPlayer().getStatusBar()>95){
+            int energy = 100;
+            Main.getCurrentGame().getPlayer().setStatusBar(energy);
+        }else{
+            int energy = Main.getCurrentGame().getPlayer().getStatusBar() + 6;
+            Main.getCurrentGame().getPlayer().setStatusBar(energy);
+        }
     }
 }

@@ -61,6 +61,7 @@ public class InventoryView extends View {
                     deleted = InventoryControl.dropInventoryItem(Main.getCurrentGame(), itemOption);
                     if(deleted != null){
                         this.console.println("*** Item \""+ deleted.getName() +"\" deleted ***");
+                         this.pause();
                     }
                 } catch (InventoryControlException ex) {
                     this.console.println(ex.getMessage());
@@ -69,7 +70,27 @@ public class InventoryView extends View {
         }
     }    
     private void useItem() {
-        this.console.println("In constrution! It will be available soon!");
+        Item used = null;
+        String itemOption = null;
+        while (used == null){
+            this.console.println("Enter the item's name to use or enter \"Back\" to back to game menu:");
+            itemOption = this.getInput().toUpperCase();
+            if("BACK".equals(itemOption)){
+                return;
+            }else{
+                try {
+                    used = InventoryControl.useItem(Main.getCurrentGame(), itemOption);
+                    if(used != null){
+                        this.console.println("\n\t*** You use the " + used.getName() +". ***");
+                        this.console.println("\n\tNow your energy is " + Main.getCurrentGame().getPlayer().getStatusBar()  +"%.");
+                        
+                         this.pause();
+                    }
+                } catch (InventoryControlException ex) {
+                    this.console.println(ex.getMessage());
+                }
+            }    
+        }
    }
 
     private void seeInventoryItems() {
@@ -82,6 +103,7 @@ public class InventoryView extends View {
                 this.console.println("Name: "+ item.getName()+";");
                 this.console.println("\tDescription: " + item.getDescription() +".\n" + "\tAmount: "+ item.getAmount() +".");
             }
+            this.pause();
        } catch (InventoryControlException ex) {
            ErrorView.display(this.getClass().getName(), ex.getMessage() );
        }

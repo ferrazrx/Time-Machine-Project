@@ -15,6 +15,7 @@ import java.io.Serializable;
 public class Message implements Serializable {
     private String message;
     private String answer;
+    private Item item;
     private boolean read;
 
     public Message(String message, String answer, boolean read) {
@@ -37,6 +38,14 @@ public class Message implements Serializable {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
     }
 
     public boolean isRead() {

@@ -74,6 +74,43 @@ public class InventoryControl {
         return item;
     }
     
+     public static Item useItem(Game game, String itemToUse) throws InventoryControlException {
+         if(itemToUse == null || itemToUse.equals("")){
+            throw new InventoryControlException("Item's name cannot be empty. Try again.");
+        }
+        // Drop items from inventory
+        boolean found = false;
+        Item item = null;
+        for (int i=0;i<game.getInventory().getAmountItems();i++){
+            item = (Item) game.getInventory().getItems().get(i);
+            
+            if(item.getName().toUpperCase().contains(itemToUse.toUpperCase())){
+               if(item.getAmount()>=1){ 
+                    found = true; 
+                    if( item.getName().toUpperCase().contains("BREAD") ||
+                        item.getName().toUpperCase().contains("APPLE") ){
+                        //remove one from the inventory
+                        item.lessAmount();
+
+                        PlayerControl.gainEnergyEating();
+
+                    }else{
+                        throw new InventoryControlException("*** You cannot use this item ***");
+                    }
+               }else{
+                   throw new InventoryControlException("*** You don't have this item in your inventory ***");
+               }    
+               return item;
+            }    
+        }
+        if(found==false){
+            throw new InventoryControlException("*** Item not found in your inventory ***");
+        }
+        return item;
+         
+        
+    }
+    
     //Create initial item to the new inventory
     public static Inventory createInventoryItems (){// Create a new inventory and set initial item 
         //Create a new inventory
@@ -96,7 +133,7 @@ public class InventoryControl {
         inventory.setItemById(ItemEnum.pencil.ordinal(),pencil);
         
         //Start some items in the Inventory
-        Item capacitor = new Item(1);
+        Item capacitor = new Item(0);
         capacitor.setRequiredAmount(1);
         capacitor.setName("New Flux capacitor");
         capacitor.setDescription("A big part of the machine");
@@ -120,7 +157,7 @@ public class InventoryControl {
         inventory.setItemById(ItemEnum.pliers.ordinal(),pliers);
 
         //Start some items in the Inventory
-        Item coil = new Item(1);
+        Item coil = new Item(0);
         coil.setRequiredAmount(2);
         coil.setName("Air Core Wire Coils");
         coil.setDescription("Util to fix the time machine.");
@@ -151,7 +188,7 @@ public class InventoryControl {
         
         Item newspaper = new Item(0);
         newspaper.setRequiredAmount(0);
-        newspaper.setName("Bread");
+        newspaper.setName("Newspaper");
         newspaper.setDescription("An important news paper that bring a news about a scientist that said he was building a time machine.");
         //Add pencil in the inventory
         inventory.setItemById(ItemEnum.apple.ordinal(),newspaper);
@@ -179,4 +216,6 @@ public class InventoryControl {
         //return Inventory
         return inventory;
     }
+
+   
 }

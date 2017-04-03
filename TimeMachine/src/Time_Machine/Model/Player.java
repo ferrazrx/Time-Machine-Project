@@ -23,10 +23,9 @@ public class Player implements Serializable {
      
     }
 
-    public Player(String name, int statusBar, Date currentTime, int currentYear) {
+    public Player(String name, int statusBar, int currentYear) {
         this.name = name;
         this.statusBar = statusBar;
-        this.currentTime = currentTime;
         this.currentYear = currentYear;
     }
 
@@ -69,4 +68,7 @@ public class Player implements Serializable {
     public void setCurrentYear(int currentYear) {
         this.currentYear = currentYear;
     }
+    
+    
+    
 }

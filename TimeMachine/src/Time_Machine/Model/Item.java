@@ -58,6 +58,9 @@ public class Item extends Inventory implements Serializable {
     public void AddAmount(){
         this.amount+=1;
     }
+    public void lessAmount(){
+        this.amount-=1;
+    }
     
     public void useItem(){
     

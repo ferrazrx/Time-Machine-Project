@@ -5,6 +5,7 @@
  */
 package Time_Machine.View;
 
+import Time_Machine.Control.Main;
 import Time_Machine.Model.Player;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -15,6 +16,14 @@ import java.util.logging.Logger;
  * @author Group 7
  */
 public class GameDetailView {
+    public static void statusBar(){
+        System.out.println(
+            "\n\t----------------------------------------------------"+
+            "\n\t|  Player: " + Main.getCurrentGame().getPlayer().getName().substring(0, 1).toUpperCase()+ Main.getCurrentGame().getPlayer().getName().substring(1).toLowerCase() + "    Energy: "+ Main.getCurrentGame().getPlayer().getStatusBar() + "%   Year: " + Main.getCurrentGame().getPlayer().getCurrentYear() +
+            "\n\t----------------------------------------------------"
+        );            
+    }
+    
     
     private static void pause() {
         System.out.println("\n\n\t****  Press enter to continue... ****");

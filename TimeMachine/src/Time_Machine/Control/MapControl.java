@@ -50,6 +50,9 @@ public class MapControl {
         if(place == null || place.equals("")){
             throw new MapControlException("The place's name cannot be empty.");
         }
+        if(game.getPlayer().getStatusBar()<=0){
+            throw new MapControlException("You don't have enough energy to move. Eat something to increase your energy.");
+        }
         boolean found = false;
         if(game.getPlayer().getCurrentLocation().getLocationName().toUpperCase().contains(place.toUpperCase())){
             System.out.println("You're already at "+game.getPlayer().getCurrentLocation().getLocationName().substring(0,1).toUpperCase()+game.getPlayer().getCurrentLocation().getLocationName().substring(1).toLowerCase()+".");
@@ -59,8 +62,10 @@ public class MapControl {
                 if(location.getLocationName().toUpperCase().contains(place.toUpperCase())){
                     found = true;
                     game.getPlayer().setCurrentLocation(location);
-                     System.out.println("*** Now you're at "+ game.getPlayer().getCurrentLocation().getLocationName()+" ***");
+                     System.out.println("\n*** Now you're at "+ game.getPlayer().getCurrentLocation().getLocationName()+" ***");
                      game.getPlayer().getCurrentLocation().setLocationVisited(true);
+                     PlayerControl.spendEnergyToMove();
+                     System.out.println("\t Now your energy is " + Main.getCurrentGame().getPlayer().getStatusBar() + "%.");
                 }
             }
             if(found == false){

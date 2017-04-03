@@ -5,9 +5,9 @@
  */
 package Time_Machine.Control;
 
+import Time_Machine.Control.Enum.PersonageEnum;
 import Time_Machine.Model.Game;
 import Time_Machine.Model.Inventory;
-import Time_Machine.Model.Item;
 import Time_Machine.Model.Map;
 import Time_Machine.Model.Personage;
 import Time_Machine.Model.Player;
@@ -60,8 +60,10 @@ public class GameControl  {// Class that set a new game
     //Create new Scenes
     Scene[] scenes = SceneControl.createScene();
     LocationControl.assignScenesToLocations(map, scenes);
-    SceneControl.setPersonageInScene(game, (Personage) personages.get(0),"liveroom");
-
+    SceneControl.setPersonageInScene(game, (Personage) personages.get(PersonageEnum.father.ordinal()), "liveroom");
+    SceneControl.setPersonageInScene(game, (Personage) personages.get(PersonageEnum.mother.ordinal()), "liveroom");
+    
+    
     return game;
     }
 

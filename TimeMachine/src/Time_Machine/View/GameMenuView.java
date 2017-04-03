@@ -16,7 +16,8 @@ import Time_Machine.exceptions.MapControlException;
 class GameMenuView extends View {
     
     public GameMenuView(){
-    super(  "\n-------------------------------------------"+
+    super(  
+            "\n-------------------------------------------"+
             "\n|              Game Menu                  |"+    
             "\n-------------------------------------------\n"+    
             "V - Map of Bozeman\n" +
@@ -26,7 +27,6 @@ class GameMenuView extends View {
             "P - Back to Barn\n" +
             "L - Look around for clues, stuff and food\n" +
             "E - Talk with John\n" +
-            "T - Use tools available\n" +
             "B - Back to Main Menu\n" + 
             "-------------------------------------------\n");
     }
@@ -49,15 +49,11 @@ class GameMenuView extends View {
                 break;
             case "P": 
                 this.moveToBarn();
-                break;
-            case "M":
-                break;    
+                break; 
             case "L":
                 break;    
             case "E":
-                break;    
-            case "T":
-                break;    
+                break;     
             case "B":
                 break;
             default:

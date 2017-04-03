@@ -61,6 +61,7 @@ public class PersonageView extends View {
             try{
                 messageInt = Integer.parseInt(message);
                 PersonageControl.getPersonageAnswer(Main.getCurrentGame(),personage, messageInt);
+                this.pause();
             }
             catch(NumberFormatException n){
                 ErrorView.display(this.getClass().getName(),n.getMessage());

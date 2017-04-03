@@ -22,10 +22,18 @@ public class PlayerControl {
                     "*  than one name. Try Again!   *\n" +
                     "********************************\n");
         } else{
-            Player newPlayer = new Player();
-            newPlayer.setName(playerName);
+            Player newPlayer = new Player(playerName, 100, 1968);
             return newPlayer;
         }
     }
     
+    public static void spendEnergyToMove(){
+        int energy = Main.getCurrentGame().getPlayer().getStatusBar() - 10;
+        Main.getCurrentGame().getPlayer().setStatusBar(energy);
+    }
+    
+    public static void gainEnergyEating(){
+        int energy = Main.getCurrentGame().getPlayer().getStatusBar() + 6;
+        Main.getCurrentGame().getPlayer().setStatusBar(energy);
+    }
 }

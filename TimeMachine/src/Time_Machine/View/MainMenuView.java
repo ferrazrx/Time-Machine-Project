@@ -69,6 +69,7 @@ public class MainMenuView extends View {
             GameDetailView.displayIntroduction(Main.getPlayer());
             // Display the Game Menu
             GameMenuView gameMenu = new GameMenuView();
+            GameDetailView.statusBar();
             gameMenu.displayMenu();
         } catch (Exception ex) {
                 ErrorView.display(this.getClass().getCanonicalName(), ex.getMessage());        

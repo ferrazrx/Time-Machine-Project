@@ -41,9 +41,9 @@ public class Personage implements Serializable{
     
     }
     
-    public String getAnswerById(int a){
+    public Message getAnswerById(int a){
         Message answer = this.message.get(a);
-        return answer.getAnswer();
+        return answer;
    }
 
     /*FATHER("James", 

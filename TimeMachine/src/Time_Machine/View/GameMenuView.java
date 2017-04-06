@@ -26,7 +26,7 @@ class GameMenuView extends View {
             "S - Time Machine Options\n" +
             "P - Back to Barn\n" +
             "L - Look around for clues, stuff and food\n" +
-            "E - Talk with John\n" +
+            "J - Talk with John\n" +
             "B - Back to Main Menu\n" + 
             "-------------------------------------------\n");
     }
@@ -52,7 +52,7 @@ class GameMenuView extends View {
                 break; 
             case "L":
                 break;    
-            case "E":
+            case "J":
                 break;     
             case "B":
                 break;

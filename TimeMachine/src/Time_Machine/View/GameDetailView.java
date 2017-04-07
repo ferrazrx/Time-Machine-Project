@@ -142,11 +142,11 @@ public class GameDetailView {
        String[] titles = title.split("\n");
        for(String line : titles){
             System.out.println(line);
-            //try {
-            //Thread.sleep(300);
-            //} catch (InterruptedException ex) {
-            //    Logger.getLogger(GameDetailView.class.getName()).log(Level.SEVERE, null, ex);
-            //}
+            try {
+            Thread.sleep(300);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(GameDetailView.class.getName()).log(Level.SEVERE, null, ex);
+            }
        }      
           
         
@@ -195,14 +195,14 @@ public class GameDetailView {
 " _.-'  `-._                 _..||.._                  _.-` '-._\n" +
 "'--..__..--'           '-.____.-'                '--..__..-' "+ "\n \n \n ... \n";
        String[] textDivided = text.split("\n");
-       //for(String line : textDivided){
-       //     try {
-       //         System.out.println(line);
-       //         Thread.sleep(600);
-       //     } catch (InterruptedException ex) {
-       //         Logger.getLogger(GameDetailView.class.getName()).log(Level.SEVERE, null, ex);
-       //     }
-       // }
+       for(String line : textDivided){
+            try {
+                System.out.println(line);
+                Thread.sleep(600);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(GameDetailView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
        
         System.out.println(
 "  _____                      __    _______             ______  ____ ___ \n" +
